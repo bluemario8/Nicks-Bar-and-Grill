@@ -19,10 +19,12 @@
 
 .flex-left {
     flex-grow: 1;
+    align-items: center;
 }
 
 .flex-right {
     flex-grow: 1;
+    align-items: center;
     justify-content: right;
 }
 
@@ -30,13 +32,18 @@
     /* max-width: 100%; */
 }
 
+
 /* Start Nav Bar */
 
 .nav-bar {
+    background-color: var(--dark-tan);
+    align-items: center;
+    padding: 0.5rem 2rem;
 }
 
 .nav-logo {
-    width: 100px;
+    transform: scale(1.3);
+    width: 50px;
 }
 
 .nav-items {
