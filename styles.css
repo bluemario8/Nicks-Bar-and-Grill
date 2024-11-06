@@ -48,7 +48,8 @@ h1 {
 /* Start Nav Bar */
 
 .nav-bar {
-  position: static;
+  position: fixed;
+  width: 100%;
   font-family: "Roboto Slab", serif;
   background-color: var(--dark-tan);
   align-items: center;
@@ -94,6 +95,16 @@ h1 {
 }
 
 /* End Nav Bar */
+
+
+/* Start Login Bar */
+
+#login-bar {
+  height: 2000px;
+}
+
+/* End Login Bar */
+
 
 /* Login Background */
 .login-body {
