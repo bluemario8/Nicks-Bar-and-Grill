@@ -2,13 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto+Slab:wght@100..900&display=swap');
 
-/* Deafult page sizing */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+/* Fonts */
+.roboto-slab {
+  font-family: "Roboto Slab", serif;
 }
 
+.nunito-sans {
+  font-family: "Nunito Sans", serif;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+
+/* Adds colors to palete */
 :root {
   /* Color variable example: "background-color: var(--medium-tan);" */
   --medium-tan: #cbbfa7;
@@ -17,8 +24,67 @@
   --dark-brown: #302621;
 }
 
-body {
-  
+/* Deafult page sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font weights */ 
+.weight-1 {
+  font-weight: 100;
+}
+
+.weight-2 {
+  font-weight: 100;
+}
+
+.weight-3 {
+  font-weight: 300;
+}
+
+.weight-4 {
+  font-weight: 400;
+}
+
+.weight-5 {
+  font-weight: 500;
+}
+
+.weight-6 {
+  font-weight: 600;
+}
+
+.weight-7 {
+  font-weight: 700;
+}
+
+.weight-8 {
+  font-weight: 800;
+}
+
+.weight-9 {
+  font-weight: 900;
+}
+
+/* Font Sizes */
+.size-1 {
+  font-size: 12px;
+}
+
+.size-2 {
+  font-size: 14px;
+}
+
+.size-3 {
+  font-size: 16px;
+}
+
+h3 {
+  font-family: "Roboto Slab", serif;
+  font-size: 35px;
+  font-weight: 500;
 }
 
 .flex {
@@ -39,10 +105,6 @@ body {
   width: 100px;
 }
 
-.nav-bar {
-  font-family: "Roboto Slab", serif;
-}
-
 .nav-items {
   list-style: none;
 }
@@ -54,12 +116,27 @@ body {
   background-position: center; 
   background-repeat: no-repeat; 
   background-attachment: fixed; 
-  background-color: black;
 }
 
 .login-container {
-  border: solid;
+  display: flex;
+  flex-direction: column;
+  margin: 10% auto;
+  background-color: var(--medium-tan);
+  height: 500px;
+  width: 400px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, .6);
+  padding: 30px;
+}
+
+.login-header {
   display: flex;
   justify-content: center;
-  background-color: #f5efdd;
+  padding-bottom: 10px;
+  border-bottom: black solid 1px;
+  margin-bottom: 20px;
+}
+
+.login-content {
+
 }
