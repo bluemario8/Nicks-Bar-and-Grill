@@ -1,0 +1,24 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Login Background */
+
+.login-body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/logo-background.webp);
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-color: black;
+}
+
+.login-container {
+  border: solid;
+  display: flex;
+  justify-content: center;
+  background-color: #f5efdd;
+}
+
