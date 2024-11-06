@@ -1,7 +1,38 @@
+/* Page Defaults */
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  /* Color variable example: "background-color: var(--medium-tan);" */
+  --medium-tan: #cbbfa7;
+  --cream: #f5efdd;
+  --dark-tan: #ae9375;
+  --dark-brown: #302621;
+}
+
+.flex {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.flex-left {
+  flex-grow: 1;
+}
+
+.flex-right {
+  flex-grow: 1;
+  justify-content: right;
+}
+
+.nav-logo {
+  width: 100px;
+}
+
+.nav-items {
+  list-style: none;
 }
 
 /* Login Background */
@@ -21,4 +52,3 @@
   justify-content: center;
   background-color: #f5efdd;
 }
-
