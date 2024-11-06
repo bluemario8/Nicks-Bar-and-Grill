@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.flex {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.flex-left {
+    flex-grow: 1;
+}
+
+.flex-right {
+    flex-grow: 1;
+    justify-content: right;
+}
+
+.row {
+    /* max-width: 100%; */
+}
+
+/* Start Nav Bar */
+
+.nav-bar {
+}
+
+.nav-logo {
+    width: 100px;
+}
+
+.nav-items {
+    list-style: none;
+}
+
+/* End Nav Bar */
