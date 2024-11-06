@@ -87,6 +87,9 @@ h1 {
 }
 
 .nav-icon {
+  background-color: var(--medium-tan);
+  padding: 0.35rem;
+  border-radius: 3rem;
   font-size: 2rem;
 }
 
