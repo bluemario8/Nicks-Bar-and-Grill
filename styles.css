@@ -5,6 +5,7 @@
 }
 
 :root {
+    /* Color variable example: "background-color: var(--medium-tan);" */
     --medium-tan: #cbbfa7;
     --cream: #f5efdd;
     --dark-tan: #ae9375;
