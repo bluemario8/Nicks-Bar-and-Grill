@@ -1,4 +1,8 @@
-/* Page Defaults */
+/* Page Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Deafult page sizing */
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +15,10 @@
   --cream: #f5efdd;
   --dark-tan: #ae9375;
   --dark-brown: #302621;
+}
+
+body {
+  
 }
 
 .flex {
@@ -31,12 +39,15 @@
   width: 100px;
 }
 
+.nav-bar {
+  font-family: "Roboto Slab", serif;
+}
+
 .nav-items {
   list-style: none;
 }
 
 /* Login Background */
-
 .login-body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/logo-background.webp);
   background-size: cover; 
