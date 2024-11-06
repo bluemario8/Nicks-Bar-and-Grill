@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+:root {
+    --medium-tan: #cbbfa7;
+    --cream: #f5efdd;
+    --dark-tan: #ae9375;
+    --dark-brown: #302621;
+}
 
 .flex {
     display: flex;
