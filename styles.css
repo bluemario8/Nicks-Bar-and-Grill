@@ -107,6 +107,18 @@ h3 {
   font-size: 1.3rem;
 }
 
+.btn {
+  text-decoration: none;
+  padding: 10px 30px;
+  border-radius: 200px;
+  text-decoration: none;
+  color: var(--black);
+  background-color: var(--medium-tan);
+}
+.btn:hover {
+  background-color: var(--dark-tan);
+}
+
 .flex {
   display: flex;
   /* justify-content: space-between; */
@@ -248,6 +260,7 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   list-style: none;
+  margin-bottom: 3rem;
 }
 
 .menu-list li {
