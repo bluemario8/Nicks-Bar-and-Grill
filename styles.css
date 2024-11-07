@@ -23,6 +23,7 @@
   --cream: #f5efdd;
   --dark-tan: #ae9375;
   --dark-brown: #302621;
+  --dark-orange: #9e5400;
 }
 
 /* Deafult page sizing */
@@ -116,9 +117,12 @@ h3 {
 
 /* Start Nav Bar */
 
-.nav-bar {
+header {
   position: fixed;
   width: 100%;
+}
+
+.nav-bar {
   font-family: "Roboto Slab", serif;
   background-color: var(--dark-tan);
   align-items: center;
@@ -169,8 +173,23 @@ h3 {
 /* Start Login Bar */
 
 #login-bar {
-  position: fixed;
+  justify-content: center;
+  padding: 0.5rem 0;
+  background-color: var(--medium-tan);
+}
+
+.login-bar-link {
   background-color: var(--dark-tan);
+  text-decoration: none;
+  padding: .5rem 1rem;
+  border-radius: 10rem;
+  color: var(--black);
+}
+.login-bar-link:hover,
+.login-bar-link:active {
+  color: var(--dark-orange);
+  text-decoration: underline;
+  transition: 0.2s;
 }
 
 /* End Login Bar */
