@@ -5,7 +5,9 @@
 
 /* Fonts */
 .roboto-slab {
-  font-family: "Roboto Slab", serif; }
+  font-family: "Roboto Slab", serif; 
+}
+
 .nunito-sans {
   font-family: "Nunito Sans", serif;
   font-variation-settings:
@@ -23,6 +25,10 @@
   --darker-tan: #8f745f;
   --dark-brown: #302621;
   --dark-orange: #9e5400;
+}
+
+.black {
+  color: var(--black);
 }
 
 /* Deafult page sizing */
@@ -247,12 +253,14 @@ header {
   background-position: center; 
   background-repeat: no-repeat; 
   background-attachment: fixed; 
+  display: flex;
+  min-height: 100vh; 
 }
 
 .login-container {
   display: flex;
   flex-direction: column;
-  margin: 10% auto;
+  margin: auto;
   background-color: var(--medium-tan);
   /* height: 500px; */
   width: 400px;
@@ -293,12 +301,6 @@ header {
   font-weight: 700;
 }
 
-:root {
-  --dark-tan: #8f745f;
-  --darker-tan: #7a614e;
-  --cream: #f5f5dc; /* Example cream color */
-}
-
 .login-btn {
   display: flex;
   margin: 10px auto;
@@ -316,5 +318,5 @@ header {
 
 .login-btn:hover {
   background-color: var(--darker-tan);
-  transform: scale(1.02); /* Slightly enlarges the button */
+  transform: scale(1.02); 
 }
