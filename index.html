@@ -5,31 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nick's Bar & Grill</title>
     <link rel="stylesheet" href="styles.css">
+    <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
    <header>
         <nav class="nav-bar flex">
-            <div class="flex-left">
-                <img class="nav-logo" src="images/final-logo.png" alt="Nick's Bar and Grill Logo">
-                <p>Nick's Bar and Grill</p>
+            <div class="flex flex-left">
+                <img class="nav-logo" src="images/logo-no-background.png" alt="Nick's Bar and Grill Logo">
+                <h2>Nick's Bar and Grill</h2>
             </div>
 
             <div class="flex-right">
                 <ul class="nav-items flex flex-right">
                     <li>
-                        <p>Points</p>
+                        <a class="nav-link" href="#">
+                            <ion-icon class="nav-icon" name="ribbon-outline"></ion-icon>
+                        </a>
                     </li>
                     <li>
-                        <p>Cart</p>
+                        <a class="nav-link" href="#">
+                            <ion-icon class="nav-icon" name="cart-outline"></ion-icon>
+                        </a>
                     </li>
                     <li>
-                        <p>Settings</p>
+                        <a class="nav-link" href="#">
+                            <ion-icon class="nav-icon" name="person-circle-outline"></ion-icon>
+                        </a>
                     </li>
                 </ul>
             </div>
         </nav>
-   </header> 
+        <div id="login-bar" class="flex">
+            <a class="login-bar-link" href="login.html">Login / Sign Up</a>
+        </div>
+    </header> 
 
+    <section id="home-hero">
+        <div class="home-hero-darken flex">
+            <h1>We have amazing burgers!</h1>
+            <p class="large-text">Our delicious burger recipe is a fan favorite. Made with great care from our team.</p>
+        </div>
+    </section>
 
 </body>
 </html>

@@ -5,9 +5,7 @@
 
 /* Fonts */
 .roboto-slab {
-  font-family: "Roboto Slab", serif;
-}
-
+  font-family: "Roboto Slab", serif; }
 .nunito-sans {
   font-family: "Nunito Sans", serif;
   font-variation-settings:
@@ -18,11 +16,13 @@
 /* Adds colors to palete */
 :root {
   /* Color variable example: "background-color: var(--medium-tan);" */
+  --black: rgb(25, 25, 25);
   --medium-tan: #cbbfa7;
   --cream: #f5efdd;
   --dark-tan: #ae9375;
   --darker-tan: #8f745f;
   --dark-brown: #302621;
+  --dark-orange: #9e5400;
 }
 
 /* Deafult page sizing */
@@ -86,10 +86,30 @@
   font-size: 14px;
 }
 
+body {
+  color: var(--black);
+}
+
+h1 {
+  font-family: "Roboto Slab", serif;
+  font-size: 72px;
+  font-weight: 300;
+}
+
+h2 {
+  font-family: "Roboto Slab", serif;
+  font-size: 38px;
+  font-weight: 400;
+}
 h3 {
   font-family: "Roboto Slab", serif;
   font-size: 35px;
   font-weight: 500;
+}
+
+.large-text {
+  font-family: "Nunito Sans", serif;
+  font-size: 1.3rem;
 }
 
 .flex {
@@ -99,20 +119,126 @@ h3 {
 
 .flex-left {
   flex-grow: 1;
+  align-items: center;
 }
 
 .flex-right {
   flex-grow: 1;
+  align-items: center;
   justify-content: right;
 }
 
+.section {
+  padding: 4rem 0;
+}
+
+
+/* Start Nav Bar */
+
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.nav-bar {
+  font-family: "Roboto Slab", serif;
+  background-color: var(--dark-tan);
+  align-items: center;
+  padding: 0.5rem 6rem;
+}
+
 .nav-logo {
-  width: 100px;
+  transform: scale(1.5);
+  width: 60px;
+  margin-right: 3rem;
+}
+.nav-name {
+  size: 50px;
 }
 
 .nav-items {
   list-style: none;
 }
+
+.nav-items li {
+  margin-left: 4rem;
+}
+
+.nav-items li:first-child {
+  margin-left: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--black);
+}
+.nav-link:hover, 
+.nav-link:active {
+  color: var(--cream);
+  transition: color 0.2s;
+}
+
+.nav-icon {
+  background-color: var(--medium-tan);
+  padding: 0.35rem;
+  border-radius: 3rem;
+  font-size: 2rem;
+}
+
+/* End Nav Bar */
+
+
+/* Start Login Bar */
+
+#login-bar {
+  justify-content: center;
+  padding: 0.5rem 0;
+  background-color: var(--medium-tan);
+}
+
+.login-bar-link {
+  background-color: var(--dark-tan);
+  text-decoration: none;
+  padding: .5rem 1rem;
+  border-radius: 10rem;
+  color: var(--black);
+}
+.login-bar-link:hover,
+.login-bar-link:active {
+  color: var(--dark-orange);
+  text-decoration: underline;
+  transition: 0.2s;
+}
+
+/* End Login Bar */
+
+
+/* Start home-hero */
+
+#home-hero {
+  background-image: url("images/burger.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.home-hero-darken {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+#home-hero h1 {
+  margin-bottom: 1rem;
+}
+
+
+/* End home-hero */
 
 /* Login Background */
 .login-body {
