@@ -63,7 +63,7 @@ function getForm() {
     // and "JSON.stringify(user)" converts the user variable to a JSON allowing us the store things in the local storage similar to an array, with 
     // the email being the array name and all the constructor parameters being the content of that array
     localStorage.setItem(email, JSON.stringify(user));
-    
+    // Takes you to home page and you are signed in
     location.href="index.html";
   }
 }

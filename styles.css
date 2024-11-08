@@ -320,3 +320,11 @@ header {
   background-color: var(--darker-tan);
   transform: scale(1.02); 
 }
+
+/* Check Password */
+.sign-up-check-password {
+  display: flex;
+  margin-top: 2px;
+  width: fit-content;
+  flex-direction: column;
+} 
