@@ -120,6 +120,7 @@ h3 {
 
 .btn {
   text-decoration: none;
+  border: none;
   padding: 10px 30px;
   border-radius: 200px;
   color: var(--black);
@@ -127,6 +128,23 @@ h3 {
 }
 .btn:hover {
   background-color: var(--dark-tan);
+}
+
+.btn:active {
+  background-color: var(--darker-tan);
+}
+
+.btn-selected {
+  color: var(--cream);
+  background-color: hsl(0, 100%, 40%);
+}
+
+.btn-selected:hover {
+  background-color: hsl(0, 100%, 40%);
+}
+
+.btn-selected:active {
+  background-color: hsl(0, 100%, 35%);
 }
 
 .flex {
@@ -410,6 +428,39 @@ footer {
 }
 
 /* End footer */
+
+
+
+/* Start menu page */
+
+/* Start menu head */
+
+#menu-head {
+  background-color: var(--darker-tan);
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* End menu head */
+
+
+/* Start menu main */
+
+.menu-sort button {
+  margin-right: 0.5rem;
+}
+
+.menu-sort button:last-child {
+  margin-right: 0;
+}
+
+/* End menu main */
+
+
+/* End menu page
+
 
 
 /* Login Background */
