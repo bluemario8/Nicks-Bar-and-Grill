@@ -16,9 +16,30 @@ function getForm() {
   if (checkNull.some(fieldInput => fieldInput === "")) {
     alert('Please fill in all fields');
     return;
-  } else if (localStorage.getItem("email") !== null) {
+  } else if (localStorage.getItem(email) !== null) {
     alert('This email is already in use');
+    return;
+  } else if (password !== reEnterPassword) {
+    alert('The passwords do not match');
+    return;
   } else {
-    localStorage.setItem('email', email);
-  } 
+    const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const specialChars = ['!', '@', '#', '$', '%'];
+
+    const numCheck = numbers.some(num => password.includes(num));
+    const specialCharCheck = specialChars.some(specChar => password.includes(specChar));
+
+    if (!numCheck) {
+      alert('Your password must contain atleast one number');
+      return;
+    } else if (!specialCharCheck) {
+      alert('Your password must contain at least one special character: "!", "@", "#", "$", "%"');
+      return;
+    } else if (password.length < 8) {
+      alert('Your password must be a length of 8 characters or greater');
+      return;
+    }
+    
+    localStorage.setItem(email, email);
+  }
 }
