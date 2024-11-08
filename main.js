@@ -29,7 +29,10 @@ function getForm() {
     const numCheck = numbers.some(num => password.includes(num));
     const specialCharCheck = specialChars.some(specChar => password.includes(specChar));
 
-    if (!numCheck) {
+    if (!/[a-zA-Z]/.test(password)) {
+      alert('Your password must contain atleast one letter');
+      return;
+    } else if (!numCheck) {
       alert('Your password must contain atleast one number');
       return;
     } else if (!specialCharCheck) {
