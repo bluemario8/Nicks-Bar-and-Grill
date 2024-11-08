@@ -37,7 +37,7 @@
 }
 
 .weight-2 {
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .weight-3 {
@@ -111,7 +111,6 @@ h3 {
   text-decoration: none;
   padding: 10px 30px;
   border-radius: 200px;
-  text-decoration: none;
   color: var(--black);
   background-color: var(--medium-tan);
 }
@@ -135,8 +134,23 @@ h3 {
   justify-content: right;
 }
 
+.row {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
 .section {
   padding: 6rem 0;
+}
+
+.below-line:after {
+  display: block;
+  height: 2px;
+  width: 100px;
+  background-color: var(--medium-tan);
+  content: " ";
+  margin: auto;
+  margin-top: 30px;
 }
 
 
@@ -286,6 +300,73 @@ header {
 /* End home-menu */
 
 
+/* Start home reviews */
+
+#home-reviews {
+  background-color: #333;
+  color: var(--cream);
+}
+
+#home-reviews h1 {
+  text-align: center;
+}
+
+.home-review-body {
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.home-reviews-row {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-review-quote {
+  margin: 0 1rem;
+  max-width: 380px;
+  min-width: 290px;
+  font-family: "Nunito Sans", serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+#home-reviews blockquote {
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top: 40px;
+}
+
+#home-reviews blockquote:before {
+  display: block;
+  position: absolute;
+  content: "\201C";
+  font-size: 500%;
+  top: -10px;
+  left: -20px;
+}
+
+#home-reviews cite {
+  display: block;
+  font-size: 1.1rem;
+  margin-top: 40px;
+}
+
+#home-reviews cite img {
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+#home-reviews .btn {
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+/* End home reviews */
+
+
 /* Start footer */
 
 footer {
@@ -293,8 +374,6 @@ footer {
 }
 
 .footer-body {
-  margin: 0 auto;
-  width: 1240px;
 }
 
 .footer-list {
@@ -320,6 +399,7 @@ footer {
 }
 
 /* End footer */
+
 
 /* Login Background */
 .login-body {
