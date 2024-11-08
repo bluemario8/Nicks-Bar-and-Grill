@@ -5,41 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nick's Menu</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="header.js"></script>
+    <script defer src="footer.js"></script>
+
     <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-   <header>
-        <nav class="nav-bar flex">
-            <div class="flex flex-left">
-                <img class="nav-logo" src="images/logo-no-background.png" alt="Nick's Bar and Grill Logo">
-                <h2>Nick's Bar and Grill</h2>
-            </div>
-
-            <div class="flex-right">
-                <ul class="nav-items flex flex-right">
-                    <li>
-                        <a class="nav-link" href="#">
-                            <ion-icon class="nav-icon" name="ribbon-outline"></ion-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <ion-icon class="nav-icon" name="cart-outline"></ion-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <ion-icon class="nav-icon" name="person-circle-outline"></ion-icon>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div id="login-bar" class="flex">
-            <a class="login-bar-link" href="login.html">Login / Sign Up</a>
-        </div>
-    </header> 
+   <header id="header"></header> 
 
     <section id="menu-head" class="flex">
         <h1 class="nunito-sans">Nick's Menu</h1>
@@ -55,42 +28,6 @@
         </div>
     </section>
 
-    <footer class="section nunito-sans">
-        <div class="flex row">
-            <ul class="footer-list flex flex-left">
-                <li>
-                    <a href="menu.html">Menu</a>
-                </li>
-                <li>
-                    <a href="#">Rewards</a>
-                </li>
-                <li>
-                    <a href="#">Reviews</a>
-                </li>
-            </ul>
-            <ul class="footer-list flex flex-right">
-                <li>
-                    <a href="https://youtube.com">
-                        <ion-icon name="logo-youtube"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://x.com">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://instagram.com">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://facebook.com">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+    <footer id="footer"></footer>
 </body>
 </html>
