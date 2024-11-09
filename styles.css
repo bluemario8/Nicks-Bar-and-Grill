@@ -76,6 +76,10 @@
 }
 
 /* Font Sizes */
+.size-0 {
+  font-size: 8px;
+}
+
 .size-1 {
   font-size: 10px;
 }
@@ -325,6 +329,39 @@ header {
 .sign-up-check-password {
   display: flex;
   margin-top: 2px;
-  width: fit-content;
   flex-direction: column;
-} 
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.sign-up-check-image {
+  display: flex;
+  height: 10px;
+  width: 10px;
+}
+
+.sign-up-check-image img {
+  width: 100%;
+}
+
+.sign-up-check-text {
+  width: fit-content;
+  display: flex;
+  gap: 2px;
+}
+
+#pass-change-text-1 {
+  color: red;
+}
+
+#pass-change-text-2 {
+  color: red;
+}
+
+#pass-change-text-3 {
+  color: red;
+}
+
+#pass-change-text-4 {
+  color: red;
+}
