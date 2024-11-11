@@ -25,6 +25,7 @@
   --darker-tan: #8f745f;
   --dark-brown: #302621;
   --dark-orange: #9e5400;
+  --error-red: #D32F2F;
 }
 
 .black {
@@ -76,6 +77,10 @@
 }
 
 /* Font Sizes */
+.size-0 {
+  font-size: 8px;
+}
+
 .size-1 {
   font-size: 10px;
 }
@@ -607,4 +612,66 @@ footer {
 .login-btn:hover {
   background-color: var(--darker-tan);
   transform: scale(1.02); 
+}
+
+/* Check Password */
+.sign-up-check-password {
+  display: flex;
+  margin-top: 2px;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.sign-up-check-image {
+  display: flex;
+  height: 10px;
+  width: 10px;
+}
+
+.sign-up-check-image img {
+  width: 100%;
+}
+
+.sign-up-check-text {
+  width: fit-content;
+  display: flex;
+  gap: 2px;
+}
+
+#pass-change-text-1 {
+  color: var(--error-red);
+}
+
+#pass-change-text-2 {
+  color: var(--error-red);
+}
+
+#pass-change-text-3 {
+  color: var(--error-red);
+}
+
+#pass-change-text-4 {
+  color: var(--error-red);
+}
+
+.show-password {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+#invalid-signup-popup-loc {
+  border-radius: 20px;
+  background-color: var(--error-red);
+  margin-top: 5px;
+  width: 100%;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 5px;
+  color: white;
+  display: none;
 }
