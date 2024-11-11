@@ -45,7 +45,7 @@
 }
 
 .weight-2 {
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .weight-3 {
@@ -112,15 +112,51 @@ h2 {
   font-size: 38px;
   font-weight: 400;
 }
+
 h3 {
   font-family: "Roboto Slab", serif;
   font-size: 35px;
   font-weight: 500;
 }
 
+h4 {
+  font-family: "Nunito Sans", serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .large-text {
   font-family: "Nunito Sans", serif;
   font-size: 1.3rem;
+}
+
+.btn {
+  text-decoration: none;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 200px;
+  color: var(--black);
+  background-color: var(--medium-tan);
+}
+.btn:hover {
+  background-color: var(--dark-tan);
+}
+
+.btn:active {
+  background-color: var(--darker-tan);
+}
+
+.btn-selected {
+  color: var(--cream);
+  background-color: hsl(0, 100%, 40%);
+}
+
+.btn-selected:hover {
+  background-color: hsl(0, 100%, 37.5%);
+}
+
+.btn-selected:active {
+  background-color: hsl(0, 100%, 35%);
 }
 
 .flex {
@@ -139,8 +175,23 @@ h3 {
   justify-content: right;
 }
 
+.row {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
 .section {
-  padding: 4rem 0;
+  padding: 6rem 0;
+}
+
+.below-line:after {
+  display: block;
+  height: 2px;
+  width: 100px;
+  background-color: var(--medium-tan);
+  content: " ";
+  margin: auto;
+  margin-top: 30px;
 }
 
 
@@ -148,8 +199,9 @@ h3 {
 
 header {
   position: fixed;
-  width: 100%;
   z-index: 2;
+  width: 100%;
+  box-shadow: 0px -4px 10px 1px;
 }
 
 .nav-bar {
@@ -197,9 +249,6 @@ header {
   font-size: 2rem;
 }
 
-/* End Nav Bar */
-
-
 /* Start Login Bar */
 
 #login-bar {
@@ -223,6 +272,7 @@ header {
 }
 
 /* End Login Bar */
+/* End Nav Bar */
 
 
 /* Start home-hero */
@@ -248,8 +298,246 @@ header {
   margin-bottom: 1rem;
 }
 
-
 /* End home-hero */
+
+
+/* Start home-menu */
+
+#home-menu {
+  text-align: center;
+}
+
+#home-menu h1 {
+  margin-bottom: 2rem;
+}
+
+.menu-list {
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 3rem;
+}
+
+.menu-list li {
+  min-width: 400px;
+  background-color: var(--black);
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.home-menu-img {
+  background-size: contain;
+  width: 450px;
+  height: 450px;
+  opacity: 0.7;
+  transform: scale(1.15);
+  transition: transform 0.5s, opacity 0.5s;
+}
+.home-menu-img:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* End home-menu */
+
+
+/* Start home reviews */
+
+#home-reviews {
+  background-color: #333;
+  color: var(--cream);
+}
+
+#home-reviews h1 {
+  text-align: center;
+}
+
+.home-review-body {
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.home-reviews-row {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-review-quote {
+  margin: 0 1rem;
+  max-width: 380px;
+  min-width: 290px;
+  font-family: "Nunito Sans", serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+#home-reviews blockquote {
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top: 40px;
+}
+
+#home-reviews blockquote:before {
+  display: block;
+  position: absolute;
+  content: "\201C";
+  font-size: 500%;
+  top: -10px;
+  left: -20px;
+}
+
+#home-reviews cite {
+  display: block;
+  font-size: 1.1rem;
+  margin-top: 40px;
+}
+
+#home-reviews cite img {
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+#home-reviews .btn {
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+/* End home reviews */
+
+
+/* Start footer */
+
+footer {
+  background-color: var(--black);
+}
+
+.footer-body {
+}
+
+.footer-list {
+  list-style: none;
+}
+
+.footer-list li {
+  margin-right: 2rem;
+}
+
+.footer-list li:last-child {
+  margin-right: 0;
+}
+
+.footer-list li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--cream);
+}
+
+.footer-list li a:hover {
+  color: var(--dark-tan);
+}
+
+/* End footer */
+
+
+
+/* Start menu page */
+
+/* Start menu head */
+
+#menu-head {
+  background-color: var(--darker-tan);
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* End menu head */
+
+
+/* Start menu main */
+
+#menu-main {
+  background-color: var(--cream);
+}
+
+.menu-sort {
+  margin: 0 4rem;
+  margin-bottom: 2rem;
+}
+
+.menu-sort button {
+  margin-right: 0.5rem;
+}
+
+.menu-sort button:last-child {
+  margin-right: 0;
+}
+
+.menu-items {
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menu-items li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 380px;
+  background-color: var(--cream);
+  padding: 2rem 0;
+  /* border: 1px solid var(--medium-tan); */
+  box-shadow: 0px 0px 15px rgba(143, 116, 95, 0.3);
+  border-radius: 10px;
+  margin: 1rem auto;
+}
+
+.menu-items li p {
+  font-family: "Nunito Sans", serif;
+  color: var(--dark-brown);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.menu-items-p {
+  height: 60px;
+}
+
+.menu-img-div {
+  height: 250px;
+  width: 250px;
+  border: 1px solid var(--medium-tan);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.menu-img-div img {
+  background-size: contain; 
+  height: 250px;
+  aspect-ratio: 1/1;
+}
+
+.quantity {
+  background-color: var(--medium-tan);
+  margin: auto 0;
+  margin-left: 0.5rem;
+  border: none;
+  width: 60px;
+  padding: 0.5rem 1rem;
+}
+
+/* End menu main */
+
+
+/* End menu page
+
+
 
 /* Login Background */
 .login-body {

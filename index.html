@@ -5,48 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nick's Bar & Grill</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="header.js"></script>
+    <script defer src="footer.js"></script>
+
     <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-   <header>
-        <nav class="nav-bar flex">
-            <div class="flex flex-left">
-                <img class="nav-logo" src="images/logo-no-background.png" alt="Nick's Bar and Grill Logo">
-                <h2>Nick's Bar and Grill</h2>
-            </div>
-
-            <div class="flex-right">
-                <ul class="nav-items flex flex-right">
-                    <li>
-                        <a class="nav-link" href="#">
-                            <ion-icon class="nav-icon" name="ribbon-outline"></ion-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <ion-icon class="nav-icon" name="cart-outline"></ion-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <ion-icon class="nav-icon" name="person-circle-outline"></ion-icon>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div id="login-bar" class="flex">
-            <a class="login-bar-link" href="login.html">Login / Sign Up</a>
-        </div>
-    </header> 
+    <header id="header"></header> 
 
     <section id="home-hero">
-        <div class="home-hero-darken flex">
+        <div class="home-hero-darken flex section">
             <h1>We have amazing burgers!</h1>
             <p class="large-text">Our delicious burger recipe is a fan favorite. Made with great care from our team.</p>
         </div>
     </section>
+
+    <section id="home-menu" class="section">
+        <h1>Here's some of our top food items</h1>
+        <ul class="menu-list flex">
+            <li>
+                <a href="#">
+                    <img class="home-menu-img" src="images/basic_burger.png" alt="Basic Burger">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="home-menu-img" src="images/chicken_burger.png" alt="Chicken Burger">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="home-menu-img" src="images/pizza_burger.png" alt="Pizza Burger">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="home-menu-img" src="images/spicy_burger.png" alt="Spicy Burger">
+                </a>
+            </li>
+        </ul>
+        <a class="btn nunito-sans large-text" href="menu.html">Go To Menu</a>
+    </section> 
+
+    <section id="home-reviews">
+       <div class="home-review-body flex row section">
+            <h1 class="below-line">Hear from our customers</h1>
+            <div class="flex home-reviews-row">
+                <div class="home-review-quote">
+                    <blockquote>
+                        These burgers are the best I've ever had. I've heard
+                        they were great but now I think that's an
+                        understatement. If you've never been to Nick's Bar and
+                        Grill, you NEED to go.
+                        <br>
+                        <cite>
+                            <img src="images/customer-1.jpg" alt="Customer 1">
+                            Steven Hill
+                        </cite>
+                    </blockquote>
+                </div>
+                <div class="home-review-quote">
+                    <blockquote>
+                        Oh my this food tastes amazing. There's so many great
+                        food options to pick from and I want to try them all.
+                        Each time I try a new food, it tastes better than the last.
+                        <br>
+                        <cite>
+                            <img src="images/customer-2.jpg" alt="Customer 2">
+                            Jessica Smith
+                        </cite>
+                    </blockquote>
+                </div>
+                <div class="home-review-quote">
+                    <blockquote>
+                        I was hungry and found this place and now I don't know
+                        how I lived without it. The food, drinks, and service
+                        were all incredible. Their spicy burger is 100% my
+                        favorite.
+                        <br>
+                        <cite>
+                            <img src="images/customer-3.jpg" alt="Customer 3">
+                            Jack Stevens
+                        </cite>
+                    </blockquote>
+                </div>
+            </div>
+
+            <a class="btn nunito-sans large-text" href="#">View All Reviews</a>
+       </div>
+    </section>
+
+    <footer id="footer"></footer>
 
 </body>
 </html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick's Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="header.js"></script>
+    <script defer src="footer.js"></script>
+
+    <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+   <header id="header"></header> 
+
+    <section id="menu-head" class="flex">
+        <h1 class="nunito-sans">Nick's Menu</h1>
+    </section>
+
+    <section id="menu-main" class="section">
+        <div class="row">
+            <div class="flex menu-sort">
+                <button class="btn btn-selected" onclick="menuSort('all')">All</button>
+                <button class="btn" onclick="menuSort('entree')">Entrée</button>
+                <button class="btn" onclick="menuSort('sides')">Sides</button>
+                <button class="btn" onclick="menuSort('drink')">Drinks</button>
+                <button class="btn" onclick="menuSort('desert')">Desert</button>
+            </div>
+
+            <ul class="menu-items flex">
+                <li class="entree" id="basic-burger">
+                    <div class="menu-img-div">
+                        <img src="images/basic_burger.png">
+                    </div>
+                    <h4>Basic Burger</h4>
+                    <div class="menu-items-p">
+                        <p>Classic taste of Nick's first burger</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="entree" id="chicken-burger">
+                    <div class="menu-img-div">
+                        <img src="images/chicken_burger.png">
+                    </div>
+                    <h4>Chicken Burger</h4>
+                    <div class="menu-items-p">
+                        <p>You can never go wrong with a chicken burger</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="entree" id="pizza-burger">
+                    <div class="menu-img-div">
+                        <img src="images/pizza_burger.png">
+                    </div>
+                    <h4>Pizza Burger</h4>
+                    <div class="menu-items-p">
+                        <p>First of it's kind</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="entree" id="spicy-burger">
+                    <div class="menu-img-div">
+                        <img src="images/spicy_burger.png">
+                    </div>
+                    <h4>Basic Burger</h4>
+                    <div class="menu-items-p">
+                        <p>Classic taste of Nick's first burger</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                
+                
+                <li class="entree" id="basic-hotdog">
+                    <div class="menu-img-div">
+                        <img src="images/basic_hotdog.png">
+                    </div>
+                    <h4>Basic Hotdog</h4>
+                    <div class="menu-items-p">
+                        <p>Classic taste of Nick's first hotdog</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="entree" id="grilled-hotdog">
+                    <div class="menu-img-div">
+                        <img src="images/grilled_hotdog.png">
+                    </div>
+                    <h4>Grilled Hotdog Sandwich</h4>
+                    <div class="menu-items-p">
+                        <p>A delicious grilled hotdog and cheese sandwich</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+
+
+                <li class="side" id="fries">
+                    <div class="menu-img-div">
+                        <img src="images/fries.png">
+                    </div>
+                    <h4>Fries</h4>
+                    <div class="menu-items-p">
+                        <p>Some good 'ol fries</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="side" id="chips-and-salsa">
+                    <div class="menu-img-div">
+                        <img src="images/chips_and_salsa.png">
+                    </div>
+                    <h4>Chips and Salsa</h4>
+                    <div class="menu-items-p">
+                        <p>High quality chips with fresh salsa</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+
+                <li class="drink" id="lemonade">
+                    <div class="menu-img-div">
+                        <img src="images/chips_and_salsa.png">
+                    </div>
+                    <h4>Lemonade</h4>
+                    <div class="menu-items-p">
+                        <p>Freshly made </p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+    
+            </ul>
+        </div>
+    </section>
+
+
+    <footer id="footer"></footer>
+</body>
+</html>
