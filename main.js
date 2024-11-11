@@ -13,8 +13,10 @@ const passChangeImg3 = document.getElementById('pass-change-img-3');
 const passChangeText4 = document.getElementById('pass-change-text-4');
 const passChangeImg4 = document.getElementById('pass-change-img-4');
 
-// Adds an event listener to password this means that whenever something is typed into password this function will trigger
-passwordId.addEventListener('input', function() {
+// If statements check to make sure that you are on the sign up page so this even listener does not create issues when on other pages
+if (window.location.pathname === "/signUp.html") {
+  // Adds an event listener to password this means that whenever something is typed into password this function will trigger
+  passwordId.addEventListener('input', function() {
   // Gets the value of the password from the passwordId
   const passwordValue = passwordId.value;
 
@@ -37,7 +39,9 @@ passwordId.addEventListener('input', function() {
   passChangeText4.style.color = specialCharCheck ? 'green' : 'red';
   passChangeImg4.src = specialCharCheck ? 'images/green-check.png' : 'images/red-x.png';
 });
+}
 
+// Function handeling logic of account creation
 function getForm() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
@@ -98,7 +102,8 @@ function getForm() {
   }
 }
 
-function showPassword() {
+// Function to toggle password shown and unshown for signup
+function showPasswordSignUp() {
   const showPass = document.getElementById('password');
   const showRePass = document.getElementById('re-password');
   const checkBox = document.getElementById('show-pass');
@@ -111,6 +116,16 @@ function showPassword() {
   showRePass.type = isChecked ? 'text' : 'password';
 }
 
+// Function to toggle password shown and unshown for signup
+function showPasswordLogin() {
+  const showPass = document.getElementById('password-login');
+  const checkBox = document.getElementById('show-pass-login');
+
+  const isChecked = checkBox.checked;
+  showPass.type = isChecked ? 'text' : 'password';
+}
+
+// Function to display error messages for incorrect/invalid fields
 function invalidSignUp(errorType) {
   let errorText = '';
   switch (errorType) {
@@ -135,9 +150,31 @@ function invalidSignUp(errorType) {
     case '1 special char': 
       errorText = 'Passwords must contain atleast 1: "!", "@", "#", "$", "%"';
       break;
+    case 'incorrect':
+      errorText = 'Incorrect password or email entered';
+      break;
   }
   const invalidSignUpLocation = document.getElementById('invalid-signup-popup-loc');
   const content = document.getElementById('invalid-signup-ptag');
   invalidSignUpLocation.style.display = 'flex';
   content.innerText = errorText;
+}
+
+// Function handeling login logic
+function login() {
+  const email = document.getElementById('email-login').value;
+  const password = document.getElementById('password-login').value;
+
+  const checkEmail = localStorage.getItem(email);
+
+  if (checkEmail) {
+    // Makes the JSON string back into objects
+    const userInfo = JSON.parse(checkEmail);
+    // ".password" is in object that was in the JSON that is now a property that contains the emails password
+    const checkPassword = userInfo.password;
+    // Shorthand else if, if "checkPassword" and "password" equal eachother the first statement is executed if it is not the second is
+    checkPassword === password ? location.href="index.html" : invalidSignUp('incorrect');
+  } else {
+    invalidSignUp('incorrect');
+  }
 }

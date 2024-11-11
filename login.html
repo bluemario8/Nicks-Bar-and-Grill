@@ -17,10 +17,17 @@
     </div>
     <div class="nunito-sans weight-6 size-4">
       <label for="email">Email:</label>
-      <input type="text" class="login-input" id="email" placeholder="Enter email here"><br><br>
+      <input type="email" class="login-input" id="email-login" placeholder="Enter email here"><br><br>
       <label for="passowrd">Password:</label>
-      <input type="text" class="login-input" id="password" placeholder="Enter password here">
-      <button class="login-btn">Sign In</button>
+      <input type="password" class="login-input" id="password-login" placeholder="Enter password here">
+      <div class="show-password">
+        <input type="checkbox" id="show-pass-login" onclick="showPasswordLogin()">
+        <label for="show-pass" class="size-2">Show Password</label>
+      </div>
+      <div id="invalid-signup-popup-loc">
+        <p id="invalid-signup-ptag" class="size-2"></p>
+      </div>
+      <button class="login-btn" onclick="login()">Sign In</button>
       <div class="login-or">
         <a href="signUp.html" class="size-2">Sign Up</a>
         <span class="size-1">or</span>
@@ -28,5 +35,6 @@
       </div>
     </div>
   </section>
+  <script src="main.js"></script>
 </body>
 </html>
