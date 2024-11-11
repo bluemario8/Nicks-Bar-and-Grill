@@ -25,6 +25,7 @@
   --darker-tan: #8f745f;
   --dark-brown: #302621;
   --dark-orange: #9e5400;
+  --error-red: #D32F2F;
 }
 
 .black {
@@ -351,17 +352,38 @@ header {
 }
 
 #pass-change-text-1 {
-  color: red;
+  color: var(--error-red);
 }
 
 #pass-change-text-2 {
-  color: red;
+  color: var(--error-red);
 }
 
 #pass-change-text-3 {
-  color: red;
+  color: var(--error-red);
 }
 
 #pass-change-text-4 {
-  color: red;
+  color: var(--error-red);
+}
+
+.show-password {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+#invalid-signup-popup-loc {
+  border-radius: 20px;
+  background-color: var(--error-red);
+  margin-top: 5px;
+  width: 100%;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 5px;
+  color: white;
+  display: none;
 }

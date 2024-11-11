@@ -20,6 +20,10 @@
       <input type="email" class="login-input" id="email" placeholder="Enter email here"><br><br>
       <label for="passowrd">Password:</label>
       <input type="password" class="login-input" id="password" placeholder="Enter password here"><br>
+      <div class="show-password">
+        <input type="checkbox" id="show-pass" onclick="showPassword()">
+        <label for="show-pass" class="size-2">Show Password</label>
+      </div>
       <div class="sign-up-check-password">
         <div class="sign-up-check-text">
           <div class="sign-up-check-image">
@@ -52,6 +56,9 @@
       <input type="text" class="login-input" id="first-name" placeholder="Enter first name here"><br><br>
       <label for="last-name">Last Name:</label>
       <input type="text" class="login-input" id="last-name" placeholder="Enter last name here">
+      <div id="invalid-signup-popup-loc">
+        <p id="invalid-signup-ptag" class="size-2"></p>
+      </div>
       <button type="submit" class="login-btn" onclick="getForm()">Sign Up</button>
       <div class="login-or">
         <a href="login.html" class="size-2">Sign In</a>
