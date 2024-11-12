@@ -1,14 +1,14 @@
 let headerHtml = `
     <nav class="nav-bar flex">
         <div class="flex flex-left">
-            <img class="nav-logo" src="images/logo-no-background.png" alt="Nick's Bar and Grill Logo">
+            <a href="index.html"><img class="nav-logo" src="images/logo-no-background.png" alt="Nick's Bar and Grill Logo"></a>
             <h2>Nick's Bar and Grill</h2>
         </div>
 
         <div class="flex-right">
             <ul class="nav-items flex flex-right">
                 <li>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="index.html">
                         <ion-icon class="nav-icon" name="home-outline"></ion-icon>
                     </a>
                 </li>
@@ -18,7 +18,7 @@ let headerHtml = `
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="menu.html">
                         <ion-icon class="nav-icon" name="fast-food-outline"></ion-icon>
                     </a>
                 </li>
