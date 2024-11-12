@@ -25,18 +25,20 @@
                 <button class="btn" onclick="menuSort('entree')">Entrée</button>
                 <button class="btn" onclick="menuSort('sides')">Sides</button>
                 <button class="btn" onclick="menuSort('drink')">Drinks</button>
+                <button class="btn" onclick="menuSort('alcohol')">Alcohol</button>
                 <button class="btn" onclick="menuSort('desert')">Desert</button>
             </div>
 
             <ul class="menu-items flex">
                 <li class="entree" id="basic-burger">
                     <div class="menu-img-div">
-                        <img src="images/basic_burger.png">
+                        <img src="images/menu_items/basic_burger.png">
                     </div>
                     <h4>Basic Burger</h4>
                     <div class="menu-items-p">
                         <p>Classic taste of Nick's first burger</p>
                     </div>
+                    <p class="menu-price large-text">$8.49</p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -44,7 +46,7 @@
                 </li>
                 <li class="entree" id="chicken-burger">
                     <div class="menu-img-div">
-                        <img src="images/chicken_burger.png">
+                        <img src="images/menu_items/chicken_burger.png">
                     </div>
                     <h4>Chicken Burger</h4>
                     <div class="menu-items-p">
@@ -57,7 +59,7 @@
                 </li>
                 <li class="entree" id="pizza-burger">
                     <div class="menu-img-div">
-                        <img src="images/pizza_burger.png">
+                        <img src="images/menu_items/pizza_burger.png">
                     </div>
                     <h4>Pizza Burger</h4>
                     <div class="menu-items-p">
@@ -70,7 +72,7 @@
                 </li>
                 <li class="entree" id="spicy-burger">
                     <div class="menu-img-div">
-                        <img src="images/spicy_burger.png">
+                        <img src="images/menu_items/spicy_burger.png">
                     </div>
                     <h4>Basic Burger</h4>
                     <div class="menu-items-p">
@@ -85,7 +87,7 @@
                 
                 <li class="entree" id="basic-hotdog">
                     <div class="menu-img-div">
-                        <img src="images/basic_hotdog.png">
+                        <img src="images/menu_items/basic_hotdog.png">
                     </div>
                     <h4>Basic Hotdog</h4>
                     <div class="menu-items-p">
@@ -98,7 +100,7 @@
                 </li>
                 <li class="entree" id="grilled-hotdog">
                     <div class="menu-img-div">
-                        <img src="images/grilled_hotdog.png">
+                        <img src="images/menu_items/grilled_hotdog.png">
                     </div>
                     <h4>Grilled Hotdog Sandwich</h4>
                     <div class="menu-items-p">
@@ -113,7 +115,7 @@
 
                 <li class="side" id="fries">
                     <div class="menu-img-div">
-                        <img src="images/fries.png">
+                        <img src="images/menu_items/fries.png">
                     </div>
                     <h4>Fries</h4>
                     <div class="menu-items-p">
@@ -126,7 +128,7 @@
                 </li>
                 <li class="side" id="chips-and-salsa">
                     <div class="menu-img-div">
-                        <img src="images/chips_and_salsa.png">
+                        <img src="images/menu_items/chips_and_salsa.png">
                     </div>
                     <h4>Chips and Salsa</h4>
                     <div class="menu-items-p">
@@ -140,11 +142,91 @@
 
                 <li class="drink" id="lemonade">
                     <div class="menu-img-div">
-                        <img src="images/chips_and_salsa.png">
+                        <img src="images/menu_items/lemonade.png">
                     </div>
                     <h4>Lemonade</h4>
                     <div class="menu-items-p">
-                        <p>Freshly made </p>
+                        <p>Made with fresh lemons</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="drink" id="blueberry-lemonade">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/blueberry_lemonade.png">
+                    </div>
+                    <h4>Blueberry Lemonade</h4>
+                    <div class="menu-items-p">
+                        <p>Made with fresh blueberries and lemons</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+
+                <li class="alcohol" id="liquid-gold">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/liquid_gold.png">
+                    </div>
+                    <h4>Nick's Liquid Gold</h4>
+                    <div class="menu-items-p">
+                        <p>Nick's classic yellow beer with premium taste</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="alcohol" id="nectar">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/nectar.png">
+                    </div>
+                    <h4>Nick's Nectar</h4>
+                    <div class="menu-items-p">
+                        <p>Nick's special extra foamy and creamy beer</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="alcohol" id="blackout-stout">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/blackout_stout.png">
+                    </div>
+                    <h4>Nick's Blackout Stout</h4>
+                    <div class="menu-items-p">
+                        <p>Nick's classic high alcohol content beer <br>WARNING: HIGH ALCOHOL CONTENT</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                   </div>
+                </li>
+
+                <li class="desert" id="vanilla-milkshake">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/vanilla_milkshake.png">
+                    </div>
+                    <h4>Vanilla Milkshake</h4>
+                    <div class="menu-items-p">
+                        <p>Delicious vanilla milkshake made with premium ice cream</p>
+                    </div>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="desert" id="chocolate-cake">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/chocolate_cake.png">
+                    </div>
+                    <h4>Chocolate Cake Slice</h4>
+                    <div class="menu-items-p">
+                        <p>Fresh made creamy and delicious chocolate cake slice</p>
                     </div>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>

@@ -320,6 +320,7 @@ header {
 
 .menu-list li {
   min-width: 400px;
+  width: 23%;
   background-color: var(--black);
   aspect-ratio: 1/1;
   overflow: hidden;
@@ -327,8 +328,7 @@ header {
 
 .home-menu-img {
   background-size: contain;
-  width: 450px;
-  height: 450px;
+  width: 100%;
   opacity: 0.7;
   transform: scale(1.15);
   transition: transform 0.5s, opacity 0.5s;
@@ -496,7 +496,7 @@ footer {
   margin: 1rem auto;
 }
 
-.menu-items li p {
+.menu-items li div p {
   font-family: "Nunito Sans", serif;
   color: var(--dark-brown);
   font-size: 0.9rem;
@@ -505,7 +505,13 @@ footer {
 }
 
 .menu-items-p {
-  height: 60px;
+  height: 40px;
+  max-width: 75%;
+}
+
+.menu-price {
+  font-family: "Nunito Sans", serif;
+  margin-bottom: 0.5rem;
 }
 
 .menu-img-div {
