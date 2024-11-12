@@ -142,13 +142,13 @@ function invalidSignUp(errorType) {
       errorText = 'Passwords must be a length of atleast 8 characters';
       break;
     case '1 letter':
-      errorText = 'Passwords must contain atleast 1 letter';
+      errorText = 'Passwords must contain at least 1 letter';
       break;
     case '1 number':
-      errorText = 'Passwords must contain atleast 1 number';
+      errorText = 'Passwords must contain at least 1 number';
       break;
     case '1 special char': 
-      errorText = 'Passwords must contain atleast 1: "!", "@", "#", "$", "%"';
+      errorText = 'Passwords must contain at least 1: "!", "@", "#", "$", "%"';
       break;
     case 'incorrect':
       errorText = 'Incorrect password or email entered';

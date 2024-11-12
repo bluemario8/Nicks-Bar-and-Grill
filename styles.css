@@ -225,7 +225,7 @@ header {
 }
 
 .nav-items li {
-  margin-left: 4rem;
+  margin-left: 2rem;
 }
 
 .nav-items li:first-child {
@@ -278,7 +278,7 @@ header {
 /* Start home-hero */
 
 #home-hero {
-  background-image: url("images/burger.png");
+  background-image: url("images/menu_items/burger.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;

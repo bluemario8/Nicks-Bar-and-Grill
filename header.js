@@ -9,7 +9,17 @@ let headerHtml = `
             <ul class="nav-items flex flex-right">
                 <li>
                     <a class="nav-link" href="#">
+                        <ion-icon class="nav-icon" name="home-outline"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">
                         <ion-icon class="nav-icon" name="ribbon-outline"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">
+                        <ion-icon class="nav-icon" name="fast-food-outline"></ion-icon>
                     </a>
                 </li>
                 <li>
