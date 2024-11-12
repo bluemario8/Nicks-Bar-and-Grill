@@ -96,10 +96,17 @@ function getForm() {
       and "JSON.stringify(user)" converts the user variable to a JSON allowing us the store things in the local storage similar to an array, with 
       the email being the array name and all the constructor parameters being the content of that array */ 
       localStorage.setItem(email, JSON.stringify(user));
+      localStorage.setItem("loggedIn", email);
       // Takes you to home page and you are signed in
       location.href="index.html";
     }
   }
+}
+
+// Logs in the user as a guest
+function loginGuest() {
+  localStorage.setItem("loggedIn", "guest");
+  location.href="index.html";
 }
 
 // Function to toggle password shown and unshown for signup
@@ -173,7 +180,12 @@ function login() {
     // ".password" is in object that was in the JSON that is now a property that contains the emails password
     const checkPassword = userInfo.password;
     // Shorthand else if, if "checkPassword" and "password" equal eachother the first statement is executed if it is not the second is
-    checkPassword === password ? location.href="index.html" : invalidSignUp('incorrect');
+    if (checkPassword === password) {
+      localStorage.setItem("loggedIn", email);
+      location.href="index.html";
+    } else {
+      invalidSignUp('incorrect');
+    }
   } else {
     invalidSignUp('incorrect');
   }
