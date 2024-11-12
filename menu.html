@@ -38,7 +38,7 @@
                     <div class="menu-items-p">
                         <p>Classic taste of Nick's first burger</p>
                     </div>
-                    <p class="menu-price large-text">$8.49</p>
+                    <p class="menu-price large-text">$<a class="menu-price-num">8.50</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -52,6 +52,7 @@
                     <div class="menu-items-p">
                         <p>You can never go wrong with a chicken burger</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">9.00</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -65,6 +66,7 @@
                     <div class="menu-items-p">
                         <p>First of it's kind</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">10.00</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -74,10 +76,11 @@
                     <div class="menu-img-div">
                         <img src="images/menu_items/spicy_burger.png">
                     </div>
-                    <h4>Basic Burger</h4>
+                    <h4>Spicy Burger</h4>
                     <div class="menu-items-p">
-                        <p>Classic taste of Nick's first burger</p>
+                        <p>Nick's classic spicy burger</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">8.50</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -93,6 +96,7 @@
                     <div class="menu-items-p">
                         <p>Classic taste of Nick's first hotdog</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">6.50</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -106,6 +110,7 @@
                     <div class="menu-items-p">
                         <p>A delicious grilled hotdog and cheese sandwich</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">8.50</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -121,6 +126,7 @@
                     <div class="menu-items-p">
                         <p>Some good 'ol fries</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">3.00</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -134,12 +140,27 @@
                     <div class="menu-items-p">
                         <p>High quality chips with fresh salsa</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">3.00</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
                     </div>
                 </li>
 
+                <li class="drink" id="water">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/water.png">
+                    </div>
+                    <h4>Water</h4>
+                    <div class="menu-items-p">
+                        <p>Nick's great water</p>
+                    </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">0.00</a></p>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
                 <li class="drink" id="lemonade">
                     <div class="menu-img-div">
                         <img src="images/menu_items/lemonade.png">
@@ -148,6 +169,7 @@
                     <div class="menu-items-p">
                         <p>Made with fresh lemons</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">3.50</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -161,6 +183,63 @@
                     <div class="menu-items-p">
                         <p>Made with fresh blueberries and lemons</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">3.50</a></p>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="drink" id="coke">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/coke.png">
+                    </div>
+                    <h4>Coke</h4>
+                    <div class="menu-items-p">
+                        <p>Coca-Cola can</p>
+                    </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">2.50</a></p>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="drink" id="sprite">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/sprite.png">
+                    </div>
+                    <h4>Sprite</h4>
+                    <div class="menu-items-p">
+                        <p>Sprite can</p>
+                    </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">2.50</a></p>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="drink" id="root-beer">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/root_beer.png">
+                    </div>
+                    <h4>Root Beer</h4>
+                    <div class="menu-items-p">
+                        <p>Mug root beer</p>
+                    </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">2.50</a></p>
+                    <div>
+                        <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                        <input type="number" value="0" class="quantity">
+                    </div>
+                </li>
+                <li class="drink" id="dr-pepper">
+                    <div class="menu-img-div">
+                        <img src="images/menu_items/dr_pepper.png">
+                    </div>
+                    <h4>Dr. Pepper</h4>
+                    <div class="menu-items-p">
+                        <p>Dr. Pepper can</p>
+                    </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">2.50</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -175,6 +254,7 @@
                     <div class="menu-items-p">
                         <p>Nick's classic yellow beer with premium taste</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">4.50</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -188,6 +268,7 @@
                     <div class="menu-items-p">
                         <p>Nick's special extra foamy and creamy beer</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">5.50</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -201,6 +282,7 @@
                     <div class="menu-items-p">
                         <p>Nick's classic high alcohol content beer <br>WARNING: HIGH ALCOHOL CONTENT</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">8.50</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -215,6 +297,7 @@
                     <div class="menu-items-p">
                         <p>Delicious vanilla milkshake made with premium ice cream</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">5.00</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
@@ -228,6 +311,7 @@
                     <div class="menu-items-p">
                         <p>Fresh made creamy and delicious chocolate cake slice</p>
                     </div>
+                    <p class="menu-price large-text">$<a class="menu-price-num">6.00</a></p>
                     <div>
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
