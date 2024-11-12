@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <script defer src="header.js"></script>
     <script defer src="footer.js"></script>
+    <script defer src="menu.js"></script>
 
     <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -21,12 +22,12 @@
     <section id="menu-main" class="section">
         <div class="row">
             <div class="flex menu-sort">
-                <button class="btn btn-selected" onclick="menuSort('all')">All</button>
-                <button class="btn" onclick="menuSort('entree')">Entrée</button>
-                <button class="btn" onclick="menuSort('sides')">Sides</button>
-                <button class="btn" onclick="menuSort('drink')">Drinks</button>
-                <button class="btn" onclick="menuSort('alcohol')">Alcohol</button>
-                <button class="btn" onclick="menuSort('desert')">Desert</button>
+                <button class="btn btn-selected" onclick="menuSort('all', this)">All</button>
+                <button class="btn" onclick="menuSort('entree', this)">Entrée</button>
+                <button class="btn" onclick="menuSort('side', this)">Sides</button>
+                <button class="btn" onclick="menuSort('drink', this)">Drinks</button>
+                <button class="btn" onclick="menuSort('alcohol', this)">Alcohol</button>
+                <button class="btn" onclick="menuSort('desert', this)">Desert</button>
             </div>
 
             <ul class="menu-items flex">
