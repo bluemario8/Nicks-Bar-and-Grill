@@ -278,7 +278,7 @@ header {
 /* Start home-hero */
 
 #home-hero {
-  background-image: url("images/burger.png");
+  background-image: url("images/menu_items/burger.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -319,7 +319,7 @@ header {
 }
 
 .menu-list li {
-  min-width: 400px;
+  /* min-width: 400px; */
   width: 23%;
   background-color: var(--black);
   aspect-ratio: 1/1;
