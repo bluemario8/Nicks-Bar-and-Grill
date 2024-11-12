@@ -28,16 +28,16 @@ if (window.location.pathname === "/signUp.html") {
 
   // Shorthand if else statements, if "lengthCheck" is true green is activated and if its false red is
   passChangeText1.style.color = lengthCheck ? 'green' : 'red';
-  passChangeImg1.src = lengthCheck ? 'images/green-check.png' : 'images/red-x.png';
+  passChangeImg1.src = lengthCheck ? 'images/login/green-check.png' : 'images/login/red-x.png';
 
   passChangeText2.style.color = letterCheck ? 'green' : 'red';
-  passChangeImg2.src = letterCheck ? 'images/green-check.png' : 'images/red-x.png';
+  passChangeImg2.src = letterCheck ? 'images/login/green-check.png' : 'images/login/red-x.png';
 
   passChangeText3.style.color = numCheck ? 'green' : 'red';
-  passChangeImg3.src = numCheck ? 'images/green-check.png' : 'images/red-x.png';
+  passChangeImg3.src = numCheck ? 'images/login/green-check.png' : 'images/login/red-x.png';
 
   passChangeText4.style.color = specialCharCheck ? 'green' : 'red';
-  passChangeImg4.src = specialCharCheck ? 'images/green-check.png' : 'images/red-x.png';
+  passChangeImg4.src = specialCharCheck ? 'images/login/green-check.png' : 'images/login/red-x.png';
 });
 }
 
