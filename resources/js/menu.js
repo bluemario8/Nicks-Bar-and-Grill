@@ -1,11 +1,13 @@
 let menuList = document.getElementsByClassName("menu-items")[0];
 let menuSortElem = document.getElementsByClassName("menu-sort")[0];
 
+let loggedInEmail = ( 
+    localStorage.getItem("loggedIn") !== null ?
+    localStorage.getItem("loggedIn") : ""
+);
+
 function menuSort(catagory, data) 
 {
-    console.log(catagory);
-    console.log(data)
-
     for (let btn of menuSortElem.children)
     {
         if (btn == data)
@@ -25,3 +27,5 @@ function menuSort(catagory, data)
     }
 
 }
+
+// if (loggedInEmail === )

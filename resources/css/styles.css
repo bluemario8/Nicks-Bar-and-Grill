@@ -467,6 +467,25 @@ footer {
   background-color: var(--cream);
 }
 
+.manager-add-item {
+  position: relative;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.manager-add-btn {
+  padding: 1rem 3rem;
+}
+
+.manager-add-box {
+  position: absolute;
+  top: 50px;
+  background: var(--medium-tan);
+  max-width: 90vw;
+  width: 600px;
+  height: 600px;
+}
+
 .menu-sort {
   margin: 0 4rem;
   margin-bottom: 2rem;

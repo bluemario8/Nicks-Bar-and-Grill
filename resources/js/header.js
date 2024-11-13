@@ -43,4 +43,6 @@ let headerHtml = `
 
 document.getElementById("header").innerHTML = headerHtml;
 
-
+if (localStorage.getItem("loggedIn") !== null && localStorage.getItem("loggedIn") !== "") {
+    document.getElementById("login-bar").style.display = "none";
+}

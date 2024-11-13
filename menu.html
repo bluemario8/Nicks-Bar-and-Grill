@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="resources/css/styles.css">
     <script defer src="resources/js/header.js"></script>
     <script defer src="resources/js/footer.js"></script>
+    <script defer src="resources/js/menu.js"></script>
     <script defer src="resources/js/cart.js"></script>
+
     <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
@@ -20,6 +22,25 @@
 
     <section id="menu-main" class="section">
         <div class="row">
+            <div class="manager-add-item flex">
+                <button class="btn btn-selected manager-add-btn" onclick="addItem()">Add item</button>
+                <div class="manager-add-box">
+                    <form class="manager-add-form">
+                        <label for="iname">Item Name: </label>
+                        <input type="text" id="iname" name="iname" value=""> 
+                        <br>
+                        <label for="iurl">Item Image URL: </label>
+                        <input type="text" id="iurl" name="iurl" value=""> 
+                        <br>
+                        <label for="idesc">Item Description: </label>
+                        <input type="text" id="idesc" name="idesc" value=""> 
+                        <br>
+                        <label for="iprice">Item Price: </label>
+                        <input type="text" id="iprice" name="iprice" value=""> 
+                        <br>
+                    </form>
+                </div>
+            </div>
             <div class="flex menu-sort">
                 <button class="btn btn-selected" onclick="menuSort('all', this)">All</button>
                 <button class="btn" onclick="menuSort('entree', this)">Entrée</button>
