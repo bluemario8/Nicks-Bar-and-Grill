@@ -22,22 +22,27 @@
 
     <section id="menu-main" class="section">
         <div class="row">
-            <div class="manager-add-item flex">
-                <button class="btn btn-selected manager-add-btn" onclick="addItem()">Add item</button>
-                <div class="manager-add-box">
-                    <form class="manager-add-form">
+            <div class="manager manager-add-item flex">
+                <button class="btn btn-selected manager-add-btn" onclick="showAddBox()">Add item</button>
+                <div class="manager-add-box" style="display: none">
+                    <form class="manager-add-form" onsubmit="return false">
                         <label for="iname">Item Name: </label>
-                        <input type="text" id="iname" name="iname" value=""> 
-                        <br>
-                        <label for="iurl">Item Image URL: </label>
-                        <input type="text" id="iurl" name="iurl" value=""> 
+                        <input type="text" id="iname" name="iname" value="" required> 
                         <br>
                         <label for="idesc">Item Description: </label>
-                        <input type="text" id="idesc" name="idesc" value=""> 
+                        <input type="text" id="idesc" name="idesc" value="" required> 
                         <br>
                         <label for="iprice">Item Price: </label>
-                        <input type="text" id="iprice" name="iprice" value=""> 
+                        <input type="text" id="iprice" name="iprice" value="" required> 
                         <br>
+                        <label for="iurl">Item Image URL: </label>
+                        <input type="text" id="iurl" name="iurl" value="" required> 
+                        <br>
+                        <label for="icata">Item Catagory: </label>
+                        <input type="text" id="icata" name="icata" value="" required> 
+                        <br>
+                        
+                        <input type="submit" class="btn btn-selected" onclick="addItem(this)" value="Submit">
                     </form>
                 </div>
             </div>
@@ -51,7 +56,7 @@
             </div>
 
             <ul class="menu-items flex">
-                <li class="entree" id="basic-burger">
+                <!-- <li class="entree" id="basic-burger">
                     <div class="menu-img-div">
                         <img src="images/menu_items/basic_burger.png">
                     </div>
@@ -337,7 +342,7 @@
                         <button class="btn" onclick="addItem(this)">Add to Cart</button>
                         <input type="number" value="0" class="quantity">
                     </div>
-                </li>
+                </li> -->
     
             </ul>
         </div>
