@@ -26,6 +26,7 @@
   --dark-brown: #302621;
   --dark-orange: #9e5400;
   --error-red: #D32F2F;
+  --very-light-grey: #f1f1f1;
 }
 
 .black {
@@ -128,6 +129,10 @@ h4 {
 .large-text {
   font-family: "Nunito Sans", serif;
   font-size: 1.3rem;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .btn {
@@ -690,15 +695,43 @@ footer {
 }
 
 /* Cart */
+/* For giving the cart a scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 #cart-page {
-  z-index: 3;
   position: fixed;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6); /* Start with transparent (make last var back to 0)*/
+  opacity: 0; /* Start hidden */
+  transition: background-color 0.5s ease, opacity 0.5s ease; /* Transition on background and opacity */
 }
+
+ #cart-page.active {
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.6); /*  Fade in background  */
+  opacity: 1;  /* Fade in */
+} 
 
 #cart-buy {
   z-index: 3;
@@ -706,9 +739,71 @@ footer {
   height: 100vh;
   width: 31%;
   background-color: white;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, .6);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  right: -31%; /* Start off-screen */
+  transition: right 0.5s ease; /* Smooth slide-in */
+  overflow-y: auto;
 }
 
-.pointer {
-  cursor: pointer;
+#cart-buy.active {
+  right: 0; /* Slide into view */
+}
+
+.top-cart {
+  height: 8%;
+  align-items: center;
+  background-color: var(--very-light-grey);
+}
+
+#cart-title {
+  width: 100%;
+  justify-content: center;
+  margin-right: 30px;
+  color: var(--dark-brown);
+}
+
+#close-cart {
+  font-size: 3rem;
+  color: var(--black);
+}
+
+#close-cart:hover {
+  color: var(--error-red);
+}
+
+.rewards-cart {
+  height: 15%;
+  background-color: var(--medium-tan);
+}
+
+.delivery-pickup-cart {
+  height: 9%;
+  background-color: var(--dark-brown);
+}
+
+.my-order-cart {
+  height: 8%;
+  background-color: var(--cream);
+}
+
+.body-cart {
+  height: 48%;
+}
+
+.footer-cart {
+  height: 12%;
+  position: fixed;
+  background-color: var(--very-light-grey);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  width: 31%;
+  padding: 1.5%;
+  justify-content: center;
+}
+
+#checkout-btn {
+  border-radius: 50px;
+  width: 100%;
+  background-color: var(--medium-tan);
+  border: none;
+  color: var(--dark-brown);
 }
