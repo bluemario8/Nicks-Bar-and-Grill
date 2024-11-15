@@ -111,8 +111,8 @@ function getForm() {
       the email being the array name and all the constructor parameters being the content of that array */
       localStorage.setItem(email, JSON.stringify(user));
       localStorage.setItem("loggedIn", email);
-      // Takes you to home page and you are signed in
-      location.href = "index.html";
+      // Opens popup to tell you are signed in and has a btn to home
+      popup();
     }
   }
 }
@@ -120,7 +120,7 @@ function getForm() {
 // Logs in the user as a guest
 function loginGuest() {
   localStorage.setItem("loggedIn", "guest");
-  location.href = "index.html";
+  popup();
 }
 
 // Function to toggle password shown and unshown for signup
@@ -219,7 +219,7 @@ function login() {
     }
   } else if (email === managerObj.email && password === managerObj.password) {
     localStorage.setItem("loggedIn", managerObj.email);
-    location.href = "index.html";
+    popup();
   } else {
     invalidSignUp("incorrect");
   }

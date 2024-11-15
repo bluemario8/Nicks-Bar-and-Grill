@@ -139,11 +139,13 @@ h4 {
   background-color: var(--medium-tan);
 }
 .btn:hover {
-  background-color: var(--dark-tan);
+  /* background-color: var(--dark-tan); */
+  filter: brightness(90%);
 }
 
 .btn:active {
-  background-color: var(--darker-tan);
+  /* background-color: var(--darker-tan); */
+  filter: brightness(85%);
 }
 
 .btn-selected {
@@ -774,3 +776,37 @@ footer {
 .pointer {
   cursor: pointer;
 }
+
+/* Popup Start */
+
+.popup-home,
+.popup-home-hidden {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.popup-home-hidden {
+  display: none;
+}
+
+.popup-box {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-tan);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .6);
+}
+
+.popup-box a {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Popup End */
