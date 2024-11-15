@@ -147,10 +147,11 @@ function addItem(data)
         document.getElementById("idesc").value,
         document.getElementById("iprice").value,
         document.getElementById("iurl").value,
-        document.getElementById("icata").value
+        document.getElementById("icata").value.toLowerCase()
     );
     
-    console.log(item)
+    if (item.catagory.toLowerCase() === "entrée")
+        item.catagory = "entree";
 
     for (let [key, value] of Object.entries(item)) 
     {
@@ -162,13 +163,19 @@ function addItem(data)
         }
     }
 
-    console.log(filledOut);
-
     if (filledOut)
     {
-        menuItems.push(item);
-        localStorage.setItem("menuItems", JSON.stringify(menuItems));
-        location.reload();
+        // add the item at the start of that catagory
+        for (let i in menuItems)
+        {
+            if (menuItems[i].catagory === item.catagory)
+            {
+                menuItems.splice(i, 0, item);
+                localStorage.setItem("menuItems", JSON.stringify(menuItems));
+                location.reload();
+                break;
+            }
+        }
     }
 }
 
@@ -188,4 +195,11 @@ function removeItem(data)
     localStorage.setItem("menuItems", JSON.stringify(menuItems));
    
     li.remove();
+}
+
+function showAddBox()
+{
+    let box = document.getElementsByClassName("manager-add-box")[0];
+
+    box.style.display = box.style.display === "none" ? "" : "none";
 }
