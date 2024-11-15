@@ -81,9 +81,10 @@ function getForm() {
 
   if (checkNull.some((fieldInput) => fieldInput === "")) {
     invalidSignUp("empty field");
-  } else if (localStorage.getItem(email) !== null || 
-            email === managerObj.email) {
+  } else if (localStorage.getItem(email) !== null || email === managerObj.email) {
     invalidSignUp("email used");
+  } else if (!email.includes("@")) {
+    invalidSignUp("invalid email");
   } else if (password !== reEnterPassword) {
     invalidSignUp("pass dont match");
   } else {
@@ -172,6 +173,12 @@ function invalidSignUp(errorType) {
       break;
     case "incorrect":
       errorText = "Incorrect password or email entered";
+      break;
+    case "invalid email":
+      errorText = "Invalid email entered";
+      break;
+    default:
+      errorText = errorType;
       break;
   }
   const invalidSignUpLocation = document.getElementById(
