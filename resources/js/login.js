@@ -81,7 +81,8 @@ function getForm() {
 
   if (checkNull.some((fieldInput) => fieldInput === "")) {
     invalidSignUp("empty field");
-  } else if (localStorage.getItem(email) !== null) {
+  } else if (localStorage.getItem(email) !== null || 
+            email === managerObj.email) {
     invalidSignUp("email used");
   } else if (password !== reEnterPassword) {
     invalidSignUp("pass dont match");
