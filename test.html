@@ -18,15 +18,32 @@
         <!-- Header of the cart -->
         <div class="top-cart flex"> 
           <div class="flex">
-            <ion-icon name="close-outline" class="pointer" id="close-cart" onclick=""></ion-icon>
+            <ion-icon name="close-outline" class="pointer" id="close-cart" onclick="closeCart()"></ion-icon>
           </div>
           <div class="flex" id="cart-title">
             <h2 class="weight-9">Cart</h2>
           </div>
         </div>
         <!-- Rewards of the cart -->
-        <div class="rewards-cart flex" id="rewards-cart-get-logged">
-          
+        <div class="rewards-cart flex">
+          <div class="rewards-cart-split column">
+            <div class="rewards-cart-header">
+              <div class="flex">
+                <img src="images/basic/logo-no-background.png" id="cart-logo">
+              </div>
+              <div class="flex column algin-items-center">
+                <h5>Nick's Points & Rewards!</h5>
+                <p class="size-4">Sign up and get <b>200 points</b> for free!</p>
+              </div>
+            </div>
+            <div class="rewards-cart-body">
+              <p class="size-2">To gain points on every purchase sign in or sign up. Points can be redeemed for money off your order</p>
+            </div>
+          </div>
+          <div class="rewards-cart-login flex column">
+            <button onclick="window.location.href='signUp.html';" class="cart-sign-up pointer roboto-slab">Join</button>
+            <a onclick="window.location.href='login.html'" class="cart-login weight-5 pointer roboto-slab">Sign In</a>
+          </div>
         </div>
 
         <!-- Pickup/delivery of the cart -->
