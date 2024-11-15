@@ -598,8 +598,7 @@ footer {
 
 .quantity {
   background-color: var(--medium-tan);
-  margin: auto 0;
-  margin-left: 0.5rem;
+  margin: 0 0.5rem;
   border: none;
   width: 60px;
   padding: 0.5rem 1rem;

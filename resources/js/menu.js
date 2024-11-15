@@ -112,8 +112,9 @@ function genMenuHtml(obj)
             <div>
                 <button class="btn" onclick="addItem(this)">Add to Cart</button>
                 <input type="number" value="0" class="quantity">
+                <button class="btn btn-selected manager" onclick="editItem(this)">Edit</button>
             </div>
-        </li>`
+        </li>`;
 }
 
 function menuSort(catagory, data) 
@@ -140,6 +141,9 @@ function menuSort(catagory, data)
 
 function addItem(data) 
 {
+    if (localStorage.getItem("loggedIn") !== managerObj.email)
+        return "Manager not signed in";
+
     const form = data.parentNode;
     let filledOut = true;
     const item = new MenuItem(
@@ -155,7 +159,6 @@ function addItem(data)
 
     for (let [key, value] of Object.entries(item)) 
     {
-        console.log(value)
         if (value === "")
         {
             filledOut = false;
@@ -181,6 +184,9 @@ function addItem(data)
 
 function removeItem(data)
 {
+    if (localStorage.getItem("loggedIn") !== managerObj.email)
+        return "Manager not signed in";
+
     const li = data.parentNode;
 
     for (let i in menuItems)
@@ -195,6 +201,11 @@ function removeItem(data)
     localStorage.setItem("menuItems", JSON.stringify(menuItems));
    
     li.remove();
+}
+
+function editItem(data)
+{
+    console.log(data); 
 }
 
 function showAddBox()
