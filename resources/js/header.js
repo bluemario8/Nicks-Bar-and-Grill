@@ -36,7 +36,7 @@ let headerHtml = `
         </div>
     </nav>
     <div id="login-bar" class="flex">
-        <a class="login-bar-link" href="login.html">Login / Sign Up</a>
+        <a class="login-bar-link btn" href="login.html">Login / Sign Up</a>
     </div>
 `;
 

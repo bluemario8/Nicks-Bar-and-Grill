@@ -265,16 +265,15 @@ header {
 
 .login-bar-link {
   background-color: var(--dark-tan);
-  text-decoration: none;
-  padding: .5rem 1rem;
-  border-radius: 10rem;
   color: var(--black);
-}
-.login-bar-link:hover,
-.login-bar-link:active {
-  color: var(--dark-orange);
-  text-decoration: underline;
   transition: 0.2s;
+}
+
+.login-bar-link:hover {
+  filter: brightness(90%);
+}
+.login-bar-link:active {
+  filter: brightness(85%);
 }
 
 /* End Login Bar */
