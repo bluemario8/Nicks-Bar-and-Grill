@@ -101,14 +101,26 @@ function genMenuHtml(obj)
             <button class="menu-x-btn manager" onclick="removeItem(this)">
                 <ion-icon class="menu-x" name="close-outline"></ion-icon>
             </button>
+            <div style="display: none" class="menu-input-cata-div">
+                <a class="nunito-sans">Catagory: </a>
+                <input class="menu-input-cata" value="${obj.catagory}">
+            </div>
             <div class="menu-img-div">
                 <img src="${obj.img}">
+                <input style="display: none" class="menu-input-img" type="text" value="${obj.img}">
             </div>
-            <h4>${obj.name}</h4>
+            <div class="menu-title-div">
+                <h4>${obj.name}</h4>
+                <input style="display: none" class="menu-input-title" type="text" value="${obj.name}">
+            </div>
             <div class="menu-items-p">
                 <p>${obj.desc}</p>
+                <textarea style="display: none" class="menu-textarea-desc">${obj.desc}</textarea>
             </div>
-            <p class="menu-price large-text">$<a class="menu-price-num">${obj.price}</a></p>
+            <div class="menu-price large-text">$
+                <a class="menu-price-num">${obj.price}</a>
+                <input style="display: none" class="menu-input-price" type="text" value="${obj.price}">
+            </div>
             <div>
                 <button class="btn" onclick="addItem(this)">Add to Cart</button>
                 <input type="number" value="0" class="quantity">
@@ -205,7 +217,59 @@ function removeItem(data)
 
 function editItem(data)
 {
-    console.log(data); 
+    const baseLi = data.parentNode.parentNode;
+    const baseId = baseLi.id;
+    const cataDiv = baseLi.getElementsByClassName("menu-input-cata-div")[0];
+    const divs = 
+    { 
+        imgDiv: baseLi.getElementsByClassName("menu-img-div")[0], 
+        titleDiv: baseLi.getElementsByClassName("menu-title-div")[0], 
+        descDiv: baseLi.getElementsByClassName("menu-items-p")[0], 
+        priceDiv: baseLi.getElementsByClassName("menu-price")[0]
+    };
+    // editing true if title h4 is displayed
+    let editing = ( divs.titleDiv.children[0].style.display === "" ) ? true : false;
+
+    for (let index in divs)
+    {
+        divs[index].children[0].style.display = !editing ? "" : "none";
+        divs[index].children[1].style.display = editing ? "" : "none";
+    }
+    cataDiv.style.display = editing ? "" : "none";
+    
+    // change edit button text to confirm when editing
+    data.innerText = editing ? "Confirm" : "Edit";
+
+    // just stopped editing
+    if (!editing) 
+    {
+        // make the normal text have the values of the text inputs
+        for (let index in divs)
+        {
+            divs[index].children[0].innerText = divs[index].children[1].value;
+        }
+        divs.imgDiv.children[0].src = divs.imgDiv.children[1].value;
+        baseLi.classList = cataDiv.children[1].value;
+
+        // change the menuItem and JSON to save changes on refresh
+        for (let index in menuItems)
+        {
+            if (menuItems[index].name === baseId)
+            {
+                menuItems[index].name = divs.titleDiv.children[1].value;
+                menuItems[index].desc = divs.descDiv.children[1].value;
+                menuItems[index].price = divs.priceDiv.children[1].value;
+                menuItems[index].img = divs.imgDiv.children[1].value;
+                menuItems[index].catagory = cataDiv.children[1].value;
+
+                localStorage.setItem("menuItems", JSON.stringify(menuItems));
+                break;
+            }
+        }
+        
+        
+    }
+
 }
 
 function showAddBox()

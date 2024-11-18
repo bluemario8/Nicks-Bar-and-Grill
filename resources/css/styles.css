@@ -547,7 +547,32 @@ footer {
   border-radius: 10px;
   margin: 1rem;
 }
+.menu-input-cata-div {
+    position: absolute;
+    top: 10px;
+}
 
+.menu-input-img {
+  width: 100%;
+}
+
+.menu-input-title {
+  font-size: 1.3rem; 
+}
+
+.menu-textarea-desc {
+  font-family: "Nunito Sans", serif;
+  font-size: 0.9rem;
+  width: 300px;
+  resize: none;
+}
+
+.menu-input-price {
+  font-size: 1.1rem;
+  width: 60px;
+  padding: 0;
+}
+  
 .menu-x-btn {
   position: absolute;
   align-self: flex-start;
@@ -572,8 +597,9 @@ footer {
 }
 
 .menu-items-p {
-  height: 40px;
+  height: 45px;
   max-width: 75%;
+  margin-bottom: 1rem;
 }
 
 .menu-price {
