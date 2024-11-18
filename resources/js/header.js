@@ -28,7 +28,7 @@ let headerHtml = `
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="account.html">
                         <ion-icon class="nav-icon" name="person-circle-outline"></ion-icon>
                     </a>
                 </li>

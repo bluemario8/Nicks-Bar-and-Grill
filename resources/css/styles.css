@@ -802,6 +802,34 @@ footer {
   cursor: pointer;
 }
 
+
+/* Account Section Start */
+
+#account-section {
+  padding-top: 80px;
+  background-color: var(--cream);
+  min-height: 100vh;
+}
+
+#account-section > div {
+  flex-direction: column;
+}
+
+.account-h {
+  margin: 0 auto;
+}
+
+.account-info {
+  flex-direction: column;
+}
+
+.account-info input {
+  max-width: 200px;
+}
+
+/* Account Section End */
+
+
 /* Popup Start */
 
 .popup-home,
