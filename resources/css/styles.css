@@ -835,25 +835,31 @@ footer {
 .account-info label,
 .account-info input,
 .account-info select {
-  display: inline-block;
-  margin: .25rem 0;
+  display: block;
+  margin: .25rem auto;
   padding: .5rem;
   min-width: 250px;
-  width: 100%;
+  width: 50%;
 }
 
 .account-info input[type=submit] {
   margin-top: 2rem;
 }
 
-.account-table {
+.account-list {
   flex-wrap: wrap; 
+  justify-content: center;
+  list-style: none;
 }
 
-.account-table tr {
+.account-list li {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  min-width: 250px;
+  width: 50%; 
 }
+
 
 /* Account Section End */
 

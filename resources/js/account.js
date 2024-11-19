@@ -1,6 +1,6 @@
-const tableElem = document.getElementsByClassName("account-table")[0];
-let inputs = tableElem.getElementsByTagName("input");
-let selects = tableElem.getElementsByTagName("select");
+const listElem = document.getElementsByClassName("account-list")[0];
+let inputs = listElem.getElementsByTagName("input");
+let selects = listElem.getElementsByTagName("select");
 // const allInputs = Object.assign({}, inputs, selects);
 const allInputs = [ ...inputs, ...selects ];
 const email = localStorage.getItem("loggedIn");
