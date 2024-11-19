@@ -161,6 +161,12 @@ h4 {
   background-color: hsl(0, 100%, 35%);
 }
 
+.btn-cream {
+  background-color: var(--cream);
+  filter: brightness(115%);
+  border: 1px solid var(--medium-tan);
+}
+
 .link-style {
   cursor: pointer;
   color: #551a8b;
@@ -816,15 +822,37 @@ footer {
 }
 
 .account-h {
-  margin: 0 auto;
+  margin: 3rem auto;
 }
 
 .account-info {
   flex-direction: column;
+  margin: 0 auto;
+  max-width: 1000px;
+  flex-grow: 1;
 }
 
-.account-info input {
-  max-width: 200px;
+.account-info label,
+.account-info input,
+.account-info select {
+  display: inline-block;
+  margin: .25rem 0;
+  padding: .5rem;
+  min-width: 250px;
+  width: 100%;
+}
+
+.account-info input[type=submit] {
+  margin-top: 2rem;
+}
+
+.account-table {
+  flex-wrap: wrap; 
+}
+
+.account-table tr {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Account Section End */

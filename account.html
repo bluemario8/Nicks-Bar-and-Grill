@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="resources/css/styles.css">
     <script defer src="resources/js/header.js"></script>
     <script defer src="resources/js/footer.js"></script>
+    <script defer src="resources/js/account.js"></script>
 
     <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -17,13 +18,68 @@
     <section id="account-section" class="section">
         <div class="row flex">
             <h2 class="account-h">Account Information</h2>
-            <form class="account-info flex">
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="fname" value="">
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lname" value="">
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lname" value="">
+            <form class="account-info flex" onsubmit="updateAccountInfo(this); return false">
+                <table class="account-table flex"> 
+                    <tr>
+                        <td>
+                            <label for="firstName">First Name</label>
+                        </td>
+                        <td>
+                            <input type="text" id="firstName" name="firstName" value="" required>
+                        </td>
+                        <td>
+                            <label for="lastName">Last Name</label>
+                        </td>
+                        <td>
+                            <input type="text" id="lastName" name="lastName" value="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="address">Street Address</label>
+                        </td>
+                        <td>
+                            <input type="text" id="address" name="address" value="">
+                        </td>
+                        <td>
+                            <label for="address2">Address Line 2</label>
+                        </td>
+                        <td>
+                            <input type="text" id="address2" name="address2" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="city">City</label>
+                        </td>
+                        <td>
+                            <input type="text" id="city" name="city" value="">
+                        </td>
+                        <td>
+                            <label for="state">State / Province / Region</label>
+                        </td>
+                        <td>
+                            <input type="text" id="state" name="state" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="zipCode">Zip/Postal Code</label>
+                        </td>
+                        <td>
+                            <input type="text" id="zipCode" name="zipCode" value="">
+                        </td>
+                        <td>
+                            <label for="country">Country</label>
+                        </td>
+                        <td>
+                            <select id="country" name="country">
+                                <option value="" selected disabled hidden>Choose A Country</option>
+                                <option value="us">United States</option>
+                            </select>
+                        </td>
+                </table>
+                <input type="submit" class="btn btn-cream" value="Update Information">
             </form>
         </div>
     </section>
