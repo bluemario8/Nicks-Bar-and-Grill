@@ -28,7 +28,14 @@ function displayCart() {
           <h5 class="left-cart center-item">My Order (0)</h5>
           <a href="#" class="right-cart center-item">Add more</a>
         </div>
-        <div class="body-cart flex"><p>body</p></div>
+        <div class="body-cart"> 
+          <div class="flex column cart-gap">
+            <img src="images/basic/food-plate.avif" alt="" id="food-plate-rendering">
+            <p class="size-3 center-item">Still Hungry?</p>
+            <p class="size-2 center-item">Let's find something you'll love!</p>
+            <button id="keep-ordering" class="center-item">Keep Ordering</button>
+          </div>
+        </div>
         <div class="footer-cart flex">
           <button onclick="" id="checkout-btn">Checkout</button>
         </div>
@@ -133,10 +140,12 @@ function displayCart() {
   setTimeout(() => {
     document.getElementById('cart-page').classList.add('active');
     document.getElementById('cart-buy').classList.add('active');
+    document.body.classList.add('static');
   }, 10);
 }
 
 function closeCart() {
   document.getElementById('cart-page').classList.remove('active');
   document.getElementById('cart-buy').classList.remove('active');
+  document.body.classList.remove('static');
 }
