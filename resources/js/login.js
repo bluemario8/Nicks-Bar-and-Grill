@@ -20,12 +20,16 @@ const passChangeText4 = document.getElementById("pass-change-text-4");
 const passChangeImg4 = document.getElementById("pass-change-img-4");
 
 // If statements check to make sure that you are on the sign up page so this even listener does not create issues when on other pages
-if (window.location.pathname === "/signUp.html") {
+if (window.location.pathname === "/signUp.html" || window.location.pathname === "/account.html") {
   // Adds an event listener to password this means that whenever something is typed into password this function will trigger
   passwordId.addEventListener("input", function () {
     // Gets the value of the password from the passwordId
     const passwordValue = passwordId.value;
+    showPasswordRequirements(passwordId.value);
+  });
+}
 
+function showPasswordRequirements(passwordValue) {
     // Checks if these requirments are true or false, which ever they are that is then what the variable will equal
     const lengthCheck = passwordValue.length >= 8;
     const letterCheck = /[a-zA-Z]/.test(passwordValue);
@@ -54,7 +58,6 @@ if (window.location.pathname === "/signUp.html") {
     passChangeImg4.src = specialCharCheck
       ? "images/login/green-check.png"
       : "images/login/red-x.png";
-  });
 }
 
 // Function handeling logic of account creation
@@ -112,7 +115,7 @@ function getForm() {
       localStorage.setItem(email, JSON.stringify(user));
       localStorage.setItem("loggedIn", email);
       // Opens popup to tell you are signed in and has a btn to home
-      popup();
+      popup("Success. You are now signed in!");
     }
   }
 }
@@ -120,7 +123,7 @@ function getForm() {
 // Logs in the user as a guest
 function loginGuest() {
   localStorage.setItem("loggedIn", "guest");
-  popup();
+  popup("Success. You are now signed in!");
 }
 
 // Function to toggle password shown and unshown for signup
@@ -213,13 +216,13 @@ function login() {
     // Shorthand else if, if "checkPassword" and "password" equal eachother the first statement is executed if it is not the second is
     if (checkPassword === password) {
       localStorage.setItem("loggedIn", email);
-      location.href = "index.html";
+      popup("Success. You are now signed in!");
     } else {
       invalidSignUp("incorrect");
     }
   } else if (email === managerObj.email && password === managerObj.password) {
     localStorage.setItem("loggedIn", managerObj.email);
-    popup();
+    popup("Success. You are now signed in!");
   } else {
     invalidSignUp("incorrect");
   }
