@@ -791,7 +791,7 @@ footer {
 
 .rewards-cart-split {
   display: flex;
-  width: 70%;
+  width: fit-content;
 }
 
 .column {
@@ -838,21 +838,86 @@ footer {
   display: flex;
   margin-left: 10px;
 }
+
+.cart-points-outer {
+  width: 90px;
+  height: 90px;
+  border: solid;
+  border-radius: 270px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-points-inner {
+  width: 70px;
+  height: 70px;
+  border: solid;
+  border-radius: 270px;
+  justify-content: center;
+  align-items: center;
+}
 /* Rewards Cart End */
 
+/* Delivery Pickup Start */
 .delivery-pickup-cart {
   height: 9%;
   background-color: var(--dark-brown);
+  padding: 10px;
+  color: white;
 }
 
+#delivery-click {
+  font-size: 1.1em;
+  color: var(--medium-tan);
+  font-family: "Nunito Sans", serif;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 3.7em;
+}
+
+.center-item {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+/* Delivery Pickup End */
+
+/* Cart Start */
 .my-order-cart {
   height: 8%;
   background-color: var(--cream);
+  padding: 10px;
+  font-family: "Nunito Sans", serif;
 }
+
+.my-order-cart h5 {
+  font-weight: 800;
+}
+
+.left-cart {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.right-cart {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  margin-right: 17px;
+  color: var(--darker-tan);
+  font-size: 1.1em;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Cart End */
 
 .body-cart {
   height: 48%;
 }
+
 
 .footer-cart {
   height: 12%;

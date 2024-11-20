@@ -1,8 +1,8 @@
 function displayCart() {
   const checkLogged = localStorage.getItem('loggedIn');
-  let cartRewardsHtml = ''; // Default to an empty string to avoid errors
+  let cartRewardsHtml = '';
+  let cartLocationHtml = '';
 
-  // Base cart HTML structure
   const cartHtml = `
     <div id="cart-page">  
       <div id="cart-buy">
@@ -15,8 +15,19 @@ function displayCart() {
           </div>
         </div>
         <div id="rewards-cart" class="rewards-cart flex"></div>
-        <div class="delivery-pickup-cart"><p>get type</p></div>
-        <div class="my-order-cart flex"><p>my order</p></div>
+        <div class="delivery-pickup-cart flex">
+          <div class="flex column">
+            <h5>In Store Pickup</h5>
+            <h7>2456 Nick's Boulevard, Lancaster, PA 17062</h7>
+          </div>
+          <div class="center-item">
+            <a id="delivery-click" href="#">Delivery</a>
+          </div>
+        </div>
+        <div class="my-order-cart flex">
+          <h5 class="left-cart center-item">My Order (0)</h5>
+          <a href="#" class="right-cart center-item">Add more</a>
+        </div>
         <div class="body-cart flex"><p>body</p></div>
         <div class="footer-cart flex">
           <button onclick="" id="checkout-btn">Checkout</button>
@@ -25,11 +36,33 @@ function displayCart() {
     </div>
   `;
 
-  // Determine the rewards content based on login status
   switch (checkLogged) {
     case 'guest':
-      console.log('signed in as guest');
-      cartRewardsHtml = `<p class="size-4">Welcome Guest! Enjoy browsing our store.</p>`;
+      cartRewardsHtml = `
+        <div class="rewards-cart-split column">
+          <div class="rewards-cart-header">
+            <div class="flex">
+              <img src="images/basic/logo-no-background.png" id="cart-logo">
+            </div>
+            <div class="flex column align-items-center">
+              <h5>Nick's Points & Rewards!</h5>
+              <p class="size-4">Sign up and get <b>200 points</b> for free!</p>
+            </div>
+          </div>
+            <div class="rewards-cart-body column">
+              <p class="size-2">To gain points on every purchase, <b>Login</b> or <b>Sign Up</b>! Points can be redeemed for <b>money off your order</b>!</p>
+              <p class="size-0 weight-9"><b>NOTE: While loged in as Guest no points will be gained upon purchase(s)</b></p>
+            </div>
+        </div>
+        <div class="rewards-cart-login flex column">
+          <button onclick="window.location.href='signUp.html';" class="cart-sign-up pointer roboto-slab">Join</button>
+          <a onclick="window.location.href='login.html'" class="cart-login weight-5 pointer roboto-slab">Sign In</a>
+        </div>
+      `;
+
+      cartLocationHtml = `
+      
+      `;
       break;
     case null:
       console.log('not signed in');
@@ -53,22 +86,50 @@ function displayCart() {
           <a onclick="window.location.href='login.html'" class="cart-login weight-5 pointer roboto-slab">Sign In</a>
         </div>
       `;
+
+      cartLocationHtml = `
+      
+      `;
       break;
     default:
       console.log('signed in');
-      cartRewardsHtml = `<p class="size-4">You're signed in. Earn rewards with every purchase!</p>`;
+      cartRewardsHtml = `
+        <div class="rewards-cart-split column">
+          <div class="rewards-cart-header">
+            <div class="flex">
+              <img src="images/basic/logo-no-background.png" id="cart-logo">
+            </div>
+            <div class="flex column algin-items-center">
+              <h5>Nick's Points & Rewards!</h5>
+              <p class="size-4"><b>200 aditional points</b> on your next purchase!</p>
+            </div>
+          </div>
+          <div class="rewards-cart-body column">
+            <p class="size-2">Your points are displayed on the right</b>. Points can be redeemed for <b>money off your order</b>!</p>
+          </div>
+        </div>
+        <div class="rewards-cart-login flex column">
+          <div class="cart-points-outer flex">
+            <div class="cart-points-inner flex">
+              <p>100pts</p> <!-- Make this current points -->
+            </div>
+          </div>
+        </div>
+      `;
+
+      cartLocationHtml = `
+      
+      `;
       break;
   }
 
-  // Insert the main cart structure into the page
   const page = document.getElementById('cart');
   page.innerHTML = cartHtml;
 
-  // Now safely set the rewards content
   const cartRewards = document.getElementById('rewards-cart');
   cartRewards.innerHTML = cartRewardsHtml;
 
-  // Add the active class with a slight delay for transitions
+  // We have a delay so it can load the transition properly
   setTimeout(() => {
     document.getElementById('cart-page').classList.add('active');
     document.getElementById('cart-buy').classList.add('active');
