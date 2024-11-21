@@ -18,9 +18,11 @@ if (email === "guest")
     formElem.innerHTML = "";
 }
 
+// make userData something so it doesn't give errors
 if (userData === null)
     userData = {};
 
+// if the user isn't signed in, go to the login page
 if (email === null || email === "")
     window.location.replace("login.html");
 
