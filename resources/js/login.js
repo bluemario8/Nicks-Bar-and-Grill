@@ -204,7 +204,6 @@ function login() {
     const userInfo = JSON.parse(checkEmail);
     // ".password" is in object that was in the JSON that is now a property that contains the emails password
     const checkPassword = userInfo.password;
-    // Shorthand else if, if "checkPassword" and "password" equal eachother the first statement is executed if it is not the second is
     if (checkPassword === password) {
       localStorage.setItem("loggedIn", email);
       popup("Success. You are now signed in!");

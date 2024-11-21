@@ -26,6 +26,8 @@
   --dark-brown: #302621;
   --dark-orange: #9e5400;
   --error-red: #D32F2F;
+  --very-light-grey: #f1f1f1;
+  --light-brown: #6F4E37;
 }
 
 .black {
@@ -125,9 +127,19 @@ h4 {
   font-weight: 600;
 }
 
+h5 {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
 .large-text {
   font-family: "Nunito Sans", serif;
   font-size: 1.3rem;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .btn {
@@ -279,6 +291,13 @@ header {
   background-color: var(--dark-tan);
   color: var(--black);
   transition: 0.2s;
+}
+
+.login-bar-link:hover {
+  filter: brightness(90%);
+}
+.login-bar-link:active {
+  filter: brightness(85%);
 }
 
 .login-bar-link:hover {
@@ -789,28 +808,302 @@ footer {
 }
 
 /* Cart */
+/* For giving the cart a scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 #cart-page {
-  z-index: 3;
   position: fixed;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6); /* Start with transparent (make last var back to 0)*/
+  opacity: 0; /* Start hidden */
+  transition: background-color 0.5s ease, opacity 0.5s ease; /* Transition on background and opacity */
 }
 
-#cart-buy {
+ #cart-page.active {
   z-index: 3;
+  background-color: rgba(0, 0, 0, 0.6); /*  Fade in background  */
+  opacity: 1;  /* Fade in */
+} 
+
+#cart-buy {
   position: fixed;
   height: 100vh;
   width: 31%;
   background-color: white;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, .6);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  right: -31%; /* Start off-screen */
+  transition: right 0.5s ease; /* Smooth slide-in */
+  overflow-y: auto;
 }
 
-.pointer {
-  cursor: pointer;
+#cart-buy.active {
+  right: 0; /* Slide into view */
 }
+
+.top-cart {
+  height: 8%;
+  align-items: center;
+  background-color: var(--very-light-grey);
+}
+
+#cart-title {
+  width: 100%;
+  justify-content: center;
+  margin-right: 30px;
+  color: var(--dark-brown);
+}
+
+#close-cart {
+  font-size: 3rem;
+  color: var(--black);
+}
+
+#close-cart:hover {
+  color: var(--error-red);
+}
+
+/* Rewards Cart Start */
+.rewards-cart {
+  height: 15%;
+  background-color: var(--medium-tan);
+}
+
+.rewards-cart p {
+  font-family: "Nunito Sans", serif;
+}
+
+.rewards-cart-split {
+  display: flex;
+  width: fit-content;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.rewards-cart-login {
+  width: fit-content;
+  justify-content: center; 
+  align-items: center;
+  gap: .5em;
+  padding: 0px 1em 0px .7em;
+}
+
+.cart-sign-up {
+  font-size: 1.1em;
+  border: transparent 1px solid;
+  border-radius: 300px;
+  padding: 10px 30px;
+  color: var(--light-brown);
+}
+
+.cart-sign-up:hover {
+  border: solid 1px var(--dark-brown);
+}
+
+.cart-login {
+  background-color: transparent;
+  color: var(--dark-brown);
+  font-size: .9em;
+}
+
+#cart-logo {
+  height: 70px;
+}
+
+.rewards-cart-header {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+}
+
+.rewards-cart-body {
+  display: flex;
+  margin-left: 10px;
+}
+
+.cart-points-outer {
+  width: 90px;
+  height: 90px;
+  border: solid;
+  border-radius: 270px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-points-inner {
+  width: 70px;
+  height: 70px;
+  border: solid;
+  border-radius: 270px;
+  justify-content: center;
+  align-items: center;
+}
+/* Rewards Cart End */
+
+/* Delivery Pickup Start */
+.delivery-pickup-cart {
+  height: 9%;
+  background-color: var(--dark-brown);
+  padding: 10px;
+  color: white;
+}
+
+#delivery-click {
+  font-size: 1.1em;
+  color: var(--medium-tan);
+  font-family: "Nunito Sans", serif;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 3.7em;
+}
+
+.center-item {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+/* Delivery Pickup End */
+
+/* Cart Start */
+.my-order-cart {
+  height: 8%;
+  background-color: var(--cream);
+  padding: 10px;
+  font-family: "Nunito Sans", serif;
+}
+
+.my-order-cart h5 {
+  font-weight: 800;
+}
+
+.left-cart {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.right-cart {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  margin-right: 17px;
+  color: var(--darker-tan);
+  font-size: 1.1em;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Cart End */
+
+/* Body Start */
+.body-cart {
+  height: 48%;
+  font-family: "Nunito Sans", serif;
+}
+
+#food-plate-rendering {
+  height: 200px;
+  margin: 30px 120px 0px 120px;
+}
+
+#keep-ordering {
+  background-color: var(--darker-tan);
+  border: none;
+  padding: 18px 80px;
+  border-radius: 50px;
+  font-size: 1.1em;
+  color: white;
+  cursor: pointer;
+  font-weight: 550;
+}
+
+.cart-gap {
+  gap: 20px;
+}
+
+#order-summary {
+  width: 40%;
+}
+
+.row-1 {
+  justify-content: flex-end;
+}
+
+.box-1 {
+  margin-right: 4em;
+  margin-bottom: .5em;
+}
+
+.total {
+  border-top: solid 1px;
+  padding-top: .2em;
+}
+
+.wrapper-cart-body {
+  margin-top: 40px;
+  padding: 10px 20px 150px 20px;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+/* Body end */
+
+/* Footer start */
+.footer-cart {
+  height: 12%;
+  position: fixed;
+  background-color: var(--very-light-grey);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  width: 31%;
+  padding: 1.5%;
+  justify-content: center;
+  bottom: 0;
+}
+
+#checkout-btn {
+  border-radius: 50px;
+  width: 100%;
+  background-color: var(--medium-tan);
+  border: none;
+  color: var(--dark-brown);
+  font-size: 1.2em;
+}
+
+.static {
+  overflow: hidden;
+}
+
+#checkout-btn:disabled {
+  background-color: var(--very-light-grey);
+  border: #cdcfca solid 1px;
+  color: #cdcfca;
+  cursor: not-allowed;
+}
+/* Footer end */
 
 
 /* Account Section Start */
