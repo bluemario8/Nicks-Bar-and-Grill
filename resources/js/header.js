@@ -41,8 +41,23 @@ let headerHtml = `
 `;
 
 
-document.getElementById("header").innerHTML = headerHtml;
+const header = document.getElementById("header");
+header.innerHTML = headerHtml;
+let loggedIn = localStorage.getItem("loggedIn") !== null && 
+               localStorage.getItem("loggedIn") !== "";
 
-if (localStorage.getItem("loggedIn") !== null && localStorage.getItem("loggedIn") !== "") {
+if (loggedIn) {
     document.getElementById("login-bar").style.display = "none";
+}
+
+if (header.className === "with-spacer") {
+    let spacer = document.createElement("div");
+    spacer.className = "header-spacer";
+    header.after(spacer);
+
+    if (!loggedIn) {
+        let loginSpacer = document.createElement("div");
+        loginSpacer.className = "header-spacer-login";
+        header.after(loginSpacer);
+    }
 }

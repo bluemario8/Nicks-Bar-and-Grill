@@ -12,8 +12,23 @@
     <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <header id="header"></header>
+    <header id="header" class="with-spacer"></header>
 
+    <section id="reviews-main">
+        <div class="row flex">
+            <div class="reviews-filter-bar">
+                <label for="star-filter">Filter Reviews:</label>
+                <select name="star-filter" id="star-filter">
+                    <option value="all">All Ratings</option>
+                    <option value=5>5 Star</option>
+                    <option value=4>4 Star</option>
+                    <option value=3>3 Star</option>
+                    <option value=2>2 Star</option>
+                    <option value=1>1 Star</option>
+                </select>
+            </div>
+        </div>
+    </section>
 
     <footer id="footer"></footer>    
 </body>
