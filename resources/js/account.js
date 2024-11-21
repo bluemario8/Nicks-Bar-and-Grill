@@ -7,11 +7,22 @@ const allInputs = [ ...inputs, ...selects ];
 let email = localStorage.getItem("loggedIn");
 let userData = JSON.parse(localStorage.getItem(email));
 
+// unhide guest note and remove the form if the user is signed in a guest
+if (email === "guest")
+{
+    console.log("Logged in as guest")
+    const guestNote = document.getElementById("guest-note"); 
+    const formElem = document.getElementsByClassName("account-info")[0];
+
+    guestNote.className = guestNote.className.replace("hidden", "");
+    formElem.innerHTML = "";
+}
+
+if (userData === null)
+    userData = {};
 
 if (email === null || email === "")
-{
     window.location.replace("login.html");
-}
 
 // Insert all the values that are in local storage already as default values
 for (let i in allInputs) 
@@ -25,6 +36,7 @@ for (let i in allInputs)
 
 // update password length and required characters
 showPasswordRequirements(passwordId.value);
+
 
 function containsValidChar(password)
 {

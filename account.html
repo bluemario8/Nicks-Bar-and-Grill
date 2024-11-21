@@ -20,7 +20,9 @@
     <section id="account-section" class="section">
         <div class="row flex">
             <h2 class="account-h">Account Information</h2>
+            <p id="guest-note" class="large-text hidden">Note: You are signed in as a guest.</p>
             <button class="logout-btn btn btn-selected" onclick="logout()">Logout</button>
+            
             <form class="account-info flex" onsubmit="updateAccountInfo(this); return false">
                 <ul class="account-list flex">        
                     <li>
