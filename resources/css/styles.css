@@ -497,9 +497,6 @@ footer {
   background-color: var(--cream);
 }
 
-.manager {
-}
-
 .manager-add-item {
   position: relative;
   justify-content: center;
@@ -835,16 +832,18 @@ footer {
   justify-content: flex-end;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6); /* Start with transparent (make last var back to 0)*/
-  opacity: 0; /* Start hidden */
-  transition: background-color 0.5s ease, opacity 0.5s ease; /* Transition on background and opacity */
+  background-color: rgba(0, 0, 0, 0.6); 
+  opacity: 0; 
+  transition: background-color 0.5s ease, opacity 0.5s ease; 
+  pointer-events: none; 
 }
 
- #cart-page.active {
+#cart-page.active {
   z-index: 3;
-  background-color: rgba(0, 0, 0, 0.6); /*  Fade in background  */
-  opacity: 1;  /* Fade in */
-} 
+  background-color: rgba(0, 0, 0, 0.6); 
+  opacity: 1;  
+  pointer-events: auto; 
+}
 
 #cart-buy {
   position: fixed;
@@ -852,13 +851,13 @@ footer {
   width: 31%;
   background-color: white;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
-  right: -31%; /* Start off-screen */
-  transition: right 0.5s ease; /* Smooth slide-in */
+  right: -31%; 
+  transition: right 0.5s ease; 
   overflow-y: auto;
 }
 
 #cart-buy.active {
-  right: 0; /* Slide into view */
+  right: 0; 
 }
 
 .top-cart {
@@ -1188,11 +1187,6 @@ footer {
   flex-direction: column;
   align-content: center;
 }
-
-.account-show-password {
-
-}
-
 
 /* Account Section End */
 
