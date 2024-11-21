@@ -2,8 +2,11 @@ console.log("popup.js is loaded")
 
 function popup(str)
 {
-    // let popupElem = document.getElementsByClassName("popup-home-hidden")[0];
+    let popupElemExist = document.getElementsByClassName("popup-home");
     let popupElem = document.createElement("div");
+
+    if (popupElemExist.length >= 1)
+        return;
 
     popupElem.classList = "popup-home flex";
     popupElem.innerHTML = `
@@ -13,4 +16,6 @@ function popup(str)
         </div>`;
 
     document.body.prepend(popupElem);
+
+    document.getElementsByClassName("popup-home")[0].getElementsByTagName("a")[0].focus();
 }
