@@ -26,7 +26,7 @@ function displayCart() {
         </div>
         <div class="my-order-cart flex">
           <h5 class="left-cart center-item">My Order (0)</h5>
-          <a href="#" class="right-cart center-item">Add more</a>
+          <a href="menu.html" class="right-cart center-item">Add more</a>
         </div>
         <div class="body-cart"> 
           <div class="flex column cart-gap">
@@ -35,9 +35,28 @@ function displayCart() {
             <p class="size-2 center-item">Let's find something you'll love!</p>
             <button id="keep-ordering" class="center-item">Keep Ordering</button>
           </div>
+          <div class="flex space-between wrapper-cart-body">
+            <p><b>Summary</b></p>
+            <div class="flex column" id="order-summary">
+              <div class="flex row-1">
+                <div class="flex box-1">Subtotal</div>
+                <div class="flex">$0.00</div>
+              </div>
+              <div class="flex row-1">
+                <div class="flex box-1">Taxes</div>
+                <div class="flex">$0.00</div>
+              </div>
+              <div class="flex row-1 total">
+                <div class="flex box-1"><p><b>Total</b></p></div>
+                <div class="flex"><p><b>$0.00</b></p></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="footer-cart flex">
-          <button onclick="" id="checkout-btn">Checkout</button>
+          <button onclick="" id="checkout-btn" disabled>
+            <b>Continue</b> $0.00
+          </button>
         </div>
       </div>
     </div>
