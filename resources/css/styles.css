@@ -1240,3 +1240,33 @@ footer {
 }
 
 /* Popup End */
+
+/* Reviews Main Start */
+
+#reviews-main {
+  background-color: var(--cream);
+}
+
+#reviews-main > div {
+  flex-direction: column;
+  align-items: center;
+}
+
+#reviews-main h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.reviews-box {
+}
+
+.reviews-filter-bar {
+  margin: 0 auto;
+}
+
+#review-list {
+  list-style: none;
+}
+
+
+/* Reviews Main End */
