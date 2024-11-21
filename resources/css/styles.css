@@ -826,6 +826,13 @@ footer {
   margin: 3rem auto;
 }
 
+.logout-btn {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: 50%;
+  max-width: 250px;
+}
+
 .account-info {
   flex-direction: column;
   margin: 0 auto;

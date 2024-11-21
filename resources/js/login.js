@@ -192,15 +192,6 @@ function invalidSignUp(errorType) {
   content.innerText = errorText;
 }
 
-// function getJSON(file) {
-//   fetch(file)
-//     .then((res) => res.json())
-//     .then((text) => {
-//       console.log(text);
-//       return text;
-//     });
-// }
-
 // Function handeling login logic
 function login() {
   const email = document.getElementById("email-login").value;
@@ -226,4 +217,9 @@ function login() {
   } else {
     invalidSignUp("incorrect");
   }
+}
+
+function logout() {
+  localStorage.removeItem("loggedIn");
+  popup("Success. You are now logged out!");
 }

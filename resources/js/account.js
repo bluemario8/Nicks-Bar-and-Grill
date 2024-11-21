@@ -2,15 +2,16 @@ const listElem = document.getElementsByClassName("account-list")[0];
 const errorElem = document.getElementById("account-invalid-fields");
 let inputs = listElem.getElementsByTagName("input");
 let selects = listElem.getElementsByTagName("select");
-// const allInputs = Object.assign({}, inputs, selects);
 const allInputs = [ ...inputs, ...selects ];
 
 let email = localStorage.getItem("loggedIn");
 let userData = JSON.parse(localStorage.getItem(email));
 
 
-console.log(allInputs)
-console.log(userData)
+if (email === null || email === "")
+{
+    window.location.replace("login.html");
+}
 
 // Insert all the values that are in local storage already as default values
 for (let i in allInputs) 
