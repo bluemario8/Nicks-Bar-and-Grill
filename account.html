@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <script defer src="resources/js/header.js"></script>
+    <script defer src="resources/js/footer.js"></script>
+    <script defer src="resources/js/popup.js"></script>
+    <script defer src="resources/js/login.js"></script>
+    <script defer src="resources/js/account.js"></script>
+
+    <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <header id="header"></header>    
+
+    <section id="account-section" class="section">
+        <div class="row flex">
+            <h2 class="account-h">Account Information</h2>
+            <p id="guest-note" class="large-text hidden">Note: You are signed in as a guest.</p>
+            <button class="logout-btn btn btn-selected" onclick="logout()">Logout</button>
+            
+            <form class="account-info flex" onsubmit="updateAccountInfo(this); return false">
+                <ul class="account-list flex">        
+                    <li>
+                        <label class="account-info-inputs" for="email">Email</label>
+                        <input class="account-info-inputs" type="text" id="email" name="email" value="" required>
+                    </li>
+                    <li>
+                        <label class="account-info-inputs" for="password">Password</label>
+                        <div class="account-password-div flex">
+                            <input class="account-info-inputs" type="password" id="password" name="password" value="" required>
+
+                            <div class="account-show-password">
+                                <input type="checkbox" id="show-pass" onclick="showPasswordSignUp()">
+                                <label for="account-show-pass" class="size-2">Show Password</label>
+                            </div>
+
+                            <div class="sign-up-check-password">
+                                <div class="sign-up-check-text">
+                                    <div class="sign-up-check-image">
+                                        <img src="images/login/red-x.png" id="pass-change-img-1">
+                                    </div>
+                                    <p class="size-0" id="pass-change-text-1">8 Characters</p>
+                                </div>
+                                <div class="sign-up-check-text">
+                                    <div class="sign-up-check-image">
+                                        <img src="images/login/red-x.png" id="pass-change-img-2">
+                                    </div>
+                                    <p class="size-0" id="pass-change-text-2">1 Letter</p>
+                                </div>
+                                <div class="sign-up-check-text">
+                                    <div class="sign-up-check-image">
+                                        <img src="images/login/red-x.png" id="pass-change-img-3">
+                                    </div>
+                                    <p class="size-0" id="pass-change-text-3">1 Number</p>
+                                </div>
+                                <div class="sign-up-check-text">
+                                    <div class="sign-up-check-image">
+                                        <img src="images/login/red-x.png" id="pass-change-img-4">
+                                    </div>
+                                    <p class="size-0" id="pass-change-text-4">Atleast 1: "!", "@", "#", "$", "%"</p>
+                                </div>
+                            </div> 
+                        </div>
+                    </li>
+
+                    <li>
+                        <label class="account-info-inputs" for="firstName">First Name</label>
+                        <input class="account-info-inputs" type="text" id="firstName" name="firstName" value="" required>
+                    </li>
+                    <li>
+                        <label class="account-info-inputs" for="lastName">Last Name</label>
+                        <input class="account-info-inputs" type="text" id="lastName" name="lastName" value="" required>
+                    </li>
+                
+                    <li>
+                        <label class="account-info-inputs" for="address">Street Address</label>
+                        <input class="account-info-inputs" type="text" id="address" name="address" value="">
+                    </li>
+                    <li>
+                        <label class="account-info-inputs" for="address2">Address Line 2</label>
+                        <input class="account-info-inputs" type="text" id="address2" name="address2" value="">
+                    </li>
+                    <li>
+                        <label class="account-info-inputs" for="city">City</label>
+                        <input class="account-info-inputs" type="text" id="city" name="city" value="">
+                    </li>
+                
+                    <li>
+                        <label class="account-info-inputs" for="state">State / Province / Region</label>
+                        <input class="account-info-inputs" type="text" id="state" name="state" value="">
+                    </li>
+                    <li>
+                        <label class="account-info-inputs" for="zipCode">Zip/Postal Code</label>
+                        <input class="account-info-inputs" type="text" id="zipCode" name="zipCode" value="">
+                    </li>
+                
+                    <li>
+                        <label class="account-info-inputs" for="country">Country</label>
+                        <select class="account-info-inputs" id="country" name="country">
+                            <option value="" selected disabled hidden>Choose A Country</option>
+                            <option value="us">United States</option>
+                        </select>
+                    </li>
+                </ul>   
+                <p id="account-invalid-fields" class="size-2"></p>
+                <input class="account-info-inputs btn btn-cream" type="submit" value="Update Information">
+            </form>
+        </div>
+    </section>
+
+    <footer id="footer"></footer>
+</body>
+</html>

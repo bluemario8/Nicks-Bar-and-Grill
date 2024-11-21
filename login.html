@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="resources/css/styles.css">
+  <script defer src="resources/js/popup.js"></script>
   <script defer src="resources/js/login.js"></script>
+
   <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <title>Sign In - Nick's Bar & Grill</title>
@@ -17,18 +19,20 @@
       <h3>Sign In</h3>
     </div>
     <div class="nunito-sans weight-6 size-4">
-      <label for="email">Email:</label>
-      <input type="email" class="login-input" id="email-login" placeholder="Enter email here"><br><br>
-      <label for="passowrd">Password:</label>
-      <input type="password" class="login-input" id="password-login" placeholder="Enter password here">
-      <div class="show-password">
-        <input type="checkbox" id="show-pass-login" onclick="showPasswordLogin()">
-        <label for="show-pass" class="size-2">Show Password</label>
-      </div>
-      <div id="invalid-signup-popup-loc">
-        <p id="invalid-signup-ptag" class="size-2"></p>
-      </div>
-      <button class="login-btn" onclick="login()">Sign In</button>
+      <form onsubmit="login(); return false">
+        <label for="email">Email:</label>
+        <input type="email" class="login-input" id="email-login" placeholder="Enter email here"><br><br>
+        <label for="passowrd">Password:</label>
+        <input type="password" class="login-input" id="password-login" placeholder="Enter password here">
+        <div class="show-password">
+          <input type="checkbox" id="show-pass-login" onclick="showPasswordLogin()">
+          <label for="show-pass" class="size-2">Show Password</label>
+        </div>
+        <div id="invalid-signup-popup-loc">
+          <p id="invalid-signup-ptag" class="size-2"></p>
+        </div>
+        <input type="submit" class="login-btn" value="Sign In">
+      </form>
       <div class="login-or">
         <a href="signUp.html" class="size-2">Sign Up</a>
         <span class="size-1">or</span>

@@ -28,7 +28,7 @@ let headerHtml = `
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="account.html">
                         <ion-icon class="nav-icon" name="person-circle-outline"></ion-icon>
                     </a>
                 </li>
@@ -36,11 +36,13 @@ let headerHtml = `
         </div>
     </nav>
     <div id="login-bar" class="flex">
-        <a class="login-bar-link" href="login.html">Login / Sign Up</a>
+        <a class="login-bar-link btn" href="login.html">Login / Sign Up</a>
     </div>
 `;
 
 
 document.getElementById("header").innerHTML = headerHtml;
 
-
+if (localStorage.getItem("loggedIn") !== null && localStorage.getItem("loggedIn") !== "") {
+    document.getElementById("login-bar").style.display = "none";
+}
