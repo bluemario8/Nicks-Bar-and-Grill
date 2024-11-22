@@ -74,7 +74,7 @@ function genReviewHtml(obj)
 
 function filterReviews(rating)
 {
-   for (let li of reviewList.children)
+    for (let li of reviewList.children)
     {
         if (rating === "all")
             li.style.display = "";
