@@ -11,6 +11,9 @@ class ReviewItem
 
 const reviewList = document.getElementById("review-list");
 const reviewFilter = document.getElementsByClassName("reviews-filter-bar")[0];
+const loggedInUser = localStorage.getItem("loggedIn");
+const userData = JSON.parse(localStorage.getItem(loggedInUser));
+let createReviewRating = 5;
 
 const defaultReviews =
 [
@@ -97,4 +100,93 @@ function filterReviews(rating)
         else
             li.style.display = "none";
     } 
+}
+
+function createReview()
+{
+    console.log("Creating Review!");
+
+    let reviewElemExist = document.getElementsByClassName("review-popup");
+    let reviewElem = document.createElement("div");
+
+    if (reviewElemExist.length >= 1)
+        return;
+
+    reviewElem.classList = "popup-home flex";
+    reviewElem.innerHTML = `
+        <ul class="popup-box reviews-list flex">
+            <h3>Create a Review!</h3>
+            <li>
+                <label for="rating">Rating: </label>
+                <div class="flex">
+                    <button class="star-btn" onclick="updateStarCount(this, 1)">
+                        <ion-icon name="star"></ion-icon>
+                        </button>
+                    <button class="star-btn" onclick="updateStarCount(this, 2)">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                    <button class="star-btn" onclick="updateStarCount(this, 3)">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                    <button class="star-btn" onclick="updateStarCount(this, 4)">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                    <button class="star-btn selected" onclick="updateStarCount(this, 5)">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <label for="comment">Comment (optional): </label>
+                <textarea class="reviews-textarea" id="comment" name="comment" rows="10" cols="50" maxlength="500"></textarea>
+            </li>
+            <a onclick="submitReview(this)" class="btn large-text">Submit Review</a>
+        </ul>`;
+
+    document.body.prepend(reviewElem);
+
+    // document.getElementsByClassName("review-popup")[0].getElementsByTagName("a")[0].focus();
+}
+
+function updateStarCount(data, num)
+{
+    const btnDiv = data.parentNode.children;
+    console.log(btnDiv);
+    let foundSelected = false;
+    createReviewRating = num;
+
+    for (let i = 0; i < btnDiv.length; i++)
+    {
+        if (i+1 === num)
+        {
+            btnDiv[i].classList = "star-btn selected";
+            btnDiv[i].style.color = "var(--orange)";
+            foundSelected = true;
+        }
+        else
+        {
+            btnDiv[i].classList = "star-btn";
+            btnDiv[i].style.color = !foundSelected ? "var(--orange)" : "var(--black)";
+        }
+    }
+}
+
+function submitReview(data)
+{
+    const date = new Date;
+    const review = new ReviewItem(
+        userData["firstName"] + ' ' +  userData["lastName"],
+        `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`,
+        createReviewRating,
+        document.getElementById("comment").value
+    );
+
+    // console.log("Rating is: " + createReviewRating);
+    // console.log("Name is: " + name);
+    // console.log("Comment is: " + comment);
+    // console.log("Date is: " + formattedDate);
+
+    console.log(review);
+
+    // reviewList.prepend()
 }

@@ -1159,7 +1159,6 @@ footer {
   flex-direction: column;
   margin: 0 auto;
   max-width: 1000px;
-  flex-grow: 1;
 }
 
 .account-info-inputs {
@@ -1227,7 +1226,7 @@ footer {
   background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 3;
 }
 
 .popup-home-hidden {
@@ -1238,6 +1237,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  list-style: none;
   background-color: var(--dark-tan);
   padding: 2rem;
   border-radius: 10px;
@@ -1356,6 +1356,40 @@ footer {
   font-size: 0.9rem;
 }
 
+.reviews-list {
+  max-width: 700px;
+  width: 100%;
+}
 
+.reviews-list li {
+  display: flex;
+  background-color: var(--medium-tan);
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  margin-bottom: .5rem;
+}
+
+.reviews-list li label {
+  margin-right: 1rem;
+}
+
+.reviews-textarea {
+  resize: none;
+}
+
+.star-btn {
+  color: var(--orange);
+  background-color: transparent;
+  border: none;
+  padding: 0 0.25rem;
+}
+
+.star-btn:hover {
+  filter: brightness(90%);
+}
+
+.star-btn ion-icon {
+  font-size: 1.1rem;
+}
 
 /* Reviews Main End */
