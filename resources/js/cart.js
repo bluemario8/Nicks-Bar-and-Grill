@@ -29,7 +29,7 @@ function displayCart() {
           <a href="menu.html" class="right-cart center-item">Add more</a>
         </div>
         <div class="body-cart"> 
-          <div class="flex column cart-gap">
+          <div class="flex column cart-gap" id="test">
             <img src="images/basic/food-plate.avif" alt="" id="food-plate-rendering">
             <p class="size-3 center-item">Still Hungry?</p>
             <p class="size-2 center-item">Let's find something you'll love!</p>

@@ -122,7 +122,7 @@ function genMenuHtml(obj)
                 <input style="display: none" class="menu-input-price" type="text" value="${obj.price}">
             </div>
             <div>
-                <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                <button class="btn" onclick="addCart(this)">Add to Cart</button>
                 <input type="number" value="0" class="quantity">
                 <button class="btn btn-selected manager" onclick="editItem(this)">Edit</button>
             </div>
@@ -153,6 +153,7 @@ function menuSort(catagory, data)
 
 function addItem(data) 
 {
+
     if (localStorage.getItem("loggedIn") !== managerObj.email)
         return "Manager not signed in";
 
@@ -277,4 +278,14 @@ function showAddBox()
     let box = document.getElementsByClassName("manager-add-box")[0];
 
     box.style.display = box.style.display === "none" ? "" : "none";
+}
+
+function addCart(data) {
+    const item = data.parentNode.parentNode.id;
+
+    for (let i = 0; i < menuItems.length; i++) {
+        if (menuItems[i]['name'] === item) {
+            console.log('test');
+        }
+    }
 }
