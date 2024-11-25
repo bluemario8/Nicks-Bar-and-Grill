@@ -80,6 +80,20 @@ function filterReviews(rating)
             li.style.display = "";
         else if (li.classList[0] === `rate-${rating}`)
             li.style.display = "";
+        else if (rating === "pos")
+        {
+            if (li.classList[0] === `rate-5` || li.classList[0] === `rate-4`)
+                li.style.display = "";
+            else
+                li.style.display = "none";
+        }
+        else if (rating === "crit")
+        {
+            if (li.classList[0] === `rate-1` || li.classList[0] === `rate-2`)
+                li.style.display = "";
+            else
+                li.style.display = "none";
+        }
         else
             li.style.display = "none";
     } 

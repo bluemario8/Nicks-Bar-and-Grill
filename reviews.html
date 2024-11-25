@@ -39,20 +39,24 @@
 
                 </div>
                 <div class="flex flex-right">
-                    <button class="btn reviews-btn" onclick="console.log('Create review')">Create a review</button>
+                    <button class="btn reviews-btn" onclick="createReview()">Create a review</button>
                 </div>
             </div>
 
-            <div class="reviews-filter-bar reviews-border">
-                <label for="star-filter">Filter Reviews:</label>
-                <select name="star-filter" id="star-filter" onchange="filterReviews(this.value)">
-                    <option value="all">All Ratings</option>
-                    <option value="5">5 Star</option>
-                    <option value="4">4 Star</option>
-                    <option value="3">3 Star</option>
-                    <option value="2">2 Star</option>
-                    <option value="1">1 Star</option>
-                </select>
+            <div class="reviews-full flex">
+                <div class="reviews-filter-bar reviews-border">
+                    <label for="star-filter">Filter Reviews:</label>
+                    <select name="star-filter" id="star-filter" onchange="filterReviews(this.value)">
+                        <option value="all">All Ratings</option>
+                        <option value="5">5 Star</option>
+                        <option value="4">4 Star</option>
+                        <option value="3">3 Star</option>
+                        <option value="2">2 Star</option>
+                        <option value="1">1 Star</option>
+                        <option value="pos">Positive Reviews</option>
+                        <option value="crit">Critical Reviews</option>
+                    </select>
+                </div>
             </div>
 
             <ul id="review-list">

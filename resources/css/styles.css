@@ -1276,8 +1276,12 @@ footer {
   border-radius: .5rem;
 }
 
+.reviews-full {
+  width: 100%;
+  justify-content: center;
+}
+
 .reviews-filter-bar {
-  margin: 0 auto;
   max-width: 900px; 
   width: 100%;
 }
