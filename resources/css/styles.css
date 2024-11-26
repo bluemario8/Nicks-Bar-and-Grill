@@ -894,12 +894,14 @@ footer {
   color: var(--dark-brown);
 }
 
-#close-cart {
+#close-cart,
+.close-x {
   font-size: 3rem;
   color: var(--black);
 }
 
-#close-cart:hover {
+#close-cart:hover,
+.close-x:hover {
   color: var(--error-red);
 }
 
@@ -1345,6 +1347,7 @@ footer {
   filter: brightness(110%);
   border-radius: 5px;
   padding: .5rem;
+  width: 100%;
 }
 
 .reviews-info {
@@ -1356,20 +1359,22 @@ footer {
   font-size: 0.9rem;
 }
 
-.reviews-list {
+.reviews-popup {
+  position: relative;
   max-width: 700px;
   width: 100%;
 }
 
-.reviews-list li {
+.reviews-popup li {
   display: flex;
+  flex-wrap: wrap;
   background-color: var(--medium-tan);
   border-radius: 5px;
   padding: .5rem 1rem;
   margin-bottom: .5rem;
 }
 
-.reviews-list li label {
+.reviews-popup li label {
   margin-right: 1rem;
 }
 
@@ -1390,6 +1395,12 @@ footer {
 
 .star-btn ion-icon {
   font-size: 1.1rem;
+}
+
+.reviews-fixed-x {
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }
 
 /* Reviews Main End */
