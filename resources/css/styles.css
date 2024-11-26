@@ -1339,6 +1339,7 @@ footer {
 
 #review-list li {
   display: flex;
+  position: relative;
   max-width: 900px;
 }
 
@@ -1357,6 +1358,14 @@ footer {
 
 .reviews-name {
   font-size: 0.9rem;
+}
+
+.review-delete {
+  position: absolute;
+  padding: .25rem;
+  top: calc(100% - 25px);
+  left: calc(100% - 49px);
+  z-index: 1;
 }
 
 .reviews-popup {

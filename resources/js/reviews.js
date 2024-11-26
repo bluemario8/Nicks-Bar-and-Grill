@@ -77,8 +77,6 @@ function updateOverallRating()
     overallRatingElem.innerText = overallRating;
     overallStarsElem.innerHTML = genStars(stars);
     reviewsNumberElem.innerText = reviewCount;
-    
-
 }
 
 function genStars(starNum)
@@ -98,6 +96,7 @@ function genStars(starNum)
 function genReviewHtml(obj)
 {
     let reviewsStars = genStars(obj.rating);
+    let userReview = loggedInUser === obj.email
 
     return `
         <li class="rate-${obj.rating}">
@@ -107,6 +106,11 @@ function genReviewHtml(obj)
                 <div class="reviews-stars">
                     ${reviewsStars}
                 </div>
+                ${userReview
+                    ? '<button class="btn btn-selected review-delete" onclick="deleteReview(this)">Delete'
+                    : ""
+                }
+                </button>
             </div>
 
             ${obj.message !== "" ? "<q>" + obj.message + "</q>" : ""}
@@ -253,4 +257,30 @@ function submitReview(data)
 function closeReview()
 {
     document.getElementsByClassName("popup-home")[0].remove();
+}
+
+function deleteReview(data)
+{
+    let parent = data.parentNode.parentNode;
+    let thisComment = parent.getElementsByTagName("q").length > 0
+        ? parent.getElementsByTagName("q")[0].innerText
+        : "";
+    let thisReview = new ReviewItem(
+        parent.getElementsByClassName("reviews-name")[0].innerText,
+        parent.getElementsByClassName("reviews-date")[0].innerText,
+        parseInt(parent.className.replace("rate-", "")),
+        thisComment,
+        loggedInUser,
+    );
+    console.log(thisReview);
+    console.log(reviews[0]);
+    console.log(thisReview === reviews[0]);
+
+    for (let i in reviews)
+    {
+        if (reviews[i] === thisReview)
+        {
+            console.log(reviews[i]);
+        }
+    }
 }
