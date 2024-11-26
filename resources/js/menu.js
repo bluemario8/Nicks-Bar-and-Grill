@@ -279,13 +279,3 @@ function showAddBox()
 
     box.style.display = box.style.display === "none" ? "" : "none";
 }
-
-function addCart(data) {
-    const item = data.parentNode.parentNode.id;
-
-    for (let i = 0; i < menuItems.length; i++) {
-        if (menuItems[i]['name'] === item) {
-            console.log('test');
-        }
-    }
-}
