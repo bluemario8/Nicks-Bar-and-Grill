@@ -1413,3 +1413,78 @@ footer {
 }
 
 /* Reviews Main End */
+
+
+/* Checkout Start */
+
+#checkout-main {
+
+}
+
+.checkout-container {
+  margin: 0 auto;
+  font-family: "Nunito Sans", serif;
+}
+
+.checkout-info {
+  height: 800px;
+  width: 600px;
+  background-color: var(--cream);
+  padding: 2rem;
+}
+
+.checkout-info > div h4 {
+  margin-bottom: 2rem;
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.fancy-input {
+  display: flex;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.fancy-input input {
+  font-size: 1.1rem;
+  border: none;
+  border-bottom: 2px solid var(--dark-tan);
+  background-color: transparent;
+  transition: 0.2s;
+}
+
+.fancy-input input:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.fancy-input label {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  transition: 0.2s;
+}
+
+.fancy-input input:focus + label,
+.fancy-input input:not(:placeholder-shown) + label {
+  font-size: 90%;
+  top: -15px;
+}
+
+.fancy-input input:focus + label {
+  color: var(--blue);
+}
+
+/* .checkout-delivery  */
+
+.checkout-summary {
+  height: 800px;
+  width: 600px;
+  background-color: var(--medium-tan);
+}
+
+/* Checkout End */
