@@ -122,7 +122,7 @@ function genMenuHtml(obj)
                 <input style="display: none" class="menu-input-price" type="text" value="${obj.price}">
             </div>
             <div>
-                <button class="btn" onclick="addItem(this)">Add to Cart</button>
+                <button class="btn" onclick="addCart(this)">Add to Cart</button>
                 <input type="number" value="0" class="quantity">
                 <button class="btn btn-selected manager" onclick="editItem(this)">Edit</button>
             </div>
@@ -153,6 +153,7 @@ function menuSort(catagory, data)
 
 function addItem(data) 
 {
+
     if (localStorage.getItem("loggedIn") !== managerObj.email)
         return "Manager not signed in";
 

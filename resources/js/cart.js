@@ -1,7 +1,6 @@
 function displayCart() {
   const checkLogged = localStorage.getItem('loggedIn');
   let cartRewardsHtml = '';
-  let cartLocationHtml = '';
 
   const cartHtml = `
     <div id="cart-page">  
@@ -29,7 +28,7 @@ function displayCart() {
           <a href="menu.html" class="right-cart center-item">Add more</a>
         </div>
         <div class="body-cart"> 
-          <div class="flex column cart-gap">
+          <div class="flex column cart-gap" id="test">
             <img src="images/basic/food-plate.avif" alt="" id="food-plate-rendering">
             <p class="size-3 center-item">Still Hungry?</p>
             <p class="size-2 center-item">Let's find something you'll love!</p>
@@ -168,3 +167,36 @@ function closeCart() {
   document.getElementById('cart-buy').classList.remove('active');
   document.body.classList.remove('static');
 }
+
+const cart = [];
+
+function addCart(data) {
+  const item = data.parentNode.parentNode.id;
+  for (let i = 0; i < menuItems.length; i++) {
+    if (menuItems[i]['name'] === item) {
+      for (let j = 0; j < cart.length; j++) {
+        if (cart[j]['name'] === item) {
+          console.log('dup');
+          return;
+        }
+      }
+      const price = menuItems[i]['price'];
+      const img = menuItems[i]['img'];
+      const name = menuItems[i]['name'];
+      const quantity = 1;
+      
+      class ItemValues {
+        constructor(name, price, img, quantity) {
+          this.name = name;
+          this.price = price;
+          this.img = img;
+          this.quantity = quantity;
+        }
+      }
+
+      cart.push(new ItemValues(name, price, img, quantity));
+      localStorage.setItem('inCart', JSON.stringify(cart));
+    };
+  }
+}
+
