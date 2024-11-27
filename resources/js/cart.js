@@ -171,12 +171,14 @@ function closeCart() {
 const cart = [];
 
 function addCart(data) {
+  // console.log(cart);
+  console.log(localStorage.getItem('inCart'));
   const item = data.parentNode.parentNode.id;
   for (let i = 0; i < menuItems.length; i++) {
     if (menuItems[i]['name'] === item) {
       for (let j = 0; j < cart.length; j++) {
         if (cart[j]['name'] === item) {
-          console.log('dup');
+          cart[j]['quantity'] += 1;
           return;
         }
       }
@@ -199,4 +201,3 @@ function addCart(data) {
     };
   }
 }
-
