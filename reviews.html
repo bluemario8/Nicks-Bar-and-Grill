@@ -7,13 +7,80 @@
     <link rel="stylesheet" href="resources/css/styles.css">
     <script defer src="resources/js/header.js"></script>
     <script defer src="resources/js/footer.js"></script>
+    <script defer src="resources/js/reviews.js"></script>
 
     <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <header id="header"></header>
+    <header id="header" class="with-spacer"></header>
 
+
+    <section id="reviews-main" class="section">
+        <div class="row flex">
+            <h2 class="below-line reviews-h2">What Our Customers Say</h2>
+            <div class="reviews-box reviews-border flex">
+                <div class="flex-left">
+                    <h4 class="overall-h">Overall Rating</h4>
+                    <div class="flex center">
+                        <span class="overall-rating large-text">4.9</span>
+                        <span class="overall-stars">
+                            <!-- Gets inserted by JS -->
+                            <!-- <ion-icon name="star" class="orange-star"></ion-icon> 
+                            <ion-icon name="star" class="orange-star"></ion-icon> 
+                            <ion-icon name="star" class="orange-star"></ion-icon> 
+                            <ion-icon name="star" class="orange-star"></ion-icon> 
+                            <ion-icon name="star" class="orange-star"></ion-icon>  -->
+                        </span>
+                        <span class="reviews-number">
+                            <a>1,000</a>
+                            Reviews
+                        </span>
+                    </div>
+
+                </div>
+                <div class="flex flex-right">
+                    <button class="btn reviews-btn" onclick="createReview()">Create a review</button>
+                </div>
+            </div>
+
+            <div class="reviews-full flex">
+                <div class="reviews-filter-bar reviews-border">
+                    <label for="star-filter">Filter Reviews:</label>
+                    <select name="star-filter" id="star-filter" onchange="filterReviews(this.value)">
+                        <option value="all">All Ratings</option>
+                        <option value="5">5 Star</option>
+                        <option value="4">4 Star</option>
+                        <option value="3">3 Star</option>
+                        <option value="2">2 Star</option>
+                        <option value="1">1 Star</option>
+                        <option value="pos">Positive Reviews</option>
+                        <option value="crit">Critical Reviews</option>
+                    </select>
+                </div>
+            </div>
+
+            <ul id="review-list">
+                <!-- <li>
+                    <div class="reviews-info">
+                        <p class="reviews-name"><strong>Harry Smith</strong></p>
+                        <p class="reviews-date">11/20/2024</p>
+                        <div class="reviews-stars">
+                            <ion-icon name="star" class="orange-star"></ion-icon> 
+                            <ion-icon name="star" class="orange-star"></ion-icon> 
+                            <ion-icon name="star" class="orange-star"></ion-icon> 
+                            <ion-icon name="star" class="orange-star"></ion-icon> 
+                            <ion-icon name="star" class="orange-star"></ion-icon> 
+                        </div>
+                    </div>
+
+                    <q>Got recommended this place by family and loved it.
+                        The chicken burger was surprisingly my favorite.
+                    </q>
+                </li> -->
+            </ul>
+        </div>
+    </section>
 
     <footer id="footer"></footer>    
 </body>
