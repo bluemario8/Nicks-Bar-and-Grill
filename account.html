@@ -37,7 +37,7 @@
                             <input class="account-info-inputs" type="password" id="password" name="password" value="" required>
 
                             <div class="account-show-password">
-                                <input type="checkbox" id="show-pass" onclick="showPasswordSignUp()">
+                                <input type="checkbox" id="show-pass" onclick="showPasswordSignUp()" autocomplete="off">
                                 <label for="account-show-pass" class="size-2">Show Password</label>
                             </div>
 
@@ -103,7 +103,7 @@
                 
                     <li>
                         <label class="account-info-inputs" for="country">Country</label>
-                        <select class="account-info-inputs" id="country" name="country">
+                        <select class="account-info-inputs" id="country" name="country" autocomplete="off">
                             <option value="" selected disabled hidden>Choose A Country</option>
                             <option value="us">United States</option>
                         </select>
