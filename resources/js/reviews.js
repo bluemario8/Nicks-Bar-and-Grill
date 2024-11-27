@@ -199,7 +199,7 @@ function createReview()
 
     document.body.prepend(reviewElem);
 
-    // document.getElementsByClassName("reviews-popup")[0].getElementsByTagName("a")[0].focus();
+    document.getElementsByClassName("reviews-popup")[0].getElementsByClassName("star-btn")[0].focus()
 }
 
 function updateStarCount(data, num)
@@ -272,15 +272,18 @@ function deleteReview(data)
         thisComment,
         loggedInUser,
     );
-    console.log(thisReview);
-    console.log(reviews[0]);
-    console.log(thisReview === reviews[0]);
 
+    // Remove the review from local storage
     for (let i in reviews)
     {
-        if (reviews[i] === thisReview)
+        if (JSON.stringify(reviews[i]) === JSON.stringify(thisReview))
         {
-            console.log(reviews[i]);
+            console.log("They are equal", reviews[i]);
+            reviews.splice(i, 1);
+            break;
         }
     }
+
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+    window.location.href = "";
 }
