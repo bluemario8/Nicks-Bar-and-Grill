@@ -1457,6 +1457,14 @@ footer {
   transition: 0.2s;
 }
 
+.long {
+  width: 400px;
+}
+
+.short {
+  width: 140px;
+}
+
 .fancy-input input:focus {
   outline: none;
   border-color: var(--blue);
