@@ -167,7 +167,7 @@ function closeCart() {
   document.getElementById('cart-page').classList.remove('active');
   document.getElementById('cart-buy').classList.remove('active');
   document.body.classList.remove('static');
-  setTimeout(() => { document.getElementById('cart-page').style.zIndex = 0 }, 1000);
+  setTimeout(() => { document.getElementById('cart-page').style.zIndex = -1 }, 500);
 
 }
 
