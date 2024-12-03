@@ -1,3 +1,5 @@
+let cart = JSON.parse(localStorage.getItem('inCart')) || []; // Initialize cart from localStorage or start empty
+
 function displayCart() {
   const checkLogged = localStorage.getItem('loggedIn');
   let cartRewardsHtml = '';
@@ -27,6 +29,8 @@ function displayCart() {
           <h5 class="left-cart center-item">My Order (0)</h5>
           <a href="menu.html" class="right-cart center-item">Add more</a>
         </div>
+        <ul id="cart-items">
+        </ul>
         <div class="body-cart"> 
           <div id="cart-body-desc">
             <img src="images/basic/food-plate.avif" alt="" id="food-plate-rendering">
@@ -151,8 +155,13 @@ function displayCart() {
   const page = document.getElementById('cart');
   page.innerHTML = cartHtml;
 
+  const cartItems = document.getElementById("cart-items");
   const cartRewards = document.getElementById('rewards-cart');
   cartRewards.innerHTML = cartRewardsHtml;
+
+  for (let i = 0; i < cart.length; i++) {
+    cartItems.innerHTML += genCartItem(cart[i]);
+  }
 
   // We have a delay so it can load the transition properly
   setTimeout(() => {
@@ -171,7 +180,34 @@ function closeCart() {
 
 }
 
-const cart = JSON.parse(localStorage.getItem('inCart')) || []; // Initialize cart from localStorage or start empty
+function genCartItem(itemValues) {
+  return `
+    <li>
+      <div class="cart-img-div flex">
+        <img src="${itemValues.img}" class="cart-item-img">
+      </div>
+      <div class="flex column">
+        <h4>${itemValues.name}</h4>
+        <p class="menu-desc">${itemValues.desc}</p>
+      </div>
+      <div class="cart-quantity-div flex">
+        <button class="btn btn-selected cart-remove">Remove</button>
+        <p class="cart-price">$${itemValues.price}</p>
+        <input type="number" value="${itemValues.quantity}" class="quantity cart-quantity">
+      </div>
+    </li>`;
+}
+
+
+class ItemValues {
+  constructor(name, desc, price, img, quantity) {
+      this.name = name;
+      this.desc = desc;
+      this.price = price;
+      this.img = img;
+      this.quantity = quantity;
+  }
+}
 
 function addCart(data) {
   const item = data.parentNode.parentNode.id;
@@ -186,20 +222,13 @@ function addCart(data) {
         existingItem.quantity += 1;
       } else {
         // Add new item to the cart
+        const desc = menuItems[i]['desc'];
         const price = menuItems[i]['price'];
         const img = menuItems[i]['img'];
         const name = menuItems[i]['name'];
         const quantity = 1;
 
-        class ItemValues {
-          constructor(name, price, img, quantity) {
-            this.name = name;
-            this.price = price;
-            this.img = img;
-            this.quantity = quantity;
-          }
-        }
-        cart.push(new ItemValues(name, price, img, quantity));
+        cart.push(new ItemValues(name, desc, price, img, quantity));
       }
 
       // Update localStorage

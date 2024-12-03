@@ -114,7 +114,7 @@ function genMenuHtml(obj)
                 <input style="display: none" class="menu-input-title" type="text" value="${obj.name}">
             </div>
             <div class="menu-items-p">
-                <p>${obj.desc}</p>
+                <p class="menu-desc">${obj.desc}</p>
                 <textarea style="display: none" class="menu-textarea-desc">${obj.desc}</textarea>
             </div>
             <div class="menu-price large-text">$

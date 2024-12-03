@@ -635,11 +635,14 @@ footer {
   font-size: 2.5rem;
 }
 
-.menu-items li div p {
+.menu-desc {
   font-family: "Nunito Sans", serif;
   color: var(--dark-brown);
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+.menu-items li div p {
   margin-bottom: 1rem;
 }
 
@@ -905,7 +908,7 @@ footer {
 
 /* Rewards Cart Start */
 .rewards-cart {
-  height: 15%;
+  /* height: 15%; */
   background-color: var(--medium-tan);
 }
 
@@ -984,7 +987,7 @@ footer {
 
 /* Delivery Pickup Start */
 .delivery-pickup-cart {
-  height: 9%;
+  /* height: 9%; */
   background-color: var(--dark-brown);
   padding: 10px;
   color: white;
@@ -1008,8 +1011,9 @@ footer {
 /* Delivery Pickup End */
 
 /* Cart Start */
+
 .my-order-cart {
-  height: 8%;
+  /* height: 8%; */
   background-color: var(--cream);
   padding: 10px;
   font-family: "Nunito Sans", serif;
@@ -1043,6 +1047,52 @@ footer {
 }
 
 /* Cart End */
+
+/* Cart Menu Items Start */
+
+#cart-items li {
+  display: flex;
+  padding: .5rem;
+  border-top: 1px solid var(--very-light-grey);
+  border-bottom: 1px solid var(--very-light-gray);
+  align-items: center;
+}
+
+.cart-img-div {
+  height: 75px;
+  width: 75px;
+  min-width: 75px;
+  border: 1px solid var(--medium-tan);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: .5rem;
+}
+
+.cart-item-img {
+  background-size: contain;
+  height: 75px;
+  aspect-ratio: 1/1;
+}
+
+.cart-quantity-div {
+  margin-left: auto;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
+.cart-remove {
+  font-size: .8rem;
+  padding: .5rem 1rem;
+} 
+
+.cart-price {
+  font-family: "Nunito Sans", serif;
+  margin: .125rem 0;
+}
+
+/* Cart Menu Items End */
+
 
 /* Body Start */
 .body-cart {
