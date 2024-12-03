@@ -5,11 +5,11 @@ function displayCart() {
   let cartRewardsHtml = '';
 
   const cartHtml = `
-    <div id="cart-page">  
+    <div id="cart-page" onclick="closeCart(event, this)">  
       <div id="cart-buy">
         <div class="top-cart flex"> 
           <div class="flex">
-            <ion-icon name="close-outline" class="pointer" id="close-cart" onclick="closeCart()"></ion-icon>
+            <ion-icon name="close-outline" class="pointer" id="close-cart" onclick="closeCart(event, this, true)"></ion-icon>
           </div>
           <div class="flex" id="cart-title">
             <h2 class="weight-9">Cart</h2>
@@ -171,7 +171,11 @@ function displayCart() {
   }, 10);
 }
 
-function closeCart() {
+function closeCart(event, data, bypass) {
+  console.log(event);
+  if (bypass !== true && data !== event.target)
+    return;
+
   document.getElementById('cart-page').style.zIndex = 3;
   document.getElementById('cart-page').classList.remove('active');
   document.getElementById('cart-buy').classList.remove('active');
