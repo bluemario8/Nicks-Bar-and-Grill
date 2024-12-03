@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <script defer src="resources/js/header.js"></script>
+    <script defer src="resources/js/footer.js"></script>
+    <script defer src="resources/js/cart.js"></script>
+
+    <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <section id="cart"></section>
+    <header id="header" class="with-spacer"></header> 
+
+    <section id="checkout-main" class="section">
+        <div class="row flex">
+            <div class="checkout-container flex">
+                <div class="checkout-info flex column">
+                    <div class="checkout-personal">
+                        <h4>Personal Details</h4>
+                        <div class="input-row">
+                            <div class="fancy-input">
+                                <input type="text" id="firstName" name="firstName" placeholder="">
+                                <label for="firstName">First Name</label>
+                            </div>
+                            <div class="fancy-input">
+                                <input type="text" id="lastName" name="lastName" placeholder="">
+                                <label for="lastName">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="fancy-input">
+                                <input type="text" id="email" name="email" placeholder="">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="fancy-input">
+                                <input type="text" id="phone" name="phone" placeholder="">
+                                <label for="phone">Phone Number</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-delivery">
+                        <h4>Delivery Details</h4>
+                        <div class="input-row">
+                            <div class="fancy-input">
+                                <input type="text" id="address" name="address" placeholder="">
+                                <label for="address">Street Address</label>
+                            </div>
+                            <div class="fancy-input">
+                                <input type="text" id="address2" name="address2" placeholder="">
+                                <label for="address2">Address Line 2</label>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="fancy-input">
+                                <input type="text" id="city" name="city" placeholder="">
+                                <label for="city">City</label>
+                            </div>
+                            <div class="fancy-input">
+                                <input type="text" id="state" name="state" placeholder="">
+                                <label for="state">State / Province / Region</label>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="fancy-input">
+                                <input type="text" id="zipCode" name="zipCode" placeholder="">
+                                <label for="zipCode">Zip/Postal Code</label>
+                            </div>
+                            <!-- <div class="fancy-input">
+                                <input type="text" id="state" name="state" placeholder="">
+                                <label for="state">State / Province / Region</label>
+                            </div> -->
+                        </div>
+
+                    </div>
+                    <div class="checkout-payment"></div>
+                </div>
+                <div class="checkout-summary flex">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer"></footer>
+</body>
+</html>

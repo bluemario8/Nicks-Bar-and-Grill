@@ -163,9 +163,12 @@ function displayCart() {
 }
 
 function closeCart() {
+  document.getElementById('cart-page').style.zIndex = 3;
   document.getElementById('cart-page').classList.remove('active');
   document.getElementById('cart-buy').classList.remove('active');
   document.body.classList.remove('static');
+  setTimeout(() => { document.getElementById('cart-page').style.zIndex = 0 }, 1000);
+
 }
 
 const cart = JSON.parse(localStorage.getItem('inCart')) || []; // Initialize cart from localStorage or start empty
