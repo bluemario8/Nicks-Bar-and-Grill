@@ -28,7 +28,7 @@ function displayCart() {
           <a href="menu.html" class="right-cart center-item">Add more</a>
         </div>
         <div class="body-cart"> 
-          <div class="flex column cart-gap" id="test">
+          <div id="cart-body-desc">
             <img src="images/basic/food-plate.avif" alt="" id="food-plate-rendering">
             <p class="size-3 center-item">Still Hungry?</p>
             <p class="size-2 center-item">Let's find something you'll love!</p>
@@ -168,36 +168,40 @@ function closeCart() {
   document.body.classList.remove('static');
 }
 
-const cart = [];
+const cart = JSON.parse(localStorage.getItem('inCart')) || []; // Initialize cart from localStorage or start empty
 
 function addCart(data) {
-  // console.log(cart);
-  console.log(localStorage.getItem('inCart'));
   const item = data.parentNode.parentNode.id;
+
   for (let i = 0; i < menuItems.length; i++) {
     if (menuItems[i]['name'] === item) {
-      for (let j = 0; j < cart.length; j++) {
-        if (cart[j]['name'] === item) {
-          cart[j]['quantity'] += 1;
-          return;
+      // Check if the item already exists in the cart
+      const existingItem = cart.find(cartItem => cartItem.name === item);
+
+      if (existingItem) {
+        // Update quantity if item exists
+        existingItem.quantity += 1;
+      } else {
+        // Add new item to the cart
+        const price = menuItems[i]['price'];
+        const img = menuItems[i]['img'];
+        const name = menuItems[i]['name'];
+        const quantity = 1;
+
+        class ItemValues {
+          constructor(name, price, img, quantity) {
+            this.name = name;
+            this.price = price;
+            this.img = img;
+            this.quantity = quantity;
+          }
         }
-      }
-      const price = menuItems[i]['price'];
-      const img = menuItems[i]['img'];
-      const name = menuItems[i]['name'];
-      const quantity = 1;
-      
-      class ItemValues {
-        constructor(name, price, img, quantity) {
-          this.name = name;
-          this.price = price;
-          this.img = img;
-          this.quantity = quantity;
-        }
+        cart.push(new ItemValues(name, price, img, quantity));
       }
 
-      cart.push(new ItemValues(name, price, img, quantity));
+      // Update localStorage
       localStorage.setItem('inCart', JSON.stringify(cart));
-    };
+      return; // Exit the function after processing
+    }
   }
 }

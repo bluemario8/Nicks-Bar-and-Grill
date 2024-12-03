@@ -517,8 +517,6 @@ footer {
   background-color: var(--cream);
 }
 
-.manager {
-}
 
 .manager-add-item {
   position: relative;
@@ -1021,6 +1019,12 @@ footer {
   font-weight: 800;
 }
 
+#cart-body-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .left-cart {
   display: flex;
   justify-content: flex-start;
@@ -1208,10 +1212,6 @@ footer {
   margin: 0 auto;
   flex-direction: column;
   align-content: center;
-}
-
-.account-show-password {
-
 }
 
 
