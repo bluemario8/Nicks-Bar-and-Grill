@@ -883,7 +883,7 @@ footer {
 }
 
 .top-cart {
-  height: 8%;
+  padding: .5rem 0;
   align-items: center;
   background-color: var(--very-light-grey);
 }

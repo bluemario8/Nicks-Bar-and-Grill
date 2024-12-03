@@ -77,12 +77,15 @@ if (localStorage.getItem("menuItems") === null)
 
 // gets the menu items from the local storage's json
 let menuItems = JSON.parse(localStorage.getItem("menuItems"));
+// let cartItems = JSON.parse(localStorage.getItem("inCart"));
 
 // adds all the items to the html
 for (let item of menuItems)
 {
-    menuList.innerHTML += genMenuHtml(item);
+    menuList.innerHTML += genMenuHtml(item, 0);
 }
+
+updateMenuQuantity();
 
 // Checks if manager is not signed in and hides all manager buttons
 if (localStorage.getItem("loggedIn") !== managerObj.email)
@@ -94,7 +97,21 @@ if (localStorage.getItem("loggedIn") !== managerObj.email)
 }
 
 
-function genMenuHtml(obj) 
+function updateMenuQuantity() 
+{
+    for (let li of menuList.children) 
+    {
+        const name = li.getElementsByTagName("h4")[0].innerText;
+        for (let i = 0; i < cart.length; i++)
+        {
+            if (name === cart[i]["name"]) {
+                li.getElementsByClassName("quantity")[0].value = cart[i]["quantity"];
+            }
+        }
+    }
+}
+
+function genMenuHtml(obj, quantity) 
 { 
     return `
         <li class="${obj.catagory}" id="${obj.name}">
@@ -123,7 +140,7 @@ function genMenuHtml(obj)
             </div>
             <div>
                 <button class="btn" onclick="addCart(this)">Add to Cart</button>
-                <input type="number" value="0" class="quantity">
+                <input type="number" value="${quantity}" onchange="updateQuantity(this)" class="quantity">
                 <button class="btn btn-selected manager" onclick="editItem(this)">Edit</button>
             </div>
         </li>`;

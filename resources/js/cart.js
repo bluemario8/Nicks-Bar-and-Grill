@@ -1,4 +1,5 @@
-let cart = JSON.parse(localStorage.getItem('inCart')) || []; // Initialize cart from localStorage or start empty
+// Initialize cart from localStorage or start empty
+let cart = JSON.parse(localStorage.getItem('inCart')) || []; 
 
 function displayCart() {
   const checkLogged = localStorage.getItem('loggedIn');
@@ -197,7 +198,7 @@ function genCartItem(itemValues) {
       <div class="cart-quantity-div flex">
         <button class="btn btn-selected cart-remove">Remove</button>
         <p class="cart-price">$${itemValues.price}</p>
-        <input type="number" value="${itemValues.quantity}" class="quantity cart-quantity">
+        <input type="number" value="${itemValues.quantity}" onchange="updateQuantity(this)" class="quantity cart-quantity">
       </div>
     </li>`;
 }
@@ -211,6 +212,24 @@ class ItemValues {
       this.img = img;
       this.quantity = quantity;
   }
+}
+
+function updateQuantity(data) {
+  const li = data.parentElement.parentElement;
+  const itemName = li.getElementsByTagName("h4")[0];
+  let index = 0;
+
+  for (let i in cart) {
+    if (cart[i]["name"] === itemName) {
+      index = i;
+      break;
+    }
+  }
+
+  cart[index]["quantity"] = data.value;
+  localStorage.setItem("inCart", JSON.stringify(cart));
+
+  updateMenuQuantity();
 }
 
 function addCart(data) {
