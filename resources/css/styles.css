@@ -919,6 +919,7 @@ footer {
 }
 
 .column {
+  display: flex;
   flex-direction: column;
 }
 
@@ -964,8 +965,8 @@ footer {
 }
 
 .cart-points-outer {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border: solid;
   border-radius: 270px;
   justify-content: center;
@@ -973,8 +974,8 @@ footer {
 }
 
 .cart-points-inner {
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
   border: solid;
   border-radius: 270px;
   justify-content: center;
@@ -1496,3 +1497,76 @@ footer {
 }
 
 /* Checkout End */
+
+/* Rewards Start */
+
+#rewards-main {
+  background-color: var(--cream);
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+#rewards-head {
+  background-color: var(--darker-tan);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#points-outer-circ {
+  width: 160px;
+  height: 160px;
+  border: solid;
+  border-radius: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid black;
+}
+
+#points-inner-circ {
+  width: 140px;
+  height: 140px;
+  border: solid;
+  border-radius: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid black;
+}
+
+#align-circle {
+  margin: auto;
+  display: flex;
+}
+
+.rewards-info {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: solid 1px black;
+}
+
+.fine-print-1 {
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.rewards-text {
+  width: 800px;
+}
+
+.points-select {
+  width: 100%;
+  border: solid;
+  min-height: 130px;
+}
+
+.points-select button {
+  width: 20%;
+  height: 100%;
+}
+
+
+
+/* Rewards End */
