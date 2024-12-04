@@ -96,6 +96,17 @@ if (localStorage.getItem("loggedIn") !== managerObj.email)
     }
 }
 
+// Prevents non-numbers from being input into number inputs
+for (let input of document.getElementsByClassName("menu-items")[0].getElementsByTagName("input")) { 
+  if (input.type === "number") {
+    input.addEventListener("keypress", (e) => {
+      console.log(input)
+      if (isNaN(e.key)) 
+        e.preventDefault();
+    });
+  }
+}
+
 
 function updateMenuQuantity() 
 {
@@ -108,7 +119,6 @@ function updateMenuQuantity()
             if (name === cart[i]["name"]) 
             {
                 li.getElementsByClassName("quantity")[0].value = cart[i]["quantity"];
-                console.log(li.getElementsByClassName("quantity")[0].value)
                 inCart = true;
             }
         }
@@ -117,6 +127,9 @@ function updateMenuQuantity()
             li.getElementsByClassName("quantity")[0].value = 0;
         }
     }
+
+    if (document.getElementById("cart-page") !== null)
+        updateCartCosts();
 }
 
 function genMenuHtml(obj, quantity) 

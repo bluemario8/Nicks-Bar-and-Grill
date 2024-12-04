@@ -28,7 +28,7 @@ function displayCart() {
           </div>
         </div>
         <div class="my-order-cart flex">
-          <h5 class="left-cart center-item">My Order (0)</h5>
+          <h5 class="left-cart center-item">My Order (<a class="my-order">${cart.length}</a>)</h5>
           <a href="menu.html" class="right-cart center-item">Add more</a>
         </div>
         <ul id="cart-items">
@@ -45,15 +45,15 @@ function displayCart() {
             <div class="flex column" id="order-summary">
               <div class="flex row-1">
                 <div class="flex box-1">Subtotal</div>
-                <div class="flex">$0.00</div>
+                <div class="flex">$<a id="cart-subtotal">0.00</a></div>
               </div>
               <div class="flex row-1">
                 <div class="flex box-1">Taxes</div>
-                <div class="flex">$0.00</div>
+                <div class="flex">$<a id="cart-taxes">0.00</a></div>
               </div>
               <div class="flex row-1 total">
                 <div class="flex box-1"><p><b>Total</b></p></div>
-                <div class="flex"><p><b>$0.00</b></p></div>
+                <div class="flex"><p><b>$<a id="cart-total">0.00</a></b></p></div>
               </div>
             </div>
           </div>
@@ -169,6 +169,18 @@ function displayCart() {
     document.getElementById("cart-body-desc").remove();
   }
 
+  for (let input of document.getElementById("cart-items").getElementsByTagName("input")) {
+    if (input.type === "number") {
+      input.addEventListener("keypress", (e) => {
+        console.log(input)
+        if (isNaN(e.key)) 
+          e.preventDefault();
+      });
+    }
+  }
+
+  updateCartCosts();
+
   // We have a delay so it can load the transition properly
   setTimeout(() => {
     document.getElementById('cart-page').classList.add('active');
@@ -178,7 +190,6 @@ function displayCart() {
 }
 
 function closeCart(event, data, bypass) {
-  console.log(event);
   if (bypass !== true && data !== event.target)
     return;
 
@@ -201,7 +212,7 @@ function genCartItem(itemValues) {
         <p class="menu-desc">${itemValues.desc}</p>
       </div>
       <div class="cart-quantity-div flex">
-        <button class="btn btn-selected cart-remove">Remove</button>
+        <button onclick="removeCart(this)" class="btn btn-selected cart-remove">Remove</button>
         <p class="cart-price">$${itemValues.price}</p>
         <input type="number" value="${itemValues.quantity}" onInput="updateQuantity(this)" class="quantity cart-quantity" min="0" max="100" step="1">
       </div>
@@ -222,8 +233,8 @@ class ItemValues {
 function updateQuantity(data) {
   const li = data.parentElement.parentElement;
   const itemName = li.getElementsByTagName("h4")[0].innerText;
-  const inCart = li.parentElement.id === "cart-items";
   let index = 0;
+
 
   for (let i in cart) {
     if (cart[i]["name"] === itemName) {
@@ -231,29 +242,26 @@ function updateQuantity(data) {
       break;
     }
   }
+
   data.value = parseInt(data.value);
 
-  console.log(data.valueAsNumber);
   if (data.valueAsNumber >= 100)
     data.value = 100;
-  if (data.valueAsNumber <= 0) {
+
+  if (data.valueAsNumber < 0 || isNaN(data.valueAsNumber))
     data.value = 0;
-    if (inCart) {
-      li.remove();
-      cart.splice(index, 1);
-    }
-  }
-  else {
-    cart[index]["quantity"] = data.value;
-  }
+
+  if (cart.length > 0)
+    cart[index]["quantity"] = data.valueAsNumber;
   localStorage.setItem("inCart", JSON.stringify(cart));
 
-  console.log(data.value);
   updateMenuQuantity();
 }
 
 function addCart(data) {
   const item = data.parentNode.parentNode.id;
+  const quantityElem = data.parentElement.getElementsByClassName("quantity")[0];
+  console.log(quantityElem);
 
   for (let i = 0; i < menuItems.length; i++) {
     if (menuItems[i]['name'] === item) {
@@ -262,7 +270,7 @@ function addCart(data) {
 
       if (existingItem) {
         // Update quantity if item exists
-        existingItem.quantity += 1;
+        quantityElem.valueAsNumber++;
       } else {
         // Add new item to the cart
         const desc = menuItems[i]['desc'];
@@ -271,14 +279,42 @@ function addCart(data) {
         const name = menuItems[i]['name'];
         const quantity = 1;
 
+        quantityElem.valueAsNumber++;
         cart.push(new ItemValues(name, desc, price, img, quantity));
       }
 
       // Update localStorage
       localStorage.setItem('inCart', JSON.stringify(cart));
-      updateMenuQuantity();
+      updateQuantity(quantityElem);
 
       return; // Exit the function after processing
     }
   }
+}
+
+function removeCart(data) {
+  const name = data.parentElement.parentElement.getElementsByTagName("h4")[0].innerText;
+
+  for (let i in cart) {
+    if (cart[i]["name"] === name)
+      cart.splice(i, 1);    
+  }
+  localStorage.setItem("inCart", JSON.stringify(cart));
+  data.parentElement.parentElement.remove();
+
+  document.getElementsByClassName("my-order")[0].innerText--;
+
+  updateMenuQuantity();
+}
+
+function formatCost(num) { return (Math.round(num*100) / 100).toFixed(2); }
+
+function updateCartCosts() {
+  let subtotal = 0;
+  let taxes = 0;
+  let total = 0;
+
+   for (let item of cart) {
+
+   }
 }
