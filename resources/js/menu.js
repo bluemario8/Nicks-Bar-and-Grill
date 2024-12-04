@@ -102,11 +102,19 @@ function updateMenuQuantity()
     for (let li of menuList.children) 
     {
         const name = li.getElementsByTagName("h4")[0].innerText;
+        let inCart = false;
         for (let i = 0; i < cart.length; i++)
         {
-            if (name === cart[i]["name"]) {
+            if (name === cart[i]["name"]) 
+            {
                 li.getElementsByClassName("quantity")[0].value = cart[i]["quantity"];
+                console.log(li.getElementsByClassName("quantity")[0].value)
+                inCart = true;
             }
+        }
+        if (!inCart) 
+        {
+            li.getElementsByClassName("quantity")[0].value = 0;
         }
     }
 }
@@ -140,7 +148,7 @@ function genMenuHtml(obj, quantity)
             </div>
             <div>
                 <button class="btn" onclick="addCart(this)">Add to Cart</button>
-                <input type="number" value="${quantity}" onchange="updateQuantity(this)" class="quantity">
+                <input type="number" value="${quantity}" onInput="updateQuantity(this)" class="quantity" min="0" max="100" step="1">
                 <button class="btn btn-selected manager" onclick="editItem(this)">Edit</button>
             </div>
         </li>`;

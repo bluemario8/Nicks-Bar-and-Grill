@@ -1,6 +1,7 @@
 // Initialize cart from localStorage or start empty
 let cart = JSON.parse(localStorage.getItem('inCart')) || []; 
 
+
 function displayCart() {
   const checkLogged = localStorage.getItem('loggedIn');
   let cartRewardsHtml = '';
@@ -164,6 +165,10 @@ function displayCart() {
     cartItems.innerHTML += genCartItem(cart[i]);
   }
 
+  if (cart.length > 0) {
+    document.getElementById("cart-body-desc").remove();
+  }
+
   // We have a delay so it can load the transition properly
   setTimeout(() => {
     document.getElementById('cart-page').classList.add('active');
@@ -198,7 +203,7 @@ function genCartItem(itemValues) {
       <div class="cart-quantity-div flex">
         <button class="btn btn-selected cart-remove">Remove</button>
         <p class="cart-price">$${itemValues.price}</p>
-        <input type="number" value="${itemValues.quantity}" onchange="updateQuantity(this)" class="quantity cart-quantity">
+        <input type="number" value="${itemValues.quantity}" onInput="updateQuantity(this)" class="quantity cart-quantity" min="0" max="100" step="1">
       </div>
     </li>`;
 }
@@ -216,7 +221,8 @@ class ItemValues {
 
 function updateQuantity(data) {
   const li = data.parentElement.parentElement;
-  const itemName = li.getElementsByTagName("h4")[0];
+  const itemName = li.getElementsByTagName("h4")[0].innerText;
+  const inCart = li.parentElement.id === "cart-items";
   let index = 0;
 
   for (let i in cart) {
@@ -225,10 +231,24 @@ function updateQuantity(data) {
       break;
     }
   }
+  data.value = parseInt(data.value);
 
-  cart[index]["quantity"] = data.value;
+  console.log(data.valueAsNumber);
+  if (data.valueAsNumber >= 100)
+    data.value = 100;
+  if (data.valueAsNumber <= 0) {
+    data.value = 0;
+    if (inCart) {
+      li.remove();
+      cart.splice(index, 1);
+    }
+  }
+  else {
+    cart[index]["quantity"] = data.value;
+  }
   localStorage.setItem("inCart", JSON.stringify(cart));
 
+  console.log(data.value);
   updateMenuQuantity();
 }
 
@@ -256,6 +276,8 @@ function addCart(data) {
 
       // Update localStorage
       localStorage.setItem('inCart', JSON.stringify(cart));
+      updateMenuQuantity();
+
       return; // Exit the function after processing
     }
   }
