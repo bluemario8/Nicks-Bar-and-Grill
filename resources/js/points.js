@@ -12,7 +12,6 @@ if (userData) {
   function updatePoints(newPoints) {
     userData.points += newPoints; // Update points
     localStorage.setItem(email, JSON.stringify(userData)); // Save updated data back to localStorage
-    console.log("Updated points:", userData.points);
 
     checkPoints(); // Check which buttons should be enabled
     updatePointsDisplay(); // Update the displayed points
@@ -85,9 +84,30 @@ function checkPoints() {
 
 function checkRedeemable(data) {
   const points = userData.points;
-  btnValue = data.value;
+  let btnValue = Number(data.value);
+  let moneyOff = 0;
 
-  alert(btnValue);
+  switch(btnValue) {
+    case 2500:
+      moneyOff = 2.50;
+      break;
+    case 7500:
+      moneyOff = 7.50;
+      break;
+    case 15000:
+      moneyOff = 15.00;
+      break;
+    case 25000:
+      moneyOff = 25.00;
+      break;
+    case 50000:
+      moneyOff = 50.00;
+      break;
+  }
+
+  moneyOff = moneyOff.toFixed(2); // Makes sure the deciamls are kept
+  const pointsDisplay = document.getElementById('redeem-points-msg');
+  pointsDisplay.textContent = `Would you like to redeem ${btnValue}pts for a $${moneyOff} coupon?`;
 }
 
 updatePointsDisplay(); // Initialize the display when the page loads
