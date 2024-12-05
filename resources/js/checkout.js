@@ -1,8 +1,42 @@
 const checkoutItemsElem = document.getElementById("checkout-items");
+let userEmail = localStorage.getItem("loggedIn");
+
+if (!userEmail)
+{ 
+    window.location.href = "login.html";
+}
+
+const checkoutInfoElem = document.getElementsByClassName("checkout-info")[0];
+const checkoutInfoInputs = checkoutInfoElem.getElementsByTagName("input");
 
 addItemsToCheckout(cart);
 updateCosts("checkout");
+autoFillDetails();
 
+
+for (let elem of checkoutInfoInputs)
+{
+    elem.addEventListener("change", () => {
+        let inputted = true;
+
+        for (let elem of checkoutInfoInputs)
+        {
+            
+        }
+    })
+}
+
+
+function autoFillDetails()
+{
+    for (let elem of checkoutInfoInputs)
+    {
+        if (userData[elem.id])   
+        {
+            elem.value = userData[elem.id];
+        }
+    }
+}
 
 function addItemsToCheckout(cartObj) 
 {
@@ -28,4 +62,12 @@ function genCheckoutItems(itemObj)
             </div>
         </li>
     `;
+}
+
+function deliveryVisibility(data)
+{
+    const deliveryDiv = document.getElementsByClassName("checkout-delivery-hide")[0];
+
+    deliveryDiv.style.display = data.checked ? "" : "none";
+    updateCosts("checkout");
 }

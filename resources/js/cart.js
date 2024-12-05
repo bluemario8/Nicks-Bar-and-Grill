@@ -316,6 +316,11 @@ function updateCosts(type) {
   let totalElem;
   let deliveryElem;
 
+  let subtotal = 0;
+  let taxes = () => { return Math.round(subtotal * percentTax * 100) / 100 };
+  let delivery = 0;
+  let total = () => { return subtotal + taxes() + delivery };
+
   if (type === "cart") {
     subtotalElem = document.getElementById("cart-subtotal");
     taxesElem = document.getElementById("cart-taxes");
@@ -326,13 +331,10 @@ function updateCosts(type) {
     deliveryElem = document.getElementById("checkout-delivery");
     taxesElem = document.getElementById("checkout-taxes");
     totalElem = document.getElementById("checkout-total");
+    if (document.getElementById("delivery-checkbox").checked)
+      delivery = 10;
   }
 
-  let subtotal = 0;
-  let taxes = () => { return Math.round(subtotal * percentTax * 100) / 100 };
-  let total = () => { return subtotal + taxes() };
-  let delivery = 0;
-    
 
   for (let item of cart) {
     subtotal += Number(item["price"]) * item["quantity"];

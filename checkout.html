@@ -47,38 +47,39 @@
                     </div>
 
                     <div class="checkout-delivery">
-                        <h4>Delivery Details</h4>
-                        <div class="input-row">
-                            <div class="fancy-input">
-                                <input type="text" id="address" name="address" placeholder="">
-                                <label for="address">Street Address</label>
+                        <h4>
+                            <label for="delivery-checkbox">Delivery? </label>
+                            <input type="checkbox" onchange="deliveryVisibility(this)" id="delivery-checkbox" name="delivery-checkbox">
+                        </h4>
+                        <div class="checkout-delivery-hide">
+                            <h4>Delivery Details</h4>
+                            <div class="input-row">
+                                <div class="fancy-input">
+                                    <input type="text" id="address" name="address" placeholder="">
+                                    <label for="address">Street Address</label>
+                                </div>
+                                <div class="fancy-input">
+                                    <input type="text" id="address2" name="address2" placeholder="">
+                                    <label for="address2">Address Line 2</label>
+                                </div>
                             </div>
-                            <div class="fancy-input">
-                                <input type="text" id="address2" name="address2" placeholder="">
-                                <label for="address2">Address Line 2</label>
+                            <div class="input-row">
+                                <div class="fancy-input">
+                                    <input type="text" id="city" name="city" placeholder="">
+                                    <label for="city">City</label>
+                                </div>
+                                <div class="fancy-input">
+                                    <input type="text" id="state" name="state" placeholder="">
+                                    <label for="state">State / Province / Region</label>
+                                </div>
+                            </div>
+                            <div class="input-row">
+                                <div class="fancy-input">
+                                    <input type="text" id="zipCode" name="zipCode" placeholder="">
+                                    <label for="zipCode">Zip/Postal Code</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="input-row">
-                            <div class="fancy-input">
-                                <input type="text" id="city" name="city" placeholder="">
-                                <label for="city">City</label>
-                            </div>
-                            <div class="fancy-input">
-                                <input type="text" id="state" name="state" placeholder="">
-                                <label for="state">State / Province / Region</label>
-                            </div>
-                        </div>
-                        <div class="input-row">
-                            <div class="fancy-input">
-                                <input type="text" id="zipCode" name="zipCode" placeholder="">
-                                <label for="zipCode">Zip/Postal Code</label>
-                            </div>
-                            <!-- <div class="fancy-input">
-                                <input type="text" id="state" name="state" placeholder="">
-                                <label for="state">State / Province / Region</label>
-                            </div> -->
-                        </div>
-
                     </div>
                     <div class="checkout-payment">
                         <h4>Payment Details</h4>
@@ -86,6 +87,12 @@
                             <div class="fancy-input">
                                 <input class="long" type="text" id="card-number" name="card-number" placeholder="">
                                 <label for="card-number">Card Number</label>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="fancy-input">
+                                <input class="long" type="text" id="card-name" name="card-name" placeholder="">
+                                <label for="card-name">Full Name</label>
                             </div>
                         </div>
                         <div class="input-row">
