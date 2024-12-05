@@ -60,8 +60,8 @@ function displayCart() {
           </div>
         </div>
         <div class="footer-cart flex">
-          <button onclick="" id="checkout-btn" disabled>
-            <b>Continue</b> $0.00
+          <button onclick="window.location.href = 'checkout.html'" id="checkout-btn" class="btn" disabled>
+            <b>Continue</b> $<a id="cart-to-checkout">0.00</a>
           </button>
         </div>
       </div>
@@ -326,4 +326,17 @@ function updateCartCosts() {
   subtotalElem.innerText = formatCostToStr(subtotal); 
   taxesElem.innerText = formatCostToStr(taxes()); 
   totalElem.innerText = formatCostToStr(total()); 
+
+  enableToCheckout(total());
+}
+
+function enableToCheckout(total) {
+  const checkoutBtnElem = document.getElementById("checkout-btn");
+  const toCheckoutElem = document.getElementById("cart-to-checkout");
+  toCheckoutElem.innerText = formatCostToStr(total); 
+
+  if (total > 0)
+    checkoutBtnElem.removeAttribute("disabled");
+  else
+    checkoutBtnElem.setAttribute("disabled", "");
 }
