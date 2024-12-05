@@ -1,6 +1,7 @@
 const checkoutItemsElem = document.getElementById("checkout-items");
 
 addItemsToCheckout(cart);
+updateCosts("checkout");
 
 
 function addItemsToCheckout(cartObj) 

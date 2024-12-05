@@ -180,7 +180,7 @@ function displayCart() {
     }
   }
 
-  updateCartCosts();
+  updateCosts("cart");
 
   // We have a delay so it can load the transition properly
   setTimeout(() => {
@@ -310,14 +310,29 @@ function removeCart(data) {
 
 function formatCostToStr(num) { return (Math.round(num*100) / 100).toFixed(2); }
 
-function updateCartCosts() {
-  const subtotalElem = document.getElementById("cart-subtotal");
-  const taxesElem = document.getElementById("cart-taxes");
-  const totalElem = document.getElementById("cart-total");
+function updateCosts(type) {
+  let subtotalElem;
+  let taxesElem;
+  let totalElem;
+  let deliveryElem;
+
+  if (type === "cart") {
+    subtotalElem = document.getElementById("cart-subtotal");
+    taxesElem = document.getElementById("cart-taxes");
+    totalElem = document.getElementById("cart-total");
+  }
+  else if (type === "checkout") {
+    subtotalElem = document.getElementById("checkout-subtotal");
+    deliveryElem = document.getElementById("checkout-delivery");
+    taxesElem = document.getElementById("checkout-taxes");
+    totalElem = document.getElementById("checkout-total");
+  }
 
   let subtotal = 0;
   let taxes = () => { return Math.round(subtotal * percentTax * 100) / 100 };
   let total = () => { return subtotal + taxes() };
+  let delivery = 0;
+    
 
   for (let item of cart) {
     subtotal += Number(item["price"]) * item["quantity"];
@@ -327,13 +342,27 @@ function updateCartCosts() {
   taxesElem.innerText = formatCostToStr(taxes()); 
   totalElem.innerText = formatCostToStr(total()); 
 
-  enableToCheckout(total());
+  if (type === "cart")
+    enableToCheckout(total(), "cart");
+  else if (type === "checkout") {
+    deliveryElem.innerText = formatCostToStr(delivery); 
+    enableToCheckout(total(), "checkout");
+  }
 }
 
-function enableToCheckout(total) {
-  const checkoutBtnElem = document.getElementById("checkout-btn");
-  const toCheckoutElem = document.getElementById("cart-to-checkout");
-  toCheckoutElem.innerText = formatCostToStr(total); 
+function enableToCheckout(total, type) {
+  let checkoutBtnElem;
+  let toCheckoutElem;
+
+  if (type === "cart") {
+    checkoutBtnElem = document.getElementById("checkout-btn");
+    toCheckoutElem = document.getElementById("cart-to-checkout");
+    toCheckoutElem.innerText = formatCostToStr(total); 
+  }
+  else if (type === "checkout") {
+    console.log("checkout")
+    checkoutBtnElem = document.getElementsByClassName("checkout-place-order-btn")[0];
+  }
 
   if (total > 0)
     checkoutBtnElem.removeAttribute("disabled");
