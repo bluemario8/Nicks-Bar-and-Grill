@@ -1617,6 +1617,11 @@ footer {
   color: var(--error-red);
 }
 
+.checkout-costs {
+  border-bottom: 2px solid var(--dark-tan);
+  padding-bottom: 2rem;
+}
+
 .checkout-cost {
   display: flex;
   justify-content: space-between;
@@ -1632,6 +1637,12 @@ footer {
   width: 100%;
 }
 
+.checkout-place-order-btn:disabled {
+  background-color: var(--cream);
+  border: #91928e solid 1px;
+  color: #91928e;
+  cursor: not-allowed;
+}
 
 /* Checkout End */
 
