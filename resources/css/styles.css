@@ -33,6 +33,7 @@
   --very-light-grey: #f1f1f1;
   --very-light-gray: var(--very-light-grey);
   --light-brown: #6F4E37;
+  --winner-green: #0BDA51;
 }
 
 .black {
@@ -1615,8 +1616,8 @@ footer {
 .points-select button {
   width: 20%;
   height: 100%;
+  color: black;
+  font-size: 1.5rem;
 }
-
-
 
 /* Rewards End */
