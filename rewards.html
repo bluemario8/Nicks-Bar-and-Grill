@@ -26,13 +26,13 @@
       <div class="flex rewards-info">
         <div class="rewards-text column nunito-sans">
           <h2>How it Works?</h2>
-          <p><b>Every $1 dollar gains you 100pts!</b> Once enough points have been acumalated you can use them to redeem rewards like <b>free food or money off your order!</b> Keep building up points to unlock better rewards! Once you earn enough points you'll be able to see what corelated reward is!</p>
+          <p><b>Every $1 dollar gains you 100pts!</b> Once enough points have been acumalated you can redeem them for <b>money off your order!</b> Keep building up points to unlock better rewards! Once you earn enough points you'll be able to see what the corelated reward is!</p>
           <p class="fine-print-1">See right side for your current points.</p>
         </div>
         <div id="align-circle">
           <div id="points-outer-circ">
             <div id="points-inner-circ">
-              <h2 id="update-points"></h2>
+              <h2 id="update-points">0</h2>
             </div>
           </div>
         </div>
@@ -40,19 +40,25 @@
 
       <div class="flex">
         <div class="flex points-select">
-          <button onclick="">1000pts</button>
-          <button onclick="">2000pts</button>
-          <button onclick="">4000pts</button>
-          <button onclick="">8000pts</button>
-          <button onclick="">15000pts</button>
+          <button id="btn-2500" value="2500" onclick="checkRedeemable(this)">2500pts</button>
+          <button id="btn-7500" value="7500" onclick="checkRedeemable(this)">7500pts</button>
+          <button id="btn-15000" value="15000" onclick="checkRedeemable(this)">15000pts</button>
+          <button id="btn-25000" value="25000" onclick="checkRedeemable(this)">25000pts</button>
+          <button id="btn-50000" value="50000" onclick="checkRedeemable(this)">50000pts</button>
         </div>
       </div>
-
-      <div class="flex"></div>
     </div>
 
-    
+    <div id="redeem-pop-up">
+      <div class="redeem-header">
+        <h2>Redeem Rewards!</h2>
+      </div>
+      <h3 id="redeem-points-msg"></h3>
+      <div class="column">
+        <button>Still thinking</button>
+        <button>Yes!</button>
+      </div>
+    </div>
   </section>
-
   <footer id="footer"></footer>    
 </body>
