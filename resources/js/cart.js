@@ -343,26 +343,16 @@ function updateCosts(type) {
   totalElem.innerText = formatCostToStr(total()); 
 
   if (type === "cart")
-    enableToCheckout(total(), "cart");
+    enableToCheckout(total());
   else if (type === "checkout") {
     deliveryElem.innerText = formatCostToStr(delivery); 
-    enableToCheckout(total(), "checkout");
   }
 }
 
-function enableToCheckout(total, type) {
-  let checkoutBtnElem;
-  let toCheckoutElem;
-
-  if (type === "cart") {
-    checkoutBtnElem = document.getElementById("checkout-btn");
-    toCheckoutElem = document.getElementById("cart-to-checkout");
-    toCheckoutElem.innerText = formatCostToStr(total); 
-  }
-  else if (type === "checkout") {
-    console.log("checkout")
-    checkoutBtnElem = document.getElementsByClassName("checkout-place-order-btn")[0];
-  }
+function enableToCheckout(total) {
+  const checkoutBtnElem = document.getElementById("checkout-btn");
+  const toCheckoutElem = document.getElementById("cart-to-checkout");
+  toCheckoutElem.innerText = formatCostToStr(total); 
 
   if (total > 0)
     checkoutBtnElem.removeAttribute("disabled");
