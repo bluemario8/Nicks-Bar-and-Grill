@@ -83,8 +83,12 @@ function checkPoints() {
   }
 }
 
-// Initialize the display when the page loads
-updatePointsDisplay();
+function checkRedeemable(data) {
+  const points = userData.points;
+  btnValue = data.value;
 
-// Example usage of updating points
-updatePoints(1000); // Adds 1000 points to the current total
+  alert(btnValue);
+}
+
+updatePointsDisplay(); // Initialize the display when the page loads
+updatePoints(2500);
