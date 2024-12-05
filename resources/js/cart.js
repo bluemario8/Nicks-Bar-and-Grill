@@ -1,5 +1,6 @@
 // Initialize cart from localStorage or start empty
 let cart = JSON.parse(localStorage.getItem('inCart')) || []; 
+const percentTax = 0.06;
 
 
 function displayCart() {
@@ -307,14 +308,22 @@ function removeCart(data) {
   updateMenuQuantity();
 }
 
-function formatCost(num) { return (Math.round(num*100) / 100).toFixed(2); }
+function formatCostToStr(num) { return (Math.round(num*100) / 100).toFixed(2); }
 
 function updateCartCosts() {
+  const subtotalElem = document.getElementById("cart-subtotal");
+  const taxesElem = document.getElementById("cart-taxes");
+  const totalElem = document.getElementById("cart-total");
+
   let subtotal = 0;
-  let taxes = 0;
-  let total = 0;
+  let taxes = () => { return Math.round(subtotal * percentTax * 100) / 100 };
+  let total = () => { return subtotal + taxes() };
 
-   for (let item of cart) {
-
-   }
+  for (let item of cart) {
+    subtotal += Number(item["price"]) * item["quantity"];
+  }
+   
+  subtotalElem.innerText = formatCostToStr(subtotal); 
+  taxesElem.innerText = formatCostToStr(taxes()); 
+  totalElem.innerText = formatCostToStr(total()); 
 }
