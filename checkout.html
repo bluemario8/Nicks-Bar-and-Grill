@@ -9,6 +9,7 @@
     <script defer src="resources/js/footer.js"></script>
     <script defer src="resources/js/points.js"></script>
     <script defer src="resources/js/cart.js"></script>
+    <script defer src="resources/js/checkout.js"></script>
 
     <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -20,7 +21,7 @@
     <section id="checkout-main" class="section">
         <div class="row flex">
             <div class="checkout-container flex">
-                <div class="checkout-info flex column">
+                <div class="checkout-info checkout-section flex column">
                     <div class="checkout-personal">
                         <h4>Personal Details</h4>
                         <div class="input-row">
@@ -103,8 +104,52 @@
                         </div>
                     </div>
                 </div>
-                <div class="checkout-summary flex">
+                <div class="checkout-summary checkout-section flex column">
+                    <ul id="checkout-items" class="flex column">
+                        <li>
+                            <div class="checkout-img-div flex">
+                                <img src="http://127.0.0.1:5500/images/menu_items/chicken_burger.png" class="checkout-item-img">
+                            </div>
+                            <div class="flex column">
+                                <p class="checkout-name">Chicken Burger</p>
+                            </div>
+                            <div class="checkout-quantity-div flex column">
+                                <p class="checkout-price">Price: $<a id="checkout-price-num">9.00</a></p>
+                                <p class="checkout-quantity">Quantity: <a id="checkout-quantity-num">3</a></p>
+                            </div>
+                        </li>
+                    </ul>
 
+                    <div class="checkout-discount-code flex column">
+                        <div class="fancy-input">
+                            <input class="long" type="text" id="discount-code" name="discount-code" placeholder="">
+                            <label for="discount-code">Discount Code</label>
+                        </div>
+                        <p class="checkout-discount-valid">Invalid Code</p>
+                    </div>
+
+                    <div class="checkout-costs flex column">
+                        <div class="checkout-cost">
+                            <span>Subtotal</span>
+                            <span class="checkout-money">$<a id="checkout-subtotal">0.00</a></span>
+                        </div>
+                        <div class="checkout-delivery-div checkout-cost">
+                            <span>Delivery</span>
+                            <span class="checkout-money">$<a id="checkout-delivery">0.00</a></span>
+                        </div>
+                        <div class="checkout-cost">
+                            <span>Taxes</span>
+                            <span class="checkout-money">$<a id="checkout-taxes"></a>0.00</span>
+                        </div>
+                        <div class="checkout-cost">
+                            <strong><span>Total</span></strong>
+                            <strong><span class="checkout-money">$<a id="checkout-total"></a>0.00</span></strong>
+                        </div>
+                    </div>
+
+                    <div class="checkout-place-order">
+                        <button class="checkout-place-order-btn btn" onclick="placeOrder()" disabled>Place Order</button>
+                    </div>
                 </div>
             </div>
         </div>

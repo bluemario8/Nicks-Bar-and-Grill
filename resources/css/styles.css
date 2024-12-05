@@ -1475,13 +1475,18 @@ footer {
 .checkout-container {
   margin: 0 auto;
   font-family: "Nunito Sans", serif;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.checkout-section {
+  min-height: 800px;
+  width: 600px;
+  padding: 2rem;
 }
 
 .checkout-info {
-  height: 800px;
-  width: 600px;
   background-color: var(--cream);
-  padding: 2rem;
 }
 
 .checkout-info > div h4 {
@@ -1541,10 +1546,92 @@ footer {
 /* .checkout-delivery  */
 
 .checkout-summary {
-  height: 800px;
-  width: 600px;
   background-color: var(--medium-tan);
 }
+
+#checkout-items {
+  list-style: none;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--dark-tan);
+}
+
+#checkout-items li {
+  display: flex;
+  padding: .5rem;
+  margin: 0 2rem;
+  border-bottom: 1px solid var(--dark-tan);
+  align-items: center;
+}
+
+#checkout-items li:first-child {
+  border-top: 1px solid var(--dark-tan);
+}
+
+.checkout-img-div {
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  border: 1px solid var(--medium-tan);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-right: .5rem;
+}
+
+.checkout-item-img {
+  background-size: contain;
+  height: 40px;
+  aspect-ratio: 1/1;
+}
+
+.checkout-name {
+  font-family: "Nunito Sans", serif;
+  width: 175px;
+}
+
+.checkout-quantity-div {
+  margin-left: 2rem;
+}
+
+.checkout-quantity {
+  flex-direction: column;
+  justify-content: space-between; 
+  min-width: 100px;
+}
+
+.checkout-price {
+  font-family: "Nunito Sans", serif;
+  margin: .125rem 0;
+}
+
+.checkout-discount-code {
+  margin: 2rem 0;
+  align-items: center;
+}
+
+.checkout-discount-code .fancy-input {
+  margin-bottom: 0;
+}
+
+.checkout-discount-valid {
+  color: var(--error-red);
+}
+
+.checkout-cost {
+  display: flex;
+  justify-content: space-between;
+  margin: .25rem 0;
+}
+
+.checkout-place-order {
+  margin-top: 2rem;
+}
+
+.checkout-place-order-btn {
+  background-color: var(--cream);
+  width: 100%;
+}
+
 
 /* Checkout End */
 
