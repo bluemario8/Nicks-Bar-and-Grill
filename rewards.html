@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick's Rewards & Points</title>
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <script defer src="resources/js/points.js"></script>
+    <script defer src="resources/js/header.js"></script>
+    <script defer src="resources/js/footer.js"></script>
+    <script defer src="resources/js/menu.js"></script>
+    <script defer src="resources/js/cart.js"></script>
+
+    <script async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <header id="header" class="with-spacer"></header>
+  <section id="cart"></section>
+  <section class="flex" id="rewards-head">
+    <h1 class="nunito-sans">Nick's Rewards & Points</h1>
+  </section>
+
+  <section id="rewards-main" class="section">
+    <div class="column">
+      <div class="flex rewards-info">
+        <div class="rewards-text column nunito-sans">
+          <h2>How it Works?</h2>
+          <p><b>Every $1 dollar gains you 100pts!</b> Once enough points have been acumalated you can use them to redeem rewards like <b>free food or money off your order!</b> Keep building up points to unlock better rewards! Once you earn enough points you'll be able to see what corelated reward is!</p>
+          <p class="fine-print-1">See right side for your current points.</p>
+        </div>
+        <div id="align-circle">
+          <div id="points-outer-circ">
+            <div id="points-inner-circ">
+              <h2 id="update-points"></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="flex points-select">
+          <button onclick="">1000pts</button>
+          <button onclick="">2000pts</button>
+          <button onclick="">4000pts</button>
+          <button onclick="">8000pts</button>
+          <button onclick="">15000pts</button>
+        </div>
+      </div>
+
+      <div class="flex"></div>
+    </div>
+
+    
+  </section>
+
+  <footer id="footer"></footer>    
+</body>

@@ -13,7 +13,7 @@ let headerHtml = `
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="rewards.html">
                         <ion-icon class="nav-icon" name="ribbon-outline"></ion-icon>
                     </a>
                 </li>
