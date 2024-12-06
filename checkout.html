@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="resources/css/styles.css">
     <script defer src="resources/js/header.js"></script>
     <script defer src="resources/js/footer.js"></script>
+    <script defer src="resources/js/popup.js"></script>
     <script defer src="resources/js/points.js"></script>
     <script defer src="resources/js/cart.js"></script>
     <script defer src="resources/js/checkout.js"></script>
@@ -49,33 +50,33 @@
                     <div class="checkout-delivery">
                         <h4>
                             <label for="delivery-checkbox">Delivery? </label>
-                            <input type="checkbox" onchange="deliveryVisibility(this)" id="delivery-checkbox" name="delivery-checkbox">
+                            <input type="checkbox" onchange="deliveryVisibility(this)" id="delivery-checkbox" name="delivery-checkbox" autocomplete="off">
                         </h4>
-                        <div class="checkout-delivery-hide">
+                        <div class="checkout-delivery-hide" style="display: none">
                             <h4>Delivery Details</h4>
                             <div class="input-row">
                                 <div class="fancy-input">
-                                    <input type="text" id="address" name="address" placeholder="" required>
+                                    <input type="text" id="address" name="address" placeholder="" class="delivery" required>
                                     <label for="address">Street Address*</label>
                                 </div>
                                 <div class="fancy-input">
-                                    <input type="text" id="address2" name="address2" placeholder="">
+                                    <input type="text" id="address2" name="address2" class="delivery" placeholder="">
                                     <label for="address2">Address Line 2</label>
                                 </div>
                             </div>
                             <div class="input-row">
                                 <div class="fancy-input">
-                                    <input type="text" id="city" name="city" placeholder="" required>
+                                    <input type="text" id="city" name="city" placeholder="" class="delivery" required>
                                     <label for="city">City*</label>
                                 </div>
                                 <div class="fancy-input">
-                                    <input type="text" id="state" name="state" placeholder="" required>
+                                    <input type="text" id="state" name="state" placeholder="" class="delivery" required>
                                     <label for="state">State / Province / Region*</label>
                                 </div>
                             </div>
                             <div class="input-row">
                                 <div class="fancy-input">
-                                    <input type="text" id="zipCode" name="zipCode" placeholder="" required>
+                                    <input type="text" id="zipCode" name="zipCode" placeholder="" class="delivery" required>
                                     <label for="zipCode">Zip/Postal Code*</label>
                                 </div>
                             </div>
@@ -143,7 +144,8 @@
                     </div>
 
                     <div class="checkout-place-order">
-                        <button class="checkout-place-order-btn btn" onclick="placeOrder()" disabled>Place Order</button>
+                        <button class="checkout-place-order-btn btn" onclick="placeOrder()">Place Order</button>
+                        <p class="checkout-error">Please fill out all fields</p>
                     </div>
                 </div>
             </div>

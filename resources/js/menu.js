@@ -129,7 +129,7 @@ function updateMenuQuantity()
     }
 
     if (document.getElementById("cart-page") !== null)
-        updateCartCosts();
+        updateCosts("cart");
 }
 
 function genMenuHtml(obj, quantity) 
