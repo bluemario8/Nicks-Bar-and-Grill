@@ -1715,6 +1715,7 @@ footer {
 }
 
 #redeem-pop-up {
+  display: none;
   position: fixed;
   width: 500px;
   max-width: 500px;
@@ -1735,5 +1736,71 @@ footer {
   display: flex;
   justify-content: center;
   margin-bottom: 12px;
+}
+
+#green-btn {
+  background-color: var(--winner-green);
+}
+
+#red-btn {
+  background-color: var(--error-red);
+}
+
+.reward-btn {
+  border-radius: 30px;
+  border: none;
+  font-size: 1.2em;
+  margin-top: 10px;
+  padding: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.reward-btn:hover {
+  cursor: pointer;
+}
+
+#redeem-points-msg {
+  text-align: center;
+  display: flex;
+}
+
+#custom-p {
+  font-family: "Nunito Sans", serif;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: center;
+}
+
+#coupon-code-pop-up {
+  display: none;
+  position: fixed;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--cream);
+  z-index: 1; 
+  left: 50%; 
+  top: 50%;  
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+  padding: 40px;
+  border-radius: 20px;
+}
+
+#close-btn {
+  background-color: var(--error-red);
+  width: 100%;
+  cursor: pointer;
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  opacity: 1; /* Fully visible */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+#close-btn:hover {
+  opacity: 0.7;
 }
 /* Rewards End */
