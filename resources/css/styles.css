@@ -1503,6 +1503,14 @@ footer {
   transition: 0.2s;
 }
 
+.error-message {
+  position: absolute;
+  display: none;
+  font-size: .7rem;
+  top: 30px;
+  color: var(--error-red);
+}
+
 .long {
   width: 400px;
 }
@@ -1531,6 +1539,18 @@ footer {
 
 .fancy-input input:focus + label {
   color: var(--blue);
+}
+
+.expiration-input {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.expiration-input label {
+  position: absolute;
+  font-size: 90%;
+  top: -18px;
+  left: 0;
 }
 
 /* .checkout-delivery  */

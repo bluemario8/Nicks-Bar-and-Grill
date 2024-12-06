@@ -75,18 +75,73 @@ function deliveryVisibility(data)
     updateCosts("checkout");
 }
 
+function isValidNum(num) { return !isNaN(num) && Number.isInteger(Number(num)) }
+
 function placeOrder() 
 {
     let valid = true;
+    let showError = (input) => { 
+        let errorElem = input.parentNode.getElementsByClassName("error-message")[0];
+        valid = false;
+        if (errorElem)
+            errorElem.style.display = "block";
+    }
+    let hideError = (input) => {
+        let errorElem = input.parentNode.getElementsByClassName("error-message")[0];
+        if (errorElem)
+            errorElem.style.display = "none";
+    }
 
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+    let yearElem = document.getElementById("year");
+    let expirationYear = Number(yearElem.value);
+    let expirationMonth = Number(document.getElementById("month").value);
+
+   
     for (let input of checkoutInfoInputs)
     {
         if (input.hasAttribute("required") && input.value === "")
         {
             if (!input.classList.contains("delivery") || deliveryVisible)
-                valid = false;
+                showError(input);
+            
         }
+        else
+            hideError(input);
+        // check for specific inputs to find if they are valid
+        if (input.id === "card-number")
+            if (input.value.length < 13 || 19 < input.value.length || !isValidNum(input.value))
+                showError(input);
+            else
+                hideError(input);
+
+        if (input.id === "cvc")
+            if (input.value.length !== 3 || !isValidNum(input.value))
+                showError(input);
+            else
+                hideError(input);
+
+        if (input.id === "zip-code" || input.id === "zipCode")
+            if (input.value.length < 5 || 9 < input.value.length || !isValidNum(input.value))
+                showError(input);
+            else
+                hideError(input);
     }
+
+    // Check expiration date
+    if (expirationYear < currentYear || 
+        (expirationYear === currentYear && expirationMonth <= currentMonth)
+    )
+    {
+        showError(yearElem);
+    }
+    else
+    {
+        hideError(yearElem);
+    }
+
 
     if (valid)
     {
