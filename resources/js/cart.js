@@ -318,11 +318,13 @@ function updateCosts(type) {
   let taxesElem;
   let totalElem;
   let deliveryElem;
+  let tipElem;
 
   let subtotal = 0;
   let taxes = () => { return Math.round(subtotal * percentTax * 100) / 100 };
   let delivery = 0;
-  let total = () => { return subtotal + taxes() + delivery };
+  let tip = 0;
+  let total = () => { return (subtotal + taxes() + delivery) * (tip / 100 + 1) };
 
   if (type === "cart") {
     subtotalElem = document.getElementById("cart-subtotal");
@@ -334,8 +336,10 @@ function updateCosts(type) {
     deliveryElem = document.getElementById("checkout-delivery");
     taxesElem = document.getElementById("checkout-taxes");
     totalElem = document.getElementById("checkout-total");
+    tipElem = document.getElementById("checkout-tip");
     if (document.getElementById("delivery-checkbox").checked)
       delivery = 10;
+    tip = tipElem.valueAsNumber;
   }
 
 

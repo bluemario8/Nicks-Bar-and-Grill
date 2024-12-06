@@ -1647,6 +1647,10 @@ footer {
   font-family: "Nunito Sans", serif;
 }
 
+#checkout-tip {
+  width: 50px;
+}
+
 /* Checkout End */
 
 /* Rewards Start */

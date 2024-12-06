@@ -135,15 +135,35 @@ function displayreceipt()
 
     for (let item of cart)
     {
-        receiptStr += `<p>Item: ${item.name}, Quantity: ${item.quantity}, Total Price: $${item.quantity * item.price}</p>`;
+        receiptStr += `<p>Item: ${item.name}, Quantity: ${item.quantity}, Item(s) Price: $${item.quantity * item.price}</p>`;
     }
 
+    receiptStr += `<p>Subtotal: $${document.getElementById("checkout-subtotal").innerText}</p>`;
+    receiptStr += `<p>Delivery: $${document.getElementById("checkout-delivery").innerText}</p>`;
+    receiptStr += `<p>Taxes: $${document.getElementById("checkout-taxes").innerText}</p>`;
+    receiptStr += `<p>Tip: ${document.getElementById("checkout-tip").value}%</p>`;
+    receiptStr += `<p>Total: $${document.getElementById("checkout-total").innerText}</p>`;
 
-    console.log(receiptStr)
+
     popupElem.innerHTML = receiptPopup();
-    console.log(receiptPopup());
 
     document.body.prepend(popupElem);
 
     document.getElementsByClassName("popup-home")[0].getElementsByTagName("a")[0].focus();
+}
+
+function verifyTip(data) 
+{
+    let value = data.valueAsNumber;
+
+    if (isNaN(value))
+        value = 10;
+    else if (value < 0)
+        value = 0;
+    else if (value > 100)
+        value = 100;
+
+    data.value = value;
+
+    updateCosts("checkout");
 }

@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="fancy-input">
                                     <input type="text" id="state" name="state" placeholder="" class="delivery" required>
-                                    <label for="state">State / Province / Region*</label>
+                                    <label for="state">State*</label>
                                 </div>
                             </div>
                             <div class="input-row">
@@ -136,6 +136,10 @@
                         <div class="checkout-cost">
                             <span>Taxes</span>
                             <span class="checkout-money">$<a id="checkout-taxes"></a></span>
+                        </div>
+                        <div class="checkout-cost">
+                            <span>Tip</span>
+                            <span class="checkout-money"><input type="number" onchange="verifyTip(this)" value="10" min="0" id="checkout-tip">%</span>
                         </div>
                         <div class="checkout-cost">
                             <strong><span>Total</span></strong>
