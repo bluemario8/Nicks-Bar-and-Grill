@@ -1,5 +1,6 @@
 const checkoutItemsElem = document.getElementById("checkout-items");
 let userEmail = localStorage.getItem("loggedIn");
+let deliveryVisible = false;
 
 if (!userEmail)
 { 
@@ -8,23 +9,24 @@ if (!userEmail)
 
 const checkoutInfoElem = document.getElementsByClassName("checkout-info")[0];
 const checkoutInfoInputs = checkoutInfoElem.getElementsByTagName("input");
+const checkoutError = document.getElementsByClassName("checkout-error")[0]
 
 addItemsToCheckout(cart);
 updateCosts("checkout");
 autoFillDetails();
 
 
-for (let elem of checkoutInfoInputs)
-{
-    elem.addEventListener("change", () => {
-        let inputted = true;
+// for (let elem of checkoutInfoInputs)
+// {
+//     elem.addEventListener("change", () => {
+//         let inputted = true;
 
-        for (let elem of checkoutInfoInputs)
-        {
+//         for (let elem of checkoutInfoInputs)
+//         {
             
-        }
-    })
-}
+//         }
+//     })
+// }
 
 
 function autoFillDetails()
@@ -69,5 +71,35 @@ function deliveryVisibility(data)
     const deliveryDiv = document.getElementsByClassName("checkout-delivery-hide")[0];
 
     deliveryDiv.style.display = data.checked ? "" : "none";
+    deliveryVisible = data.checked;
     updateCosts("checkout");
+}
+
+function placeOrder() 
+{
+    let valid = true;
+
+    for (let input of checkoutInfoInputs)
+    {
+        if (input.hasAttribute("required") && input.value === "")
+        {
+            if (!input.classList.contains("delivery") || deliveryVisible)
+                valid = false;
+        }
+    }
+
+    if (valid)
+    {
+        checkoutError.style.display = "";
+        displayReciept();
+    }
+    else
+    {
+        checkoutError.style.display = "block";
+    }
+}
+
+function displayReciept() 
+{
+
 }
