@@ -13,7 +13,7 @@ class ReviewItem
 const reviewList = document.getElementById("review-list");
 const reviewFilter = document.getElementsByClassName("reviews-filter-bar")[0];
 const loggedInUser = localStorage.getItem("loggedIn");
-const userData = JSON.parse(localStorage.getItem(loggedInUser));
+// const userData = JSON.parse(localStorage.getItem(loggedInUser));
 let createReviewRating = 5;
 
 const defaultReviews =

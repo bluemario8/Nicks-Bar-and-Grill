@@ -1641,6 +1641,12 @@ footer {
   display: none;
 }
 
+.reciept-container {
+  background-color: white;
+  padding: 1rem 2rem;
+  font-family: "Nunito Sans", serif;
+}
+
 /* Checkout End */
 
 /* Rewards Start */

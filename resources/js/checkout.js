@@ -91,7 +91,7 @@ function placeOrder()
     if (valid)
     {
         checkoutError.style.display = "";
-        displayReciept();
+        displayreceipt();
     }
     else
     {
@@ -99,7 +99,31 @@ function placeOrder()
     }
 }
 
-function displayReciept() 
+function displayreceipt() 
 {
+    let receiptStr = "";
+    let receiptPopup = () => { `
+        <div class="popup-home flex">
+            <div class="popup-box flex">
+                <h3>Order Placed. Here is your receipt:</h3>
+                <div class="receipt-container flex column">
+                    ${receiptStr}
+                    <p>First Name: <a class="firstName">abc</a></p>
+                    <p>Last Name: <a class="lastName">abc</a></p>
+                </div>
+                <a href="index.html" class="btn large-text">Home</a>
+            </div>
+        </div>`; }
 
+    for (let input of checkoutInfoInputs)
+    {
+        if ((!input.classList.contains("delivery") || deliveryVisible) && input.type === "text")
+            receiptStr += `<p>${input.parentElement.getElementsByTagName("label")[0].innerText.replace("*", "")}: ${input.value}</p>`;
+    }
+
+    console.log(receiptStr)
+
+    document.body.prepend(popupElem);
+
+    document.getElementsByClassName("popup-home")[0].getElementsByTagName("a")[0].focus();
 }
