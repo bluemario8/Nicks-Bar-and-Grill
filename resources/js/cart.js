@@ -173,7 +173,7 @@ function displayCart() {
   }
 
   if (cart.length > 0) {
-    document.getElementById("cart-body-desc").remove();
+    document.getElementById("cart-body-desc").style.display = "none";
   }
 
   for (let input of document.getElementById("cart-items").getElementsByTagName("input")) {
@@ -311,6 +311,10 @@ function removeCart(data) {
   data.parentElement.parentElement.remove();
 
   document.getElementsByClassName("my-order")[0].innerText--;
+
+  if (cart.length <= 0)
+    document.getElementById("cart-body-desc").style.display = "block";
+
 
   updateMenuQuantity();
 }
