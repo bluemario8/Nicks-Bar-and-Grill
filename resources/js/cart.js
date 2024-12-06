@@ -2,9 +2,9 @@
 let cart = JSON.parse(localStorage.getItem('inCart')) || []; 
 const percentTax = 0.06;
 
-function updateCartPoints(points) {
+function updateCartPoints() {
   const cartPoints = document.getElementById('rewards-points-cart');
-  cartPoints.textContent = points;
+  cartPoints.textContent = userData.points;
 }
 
 function displayCart() {
@@ -187,6 +187,7 @@ function displayCart() {
   }
 
   updateCosts("cart");
+  updateCartPoints();
 
   // We have a delay so it can load the transition properly
   setTimeout(() => {

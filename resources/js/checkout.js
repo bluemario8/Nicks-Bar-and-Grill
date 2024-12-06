@@ -166,7 +166,7 @@ function calculatePoints(total) {
     points = total * 100;
     points = Number(points.toFixed(0));
   
-    updateCartPoints(points);
+    // updateCartPoints(points);
     updatePoints(points);
   }
 
