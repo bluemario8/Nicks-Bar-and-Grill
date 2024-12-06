@@ -94,26 +94,32 @@ if (userData) {
         break;
     }
 
-    // Check if the coupon is already active
-    if (userData.coupons[couponCode] === 'active') {
-      const alreadyRedeemedMsg = document.getElementById('redeem-points-msg');
-      alreadyRedeemedMsg.style.display = 'block'
-      alreadyRedeemedMsg.textContent = `You have already redeemed the ${couponCode} coupon.`;
-      return;
-    }
-
-    moneyOff = moneyOff.toFixed(2); // Ensure two decimal points
-    const pointsDisplay = document.getElementById('redeem-points-msg');
-    pointsDisplay.textContent = `Would you like to redeem ${btnValue}pts for a $${moneyOff} coupon code?`;
-
     // Getting related ids
     const redeemPopUpLoc = document.getElementById('redeem-pop-up');
     const couponPopUpLoc = document.getElementById('coupon-code-pop-up');
     const yesBtn = document.getElementById('green-btn');
     const couponMsg = document.getElementById('coupon-code-msg');
     const closeBtn = document.getElementById('close-btn');
+    const pointsDisplay = document.getElementById('redeem-points-msg');
+    const infoMsg = document.getElementById('custom-p');
+    const noBtn = document.getElementById('red-btn');
 
+    // Check if the coupon is already active
+    if (userData.coupons[couponCode] === 'active') {
+      pointsDisplay.textContent = `"${couponCode}" coupon is already active. Use it before redeeming this again.`;
+      redeemPopUpLoc.style.display = 'block';
+      yesBtn.style.display = 'none';
+      infoMsg.style.display = 'none';
+      noBtn.textContent = 'Close pop up';
+      return;
+    }
+
+    moneyOff = moneyOff.toFixed(2); // Ensure two decimal points
+    pointsDisplay.textContent = `Would you like to redeem ${btnValue}pts for a $${moneyOff} coupon code?`;
     redeemPopUpLoc.style.display = 'block';
+    yesBtn.style.display = 'block';
+    infoMsg.style.display = 'flex';
+    noBtn.textContent = 'Still thinking';
 
     yesBtn.addEventListener('click', () => {
       redeemPopUpLoc.style.display = 'none';
