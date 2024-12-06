@@ -1167,8 +1167,24 @@ footer {
 
 .static {
   overflow: hidden;
+} 
+
+#checkout-btn {
+  border-radius: 50px;
+  padding: .75rem 0;
+  width: 100%;
+  background-color: var(--medium-tan);
+  border: none;
+  color: var(--dark-brown);
+  font-size: 1.2em;
 }
 
+#checkout-btn:disabled {
+  background-color: var(--very-light-grey);
+  border: #cdcfca solid 1px;
+  color: #cdcfca;
+  cursor: not-allowed;
+}
 
 /* Footer end */
 
