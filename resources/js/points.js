@@ -94,6 +94,14 @@ if (userData) {
         break;
     }
 
+    // Check if the coupon is already active
+    if (userData.coupons[couponCode] === 'active') {
+      const alreadyRedeemedMsg = document.getElementById('redeem-points-msg');
+      alreadyRedeemedMsg.style.display = 'block'
+      alreadyRedeemedMsg.textContent = `You have already redeemed the ${couponCode} coupon.`;
+      return;
+    }
+
     moneyOff = moneyOff.toFixed(2); // Ensure two decimal points
     const pointsDisplay = document.getElementById('redeem-points-msg');
     pointsDisplay.textContent = `Would you like to redeem ${btnValue}pts for a $${moneyOff} coupon code?`;
@@ -137,4 +145,5 @@ if (userData) {
   // Initialize the display when the page loads
   updatePointsDisplay();
   checkPoints();
+  updatePoints(1000);
 }
