@@ -301,13 +301,26 @@ function editItem(data)
         {
             if (menuItems[index].name === baseId)
             {
-                menuItems[index].name = divs.titleDiv.children[1].value;
-                menuItems[index].desc = divs.descDiv.children[1].value;
-                menuItems[index].price = divs.priceDiv.children[1].value;
-                menuItems[index].img = divs.imgDiv.children[1].value;
-                menuItems[index].catagory = cataDiv.children[1].value;
+                let item = new MenuItem(
+                    menuItems[index].name = divs.titleDiv.children[1].value,
+                    menuItems[index].desc = divs.descDiv.children[1].value,
+                    menuItems[index].price = divs.priceDiv.children[1].value,
+                    menuItems[index].img = divs.imgDiv.children[1].value,
+                    menuItems[index].catagory = cataDiv.children[1].value
+                )
+                menuItems.splice(index, 1);
 
-                localStorage.setItem("menuItems", JSON.stringify(menuItems));
+                // add the item at the start of that catagory
+                for (let i in menuItems)
+                {
+                    if (menuItems[i].catagory === item.catagory)
+                    {
+                        menuItems.splice(i, 0, item);
+                        localStorage.setItem("menuItems", JSON.stringify(menuItems));
+                        location.reload();
+                        break;
+                    }
+                }
                 break;
             }
         }
