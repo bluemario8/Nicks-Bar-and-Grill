@@ -91,6 +91,7 @@ function placeOrder()
     if (valid)
     {
         checkoutError.style.display = "";
+        localStorage.removeItem("inCart");
         displayreceipt();
     }
     else
@@ -101,27 +102,46 @@ function placeOrder()
 
 function displayreceipt() 
 {
+    let popupElemExist = document.getElementsByClassName("popup-home");
+    let popupElem = document.createElement("div");
+
+    if (popupElemExist.length >= 1)
+        return;
+
+    popupElem.classList = "popup-home flex";
+
     let receiptStr = "";
-    let receiptPopup = () => { `
+    let receiptPopup = () => { return `
         <div class="popup-home flex">
             <div class="popup-box flex">
                 <h3>Order Placed. Here is your receipt:</h3>
                 <div class="receipt-container flex column">
                     ${receiptStr}
-                    <p>First Name: <a class="firstName">abc</a></p>
-                    <p>Last Name: <a class="lastName">abc</a></p>
                 </div>
                 <a href="index.html" class="btn large-text">Home</a>
             </div>
         </div>`; }
 
-    for (let input of checkoutInfoInputs)
+    // for (let input of checkoutInfoInputs)
+    // {
+    //     if ((!input.classList.contains("delivery") || deliveryVisible) && input.type === "text")
+    //         receiptStr += `<p>${input.parentElement.getElementsByTagName("label")[0].innerText.replace("*", "")}: ${input.value}</p>`;
+    // }
+
+    receiptStr += `<p>First Name: ${document.getElementById("firstName").value}</p>`;
+    receiptStr += `<p>Last Name: ${document.getElementById("lastName").value}</p>`;
+    let date = new Date();
+    receiptStr += `<p>Date of purchase: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>`;
+
+    for (let item of cart)
     {
-        if ((!input.classList.contains("delivery") || deliveryVisible) && input.type === "text")
-            receiptStr += `<p>${input.parentElement.getElementsByTagName("label")[0].innerText.replace("*", "")}: ${input.value}</p>`;
+        receiptStr += `<p>Item: ${item.name}, Quantity: ${item.quantity}, Total Price: $${item.quantity * item.price}</p>`;
     }
 
+
     console.log(receiptStr)
+    popupElem.innerHTML = receiptPopup();
+    console.log(receiptPopup());
 
     document.body.prepend(popupElem);
 

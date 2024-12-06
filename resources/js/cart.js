@@ -4,6 +4,9 @@ const percentTax = 0.06;
 
 
 function displayCart() {
+  if (window.location.pathname === "/checkout.html")
+    window.location.href = "menu.html";
+
   const checkLogged = localStorage.getItem('loggedIn');
   let cartRewardsHtml = '';
 
