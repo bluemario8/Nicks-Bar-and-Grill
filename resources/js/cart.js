@@ -332,7 +332,7 @@ function updateCosts(type) {
   let taxes = () => { return Math.round(subtotal * percentTax * 100) / 100 };
   let delivery = 0;
   let tip = 0;
-  let total = () => { return (subtotal + taxes() + delivery) * (tip / 100 + 1) };
+  let total = () => { return Math.round( (subtotal + taxes() + delivery) * (tip / 100 + 1) * 100 ) / 100 };
 
   if (type === "cart") {
     subtotalElem = document.getElementById("cart-subtotal");
@@ -363,6 +363,7 @@ function updateCosts(type) {
     enableToCheckout(total());
   else if (type === "checkout") {
     deliveryElem.innerText = formatCostToStr(delivery); 
+    document.getElementById("checkout-points").innerText = Math.round(total() * 100);
   }
 }
 

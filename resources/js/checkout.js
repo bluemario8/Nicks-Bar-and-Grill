@@ -172,7 +172,7 @@ function displayreceipt()
     let receiptPopup = () => { return `
         <div class="popup-home flex">
             <div class="popup-box flex">
-                <h3>Order Placed. Here is your receipt:</h3>
+                <h3 class="checkout-popup-h">Order Placed. Here is your receipt:</h3>
                 <div class="receipt-container flex column">
                     ${receiptStr}
                 </div>
@@ -201,6 +201,7 @@ function displayreceipt()
     receiptStr += `<p>Taxes: $${document.getElementById("checkout-taxes").innerText}</p>`;
     receiptStr += `<p>Tip: ${document.getElementById("checkout-tip").value}%</p>`;
     receiptStr += `<p>Total: $${document.getElementById("checkout-total").innerText}</p>`;
+    receiptStr += `<p>Points Earned: ${Math.round(document.getElementById("checkout-total").innerText * 100)}</p>`;
 
 
     popupElem.innerHTML = receiptPopup();

@@ -1659,6 +1659,11 @@ footer {
   margin: .25rem 0;
 }
 
+.checkout-points-display {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
 .checkout-place-order {
   margin-top: 2rem;
 }
@@ -1679,6 +1684,10 @@ footer {
   color: var(--error-red);
   text-align: center;
   display: none;
+}
+
+.checkout-popup-h {
+  margin-bottom: 1rem;
 }
 
 .receipt-container {
