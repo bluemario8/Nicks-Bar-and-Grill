@@ -90,6 +90,9 @@ function placeOrder()
 
     if (valid)
     {
+        const totalLoc = document.getElementById('checkout-total');
+        const total = totalLoc.innerText;
+        calculatePoints(total);
         checkoutError.style.display = "";
         localStorage.removeItem("inCart");
         displayreceipt();
@@ -146,11 +149,26 @@ function displayreceipt()
 
 
     popupElem.innerHTML = receiptPopup();
-
     document.body.prepend(popupElem);
-
     document.getElementsByClassName("popup-home")[0].getElementsByTagName("a")[0].focus();
 }
+
+function calculatePoints(total) {
+    let userEmail = localStorage.getItem("loggedIn");
+    let userData = JSON.parse(localStorage.getItem(userEmail));
+  
+    if (userData.points === undefined) {
+      userData.points = 0;
+    }
+
+    if (total === 0) return;
+
+    points = total * 100;
+    points = Number(points.toFixed(0));
+  
+    updateCartPoints(points);
+    updatePoints(points);
+  }
 
 function verifyTip(data) 
 {
