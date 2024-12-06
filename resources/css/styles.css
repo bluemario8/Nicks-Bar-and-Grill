@@ -567,6 +567,16 @@ footer {
   padding: 1rem 4rem;
 }
 
+.add-item-price-div {
+  position: relative;
+}
+
+.add-item-price-sign {
+  position: absolute;
+  left: 162px;
+}
+
+
 .menu-sort {
   margin: 0 4rem;
   margin-bottom: 2rem;

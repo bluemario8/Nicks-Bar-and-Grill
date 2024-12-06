@@ -141,7 +141,13 @@ function genMenuHtml(obj, quantity)
             </button>
             <div style="display: none" class="menu-input-cata-div">
                 <a class="nunito-sans">Catagory: </a>
-                <input class="menu-input-cata" value="${obj.catagory}">
+                <select class="menu-input-cata" value="${obj.catagory}">
+                    <option value="entree"${obj.catagory === 'entree' ? ' selected' : ""}>Entrée</option>
+                    <option value="side"${obj.catagory === 'side' ? ' selected' : ""}>Sides</option>
+                    <option value="drink"${obj.catagory === 'drink' ? ' selected' : ""}>Drinks</option>
+                    <option value="alcohol"${obj.catagory === 'alcohol' ? ' selected' : ""}>Alcohol</option>
+                    <option value="desert"${obj.catagory === 'desert' ? ' selected' : ""}>Desert</option>
+                </select>
             </div>
             <div class="menu-img-div">
                 <img src="${obj.img}">

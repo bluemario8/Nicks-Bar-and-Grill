@@ -34,14 +34,22 @@
                         <label for="idesc">Item Description: </label>
                         <input type="text" id="idesc" name="idesc" value="" required> 
                         <br>
-                        <label for="iprice">Item Price: </label>
-                        <input type="text" id="iprice" name="iprice" value="" required> 
-                        <br>
+                        <div class="add-item-price-div">
+                            <label for="iprice">Item Price: </label>
+                            <span class="add-item-price-sign">$</span>
+                            <input type="text" id="iprice" name="iprice" value="" required> 
+                        </div>
                         <label for="iurl">Item Image URL: </label>
                         <input type="text" id="iurl" name="iurl" value="" required> 
                         <br>
                         <label for="icata">Item Catagory: </label>
-                        <input type="text" id="icata" name="icata" value="" required> 
+                        <select id="icata" name="icata" required>
+                            <option value="entree">Entrée</option>
+                            <option value="side">Sides</option>
+                            <option value="drink">Drinks</option>
+                            <option value="alcohol">Alcohol</option>
+                            <option value="desert">Desert</option>
+                        </select>
                         <br>
                         
                         <input type="submit" class="btn btn-selected" onclick="addItem(this)" value="Submit">
