@@ -47,6 +47,10 @@
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Font weights */ 
 .weight-1 {
   font-weight: 100;

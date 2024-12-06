@@ -2,13 +2,16 @@
 let cart = JSON.parse(localStorage.getItem('inCart')) || []; 
 const percentTax = 0.06;
 
+function updateCartPoints(points) {
+  const cartPoints = document.getElementById('rewards-points-cart');
+  cartPoints.textContent = points;
+}
 
 function displayCart() {
   if (window.location.pathname === "/checkout.html")
     window.location.href = "menu.html";
 
   const checkLogged = localStorage.getItem('loggedIn');
-  let cartRewardsHtml = '';
 
   const cartHtml = `
     <div id="cart-page" onclick="closeCart(event, this)">  
@@ -146,7 +149,7 @@ function displayCart() {
         <div class="rewards-cart-login flex column">
           <div class="cart-points-outer flex">
             <div class="cart-points-inner flex">
-              <p>100pts</p> <!-- Make this current points -->
+              <p id="rewards-points-cart"></p> <!-- Make this current points -->
             </div>
           </div>
         </div>
@@ -364,3 +367,4 @@ function enableToCheckout(total) {
   else
     checkoutBtnElem.setAttribute("disabled", "");
 }
+

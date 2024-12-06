@@ -151,5 +151,4 @@ if (userData) {
   // Initialize the display when the page loads
   updatePointsDisplay();
   checkPoints();
-  updatePoints(1000);
 }
