@@ -1655,7 +1655,7 @@ footer {
   margin-bottom: 0;
 }
 
-.checkout-discount-valid {
+#checkout-discount-valid {
   color: var(--error-red);
 }
 

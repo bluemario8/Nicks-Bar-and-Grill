@@ -272,3 +272,44 @@ function verifyTip(data)
 
     updateCosts("checkout");
 }
+
+let typingTimer; // Timer identifier
+const couponCode = document.getElementById('discount-code'); // Replace with your input field ID
+
+// Event listener for input or keyup
+couponCode.addEventListener('input', () => {
+  clearTimeout(typingTimer); // Clear the timer if the user keeps typing
+  typingTimer = setTimeout(() => {
+    onTypingDone(couponCode.value); // Call the function when the user is done typing
+  }, 500);
+});
+
+// Function to handle the "done typing" logic
+function onTypingDone(value) {
+    if (value === 'moneyoff' || value === 'bigbucks' || value === '15bucks' || value === '25more' || value === 'bigsavings') {
+        checkActive();
+    } else {
+        invalidCode() 
+    }
+}
+
+function checkActive() {
+    
+}
+
+function validCode() {
+    const codeValidity = document.getElementById('checkout-discount-valid');
+
+    codeValidity.style.color = 'var(--winner-green)'
+    codeValidity.style.fontWeight = '700';
+    codeValidity.textContent = 'Valid Code';
+}
+
+function invalidCode() {
+    const codeValidity = document.getElementById('checkout-discount-valid');
+
+    codeValidity.style.color = 'var(--error-red)'
+    codeValidity.textContent = 'Invalid Code';
+}
+
+
