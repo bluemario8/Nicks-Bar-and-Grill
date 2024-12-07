@@ -45,7 +45,7 @@ function displayCart() {
             <img src="images/basic/food-plate.avif" alt="" id="food-plate-rendering">
             <p class="size-3 center-item">Still Hungry?</p>
             <p class="size-2 center-item">Let's find something you'll love!</p>
-            <button id="keep-ordering" class="center-item">Keep Ordering</button>
+            <button id="keep-ordering" class="center-item" onclick="window.location.href = 'menu.html'">Keep Ordering</button>
           </div>
           <div class="flex space-between wrapper-cart-body">
             <p><b>Summary</b></p>
