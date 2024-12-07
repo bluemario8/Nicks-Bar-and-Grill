@@ -103,6 +103,10 @@ if (userData) {
     const pointsDisplay = document.getElementById('redeem-points-msg');
     const infoMsg = document.getElementById('custom-p');
     const noBtn = document.getElementById('red-btn');
+    const overlay = document.getElementById('overlay');
+
+    overlay.style.display = 'block'; 
+    setTimeout(() => overlay.classList.add('active'), 10); // Activates the transition
 
     // Check if the coupon is already active
     if (userData.coupons[couponCode] === 'active') {
@@ -128,13 +132,18 @@ if (userData) {
       // Update coupon status to active
       userData.coupons[couponCode] = 'active';
       localStorage.setItem(email, JSON.stringify(userData));
+      // Updates points
+      userData.points -= btnValue;
+      localStorage.setItem(email, JSON.stringify(userData));
 
       couponMsg.textContent = `Code: ${couponCode}`;
 
       closeBtn.addEventListener('click', () => {
-        userData.points -= btnValue;
-        localStorage.setItem(email, JSON.stringify(userData));
         couponPopUpLoc.style.display = 'none';
+        overlay.classList.remove('active'); // Remove the active class to trigger fade out
+        setTimeout(() => {
+          overlay.style.display = 'none'; // Hide the element after the transition
+        }, 500); 
         window.location.reload(); // Refresh the page
       });
     });
@@ -145,6 +154,10 @@ if (userData) {
     const popUpLoc = document.getElementById('redeem-pop-up');
     if (popUpLoc) {
       popUpLoc.style.display = 'none';
+      overlay.classList.remove('active'); // Remove the active class to trigger fade out
+      setTimeout(() => {
+        overlay.style.display = 'none'; // Hide the element after the transition
+      }, 500); 
     }
   }
 
