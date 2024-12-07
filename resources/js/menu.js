@@ -100,7 +100,6 @@ if (localStorage.getItem("loggedIn") !== managerObj.email)
 for (let input of document.getElementsByClassName("menu-items")[0].getElementsByTagName("input")) { 
   if (input.type === "number") {
     input.addEventListener("keypress", (e) => {
-      console.log(input)
       if (isNaN(e.key)) 
         e.preventDefault();
     });
@@ -141,7 +140,13 @@ function genMenuHtml(obj, quantity)
             </button>
             <div style="display: none" class="menu-input-cata-div">
                 <a class="nunito-sans">Catagory: </a>
-                <input class="menu-input-cata" value="${obj.catagory}">
+                <select class="menu-input-cata" value="${obj.catagory}">
+                    <option value="entree"${obj.catagory === 'entree' ? ' selected' : ""}>Entrée</option>
+                    <option value="side"${obj.catagory === 'side' ? ' selected' : ""}>Sides</option>
+                    <option value="drink"${obj.catagory === 'drink' ? ' selected' : ""}>Drinks</option>
+                    <option value="alcohol"${obj.catagory === 'alcohol' ? ' selected' : ""}>Alcohol</option>
+                    <option value="desert"${obj.catagory === 'desert' ? ' selected' : ""}>Desert</option>
+                </select>
             </div>
             <div class="menu-img-div">
                 <img src="${obj.img}">
@@ -295,13 +300,26 @@ function editItem(data)
         {
             if (menuItems[index].name === baseId)
             {
-                menuItems[index].name = divs.titleDiv.children[1].value;
-                menuItems[index].desc = divs.descDiv.children[1].value;
-                menuItems[index].price = divs.priceDiv.children[1].value;
-                menuItems[index].img = divs.imgDiv.children[1].value;
-                menuItems[index].catagory = cataDiv.children[1].value;
+                let item = new MenuItem(
+                    menuItems[index].name = divs.titleDiv.children[1].value,
+                    menuItems[index].desc = divs.descDiv.children[1].value,
+                    menuItems[index].price = divs.priceDiv.children[1].value,
+                    menuItems[index].img = divs.imgDiv.children[1].value,
+                    menuItems[index].catagory = cataDiv.children[1].value
+                )
+                menuItems.splice(index, 1);
 
-                localStorage.setItem("menuItems", JSON.stringify(menuItems));
+                // add the item at the start of that catagory
+                for (let i in menuItems)
+                {
+                    if (menuItems[i].catagory === item.catagory)
+                    {
+                        menuItems.splice(i, 0, item);
+                        localStorage.setItem("menuItems", JSON.stringify(menuItems));
+                        location.reload();
+                        break;
+                    }
+                }
                 break;
             }
         }

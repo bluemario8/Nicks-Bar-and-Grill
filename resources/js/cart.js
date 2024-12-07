@@ -2,9 +2,9 @@
 let cart = JSON.parse(localStorage.getItem('inCart')) || []; 
 const percentTax = 0.06;
 
-function updateCartPoints(points) {
+function updateCartPoints() {
   const cartPoints = document.getElementById('rewards-points-cart');
-  cartPoints.textContent = points;
+  cartPoints.textContent = userData.points;
 }
 
 function displayCart() {
@@ -28,11 +28,11 @@ function displayCart() {
         <div id="rewards-cart" class="rewards-cart flex"></div>
         <div class="delivery-pickup-cart flex">
           <div class="flex column">
-            <h5>In Store Pickup</h5>
+            <h5>In Store Pickup Or Delivery</h5>
             <h7>2456 Nick's Boulevard, Lancaster, PA 17062</h7>
+            <h7>Choose At Checkout</h7>
           </div>
           <div class="center-item">
-            <a id="delivery-click" href="#">Delivery</a>
           </div>
         </div>
         <div class="my-order-cart flex">
@@ -104,7 +104,6 @@ function displayCart() {
       `;
       break;
     case null:
-      console.log('not signed in');
       cartRewardsHtml = `
         <div class="rewards-cart-split column">
           <div class="rewards-cart-header">
@@ -131,7 +130,6 @@ function displayCart() {
       `;
       break;
     default:
-      console.log('signed in');
       cartRewardsHtml = `
         <div class="rewards-cart-split column">
           <div class="rewards-cart-header">
@@ -174,13 +172,12 @@ function displayCart() {
   }
 
   if (cart.length > 0) {
-    document.getElementById("cart-body-desc").remove();
+    document.getElementById("cart-body-desc").style.display = "none";
   }
 
   for (let input of document.getElementById("cart-items").getElementsByTagName("input")) {
     if (input.type === "number") {
       input.addEventListener("keypress", (e) => {
-        console.log(input)
         if (isNaN(e.key)) 
           e.preventDefault();
       });
@@ -188,6 +185,7 @@ function displayCart() {
   }
 
   updateCosts("cart");
+  updateCartPoints();
 
   // We have a delay so it can load the transition properly
   setTimeout(() => {
@@ -241,7 +239,7 @@ class ItemValues {
 function updateQuantity(data) {
   const li = data.parentElement.parentElement;
   const itemName = li.getElementsByTagName("h4")[0].innerText;
-  let index = 0;
+  let index = undefined;
 
 
   for (let i in cart) {
@@ -252,6 +250,12 @@ function updateQuantity(data) {
   }
 
   data.value = parseInt(data.value);
+
+  if (index === undefined) {
+    data.value = 0;
+    addCart(data);
+    return;
+  }
 
   if (data.valueAsNumber >= 100)
     data.value = 100;
@@ -269,7 +273,6 @@ function updateQuantity(data) {
 function addCart(data) {
   const item = data.parentNode.parentNode.id;
   const quantityElem = data.parentElement.getElementsByClassName("quantity")[0];
-  console.log(quantityElem);
 
   for (let i = 0; i < menuItems.length; i++) {
     if (menuItems[i]['name'] === item) {
@@ -312,6 +315,10 @@ function removeCart(data) {
 
   document.getElementsByClassName("my-order")[0].innerText--;
 
+  if (cart.length <= 0)
+    document.getElementById("cart-body-desc").style.display = "block";
+
+
   updateMenuQuantity();
 }
 
@@ -322,11 +329,13 @@ function updateCosts(type) {
   let taxesElem;
   let totalElem;
   let deliveryElem;
+  let tipElem;
 
   let subtotal = 0;
   let taxes = () => { return Math.round(subtotal * percentTax * 100) / 100 };
   let delivery = 0;
-  let total = () => { return subtotal + taxes() + delivery };
+  let tip = 0;
+  let total = () => { return Math.round( (subtotal + taxes() + delivery) * (tip / 100 + 1) * 100 ) / 100 };
 
   if (type === "cart") {
     subtotalElem = document.getElementById("cart-subtotal");
@@ -338,8 +347,10 @@ function updateCosts(type) {
     deliveryElem = document.getElementById("checkout-delivery");
     taxesElem = document.getElementById("checkout-taxes");
     totalElem = document.getElementById("checkout-total");
+    tipElem = document.getElementById("checkout-tip");
     if (document.getElementById("delivery-checkbox").checked)
       delivery = 10;
+    tip = tipElem.valueAsNumber;
   }
 
 
@@ -355,6 +366,7 @@ function updateCosts(type) {
     enableToCheckout(total());
   else if (type === "checkout") {
     deliveryElem.innerText = formatCostToStr(delivery); 
+    document.getElementById("checkout-points").innerText = Math.round(total() * 100);
   }
 }
 

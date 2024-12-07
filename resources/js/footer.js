@@ -5,10 +5,10 @@ let footerHtml = `
                 <a href="menu.html">Menu</a>
             </li>
             <li>
-                <a href="#">Rewards</a>
+                <a href="rewards.html">Rewards</a>
             </li>
             <li>
-                <a href="#">Reviews</a>
+                <a href="reviews.html">Reviews</a>
             </li>
         </ul>
         <ul class="footer-list flex flex-right">

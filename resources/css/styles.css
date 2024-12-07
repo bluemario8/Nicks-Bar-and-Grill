@@ -567,6 +567,16 @@ footer {
   padding: 1rem 4rem;
 }
 
+.add-item-price-div {
+  position: relative;
+}
+
+.add-item-price-sign {
+  position: absolute;
+  left: 162px;
+}
+
+
 .menu-sort {
   margin: 0 4rem;
   margin-bottom: 2rem;
@@ -1167,8 +1177,24 @@ footer {
 
 .static {
   overflow: hidden;
+} 
+
+#checkout-btn {
+  border-radius: 50px;
+  padding: .75rem 0;
+  width: 100%;
+  background-color: var(--medium-tan);
+  border: none;
+  color: var(--dark-brown);
+  font-size: 1.2em;
 }
 
+#checkout-btn:disabled {
+  background-color: var(--very-light-grey);
+  border: #cdcfca solid 1px;
+  color: #cdcfca;
+  cursor: not-allowed;
+}
 
 /* Footer end */
 
@@ -1503,6 +1529,14 @@ footer {
   transition: 0.2s;
 }
 
+.error-message {
+  position: absolute;
+  display: none;
+  font-size: .7rem;
+  top: 30px;
+  color: var(--error-red);
+}
+
 .long {
   width: 400px;
 }
@@ -1533,9 +1567,22 @@ footer {
   color: var(--blue);
 }
 
+.expiration-input {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.expiration-input label {
+  position: absolute;
+  font-size: 90%;
+  top: -18px;
+  left: 0;
+}
+
 /* .checkout-delivery  */
 
-#delivery-checkbox {
+#delivery-checkbox,
+#cash-checkbox {
   width: 18px;
   height: 18px;
 }
@@ -1623,6 +1670,11 @@ footer {
   margin: .25rem 0;
 }
 
+.checkout-points-display {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
 .checkout-place-order {
   margin-top: 2rem;
 }
@@ -1645,10 +1697,18 @@ footer {
   display: none;
 }
 
+.checkout-popup-h {
+  margin-bottom: 1rem;
+}
+
 .receipt-container {
   background-color: white;
   padding: 1rem 2rem;
   font-family: "Nunito Sans", serif;
+}
+
+#checkout-tip {
+  width: 50px;
 }
 
 /* Checkout End */

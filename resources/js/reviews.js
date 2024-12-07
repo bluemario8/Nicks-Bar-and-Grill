@@ -230,11 +230,11 @@ function submitReview(data)
     if (!loggedIn)
         return;
 
-    const date = new Date;
+    const date = new Date();
     // review has name, date, rating, comment, and email
     const review = new ReviewItem(
         userData["firstName"] + ' ' +  userData["lastName"],
-        `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`,
+        `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
         createReviewRating,
         document.getElementById("comment").value,
         loggedInUser
@@ -263,7 +263,7 @@ function deleteReview(data)
 {
     let parent = data.parentNode.parentNode;
     let thisComment = parent.getElementsByTagName("q").length > 0
-        ? parent.getElementsByTagName("q")[0].innerText
+        ? parent.getElementsByTagName("q")[0].innerHTML
         : "";
     let thisReview = new ReviewItem(
         parent.getElementsByClassName("reviews-name")[0].innerText,
@@ -276,6 +276,7 @@ function deleteReview(data)
     // Remove the review from local storage
     for (let i in reviews)
     {
+        console.log(JSON.stringify(reviews[i]), JSON.stringify(thisReview));
         if (JSON.stringify(reviews[i]) === JSON.stringify(thisReview))
         {
             console.log("They are equal", reviews[i]);

@@ -29,10 +29,12 @@
                             <div class="fancy-input">
                                 <input type="text" id="firstName" name="firstName" placeholder="" required>
                                 <label for="firstName">First Name*</label>
+                                <p class="error-message">Enter your first name</p>
                             </div>
                             <div class="fancy-input">
                                 <input type="text" id="lastName" name="lastName" placeholder="" required>
                                 <label for="lastName">Last Name*</label>
+                                <p class="error-message">Enter your last name</p>
                             </div>
                         </div>
                         <div class="input-row">
@@ -58,6 +60,7 @@
                                 <div class="fancy-input">
                                     <input type="text" id="address" name="address" placeholder="" class="delivery" required>
                                     <label for="address">Street Address*</label>
+                                    <p class="error-message">Enter your street address</p>
                                 </div>
                                 <div class="fancy-input">
                                     <input type="text" id="address2" name="address2" class="delivery" placeholder="">
@@ -68,46 +71,83 @@
                                 <div class="fancy-input">
                                     <input type="text" id="city" name="city" placeholder="" class="delivery" required>
                                     <label for="city">City*</label>
+                                    <p class="error-message">Enter your city</p>
                                 </div>
                                 <div class="fancy-input">
                                     <input type="text" id="state" name="state" placeholder="" class="delivery" required>
-                                    <label for="state">State / Province / Region*</label>
+                                    <label for="state">State*</label>
+                                    <p class="error-message">Enter your state</p>
                                 </div>
                             </div>
                             <div class="input-row">
                                 <div class="fancy-input">
                                     <input type="text" id="zipCode" name="zipCode" placeholder="" class="delivery" required>
                                     <label for="zipCode">Zip/Postal Code*</label>
+                                    <p class="error-message">Must contain 5-9 numbers</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="checkout-payment">
-                        <h4>Payment Details</h4>
-                        <div class="input-row">
-                            <div class="fancy-input">
-                                <input class="long" type="text" id="card-number" name="card-number" placeholder="" required>
-                                <label for="card-number">Card Number*</label>
+                        <h4>
+                            <label for="cash-checkbox">Pay With Cash? </label>
+                            <input type="checkbox" onchange="paymentVisibility(this)" id="cash-checkbox" name="cash-checkbox" autocomplete="off">
+                        </h4>
+                        <div class="checkout-payment-hide">
+                            <h4>Payment Details</h4>
+                            <div class="input-row">
+                                <div class="fancy-input">
+                                    <input class="long payment" type="text" id="card-number" name="card-number" placeholder="" required>
+                                    <label for="card-number">Card Number*</label>
+                                    <p for="card-number" class="error-message">Must contain 13-19 numbers</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="input-row">
-                            <div class="fancy-input">
-                                <input class="long" type="text" id="card-name" name="card-name" placeholder="" required>
-                                <label for="card-name">Full Name*</label>
+                            <div class="input-row">
+                                <div class="fancy-input">
+                                    <input class="long payment" type="text" id="card-name" name="card-name" placeholder="" required>
+                                    <label for="card-name">Full Name*</label>
+                                    <p class="error-message">Enter the owner's full name</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="input-row">
-                            <div class="fancy-input short">
-                                <input class="short" type="text" id="mm/yy" name="mm/yy" placeholder="" required>
-                                <label for="mm/yy">MM/YY*</label>
-                            </div>
-                            <div class="fancy-input short">
-                                <input class="short" type="text" id="cvc" name="cvc" placeholder="" required>
-                                <label for="cvc">CVC*</label>
-                            </div>
-                            <div class="fancy-input short">
-                                <input class="short" type="text" id="zip-code" name="zip-code" placeholder="" required>
-                                <label for="zip-code">Zip Code*</label>
+                            <div class="input-row">
+                                <div class="expiration-input short">
+                                    <select name="month" id="month" class="payment">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    /
+                                    <select name="year" id="year" class="payment">
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                        <option value="2030">2030</option>
+                                    </select>
+                                    <label for="mm/yyyy" class="">Expiration MM/YYYY*</label>
+                                    <p for="zip-code" class="error-message">Card is expired</p>
+                                </div>
+                                <div class="fancy-input short">
+                                    <input class="short payment" type="text" id="cvc" name="cvc" placeholder="" required>
+                                    <label for="cvc">CVC*</label>
+                                    <p for="zip-code" class="error-message">Must contain 3 numbers</p>
+                                </div>
+                                <div class="fancy-input short">
+                                    <input class="short payment" type="text" id="zip-code" name="zip-code" placeholder="" required>
+                                    <label for="zip-code">Zip Code*</label>
+                                    <p for="zip-code" class="error-message">Must contain 5-9 numbers</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -138,14 +178,19 @@
                             <span class="checkout-money">$<a id="checkout-taxes"></a></span>
                         </div>
                         <div class="checkout-cost">
+                            <span>Tip</span>
+                            <span class="checkout-money"><input type="number" onchange="verifyTip(this)" value="10" min="0" id="checkout-tip">%</span>
+                        </div>
+                        <div class="checkout-cost">
                             <strong><span>Total</span></strong>
                             <strong><span class="checkout-money">$<a id="checkout-total"></a></span></strong>
                         </div>
+                        <p class="checkout-points-display">You will earn <a id="checkout-points">1049</a> points from this order!</p>
                     </div>
 
                     <div class="checkout-place-order">
                         <button class="checkout-place-order-btn btn" onclick="placeOrder()">Place Order</button>
-                        <p class="checkout-error">Please fill out all fields</p>
+                        <p class="checkout-error">Please fill out all fields correctly</p>
                     </div>
                 </div>
             </div>
