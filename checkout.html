@@ -89,59 +89,65 @@
                         </div>
                     </div>
                     <div class="checkout-payment">
-                        <h4>Payment Details</h4>
-                        <div class="input-row">
-                            <div class="fancy-input">
-                                <input class="long" type="text" id="card-number" name="card-number" placeholder="" required>
-                                <label for="card-number">Card Number*</label>
-                                <p for="card-number" class="error-message">Must contain 13-19 numbers</p>
+                        <h4>
+                            <label for="cash-checkbox">Pay With Cash? </label>
+                            <input type="checkbox" onchange="paymentVisibility(this)" id="cash-checkbox" name="cash-checkbox" autocomplete="off">
+                        </h4>
+                        <div class="checkout-payment-hide">
+                            <h4>Payment Details</h4>
+                            <div class="input-row">
+                                <div class="fancy-input">
+                                    <input class="long payment" type="text" id="card-number" name="card-number" placeholder="" required>
+                                    <label for="card-number">Card Number*</label>
+                                    <p for="card-number" class="error-message">Must contain 13-19 numbers</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="input-row">
-                            <div class="fancy-input">
-                                <input class="long" type="text" id="card-name" name="card-name" placeholder="" required>
-                                <label for="card-name">Full Name*</label>
-                                <p class="error-message">Enter the owner's full name</p>
+                            <div class="input-row">
+                                <div class="fancy-input">
+                                    <input class="long payment" type="text" id="card-name" name="card-name" placeholder="" required>
+                                    <label for="card-name">Full Name*</label>
+                                    <p class="error-message">Enter the owner's full name</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="input-row">
-                            <div class="expiration-input short">
-                                <select name="month" id="month">
-                                    <option value="1">01</option>
-                                    <option value="2">02</option>
-                                    <option value="3">03</option>
-                                    <option value="4">04</option>
-                                    <option value="5">05</option>
-                                    <option value="6">06</option>
-                                    <option value="7">07</option>
-                                    <option value="8">08</option>
-                                    <option value="9">09</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                                /
-                                <select name="year" id="year">
-                                    <option value="2024">2024</option>
-                                    <option value="2025">2025</option>
-                                    <option value="2026">2026</option>
-                                    <option value="2027">2027</option>
-                                    <option value="2028">2028</option>
-                                    <option value="2029">2029</option>
-                                    <option value="2030">2030</option>
-                                </select>
-                                <label for="mm/yyyy" class="">Expiration MM/YYYY*</label>
-                                <p for="zip-code" class="error-message">Card is expired</p>
-                            </div>
-                            <div class="fancy-input short">
-                                <input class="short" type="text" id="cvc" name="cvc" placeholder="" required>
-                                <label for="cvc">CVC*</label>
-                                <p for="zip-code" class="error-message">Must contain 3 numbers</p>
-                            </div>
-                            <div class="fancy-input short">
-                                <input class="short" type="text" id="zip-code" name="zip-code" placeholder="" required>
-                                <label for="zip-code">Zip Code*</label>
-                                <p for="zip-code" class="error-message">Must contain 5-9 numbers</p>
+                            <div class="input-row">
+                                <div class="expiration-input short">
+                                    <select name="month" id="month" class="payment">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    /
+                                    <select name="year" id="year" class="payment">
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                        <option value="2030">2030</option>
+                                    </select>
+                                    <label for="mm/yyyy" class="">Expiration MM/YYYY*</label>
+                                    <p for="zip-code" class="error-message">Card is expired</p>
+                                </div>
+                                <div class="fancy-input short">
+                                    <input class="short payment" type="text" id="cvc" name="cvc" placeholder="" required>
+                                    <label for="cvc">CVC*</label>
+                                    <p for="zip-code" class="error-message">Must contain 3 numbers</p>
+                                </div>
+                                <div class="fancy-input short">
+                                    <input class="short payment" type="text" id="zip-code" name="zip-code" placeholder="" required>
+                                    <label for="zip-code">Zip Code*</label>
+                                    <p for="zip-code" class="error-message">Must contain 5-9 numbers</p>
+                                </div>
                             </div>
                         </div>
                     </div>

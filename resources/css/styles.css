@@ -1581,7 +1581,8 @@ footer {
 
 /* .checkout-delivery  */
 
-#delivery-checkbox {
+#delivery-checkbox,
+#cash-checkbox {
   width: 18px;
   height: 18px;
 }

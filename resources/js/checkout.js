@@ -1,6 +1,7 @@
 const checkoutItemsElem = document.getElementById("checkout-items");
 let userEmail = localStorage.getItem("loggedIn");
 let deliveryVisible = false;
+let paymentVisible = true;
 
 if (!userEmail)
 { 
@@ -87,6 +88,15 @@ function deliveryVisibility(data)
     updateCosts("checkout");
 }
 
+function paymentVisibility(data)
+{
+    const deliveryDiv = document.getElementsByClassName("checkout-payment-hide")[0];
+
+    deliveryDiv.style.display = !data.checked ? "" : "none";
+    paymentVisible = !data.checked;
+    updateCosts("checkout");
+}
+
 function isValidNum(num) { return !isNaN(num) && Number.isInteger(Number(num)) }
 
 function placeOrder() 
@@ -94,6 +104,7 @@ function placeOrder()
     let valid = true;
     let showError = (input) => { 
         let errorElem = input.parentNode.getElementsByClassName("error-message")[0];
+        console.log("this is the error", input);
         valid = false;
         if (errorElem)
             errorElem.style.display = "block";
@@ -116,35 +127,42 @@ function placeOrder()
     {
         if (input.hasAttribute("required") && input.value === "")
         {
-            if (!input.classList.contains("delivery") || deliveryVisible)
+            if ( !((input.classList.contains("delivery") && !deliveryVisible) ||
+                   (input.classList.contains("payment") && !paymentVisible)) )
                 showError(input);
-            
         }
         else
             hideError(input);
         // check for specific inputs to find if they are valid
         if (input.id === "card-number")
-            if (input.value.length < 13 || 19 < input.value.length || !isValidNum(input.value))
+            if (paymentVisible && ( input.value.length < 13 || 19 < input.value.length || !isValidNum(input.value)) )
                 showError(input);
             else
                 hideError(input);
 
         if (input.id === "cvc")
-            if (input.value.length !== 3 || !isValidNum(input.value))
+            if (paymentVisible && ( input.value.length !== 3 || !isValidNum(input.value)) )
                 showError(input);
             else
                 hideError(input);
 
-        if (input.id === "zip-code" || input.id === "zipCode")
-            if (input.value.length < 5 || 9 < input.value.length || !isValidNum(input.value))
+        if (input.id === "zip-code")
+            if (paymentVisible && (input.value.length < 5 || 9 < input.value.length || !isValidNum(input.value))
+            )
+                showError(input);
+            else
+                hideError(input);
+        if (input.id === "zipCode")
+            if (deliveryVisible && (input.value.length < 5 || 9 < input.value.length || !isValidNum(input.value))
+            )
                 showError(input);
             else
                 hideError(input);
     }
 
     // Check expiration date
-    if (expirationYear < currentYear || 
-        (expirationYear === currentYear && expirationMonth <= currentMonth)
+    if (paymentVisible && ( expirationYear < currentYear || 
+        (expirationYear === currentYear && expirationMonth <= currentMonth) )
     )
     {
         showError(yearElem);
@@ -208,6 +226,7 @@ function displayreceipt()
         receiptStr += `<p>Item: ${item.name}, Quantity: ${item.quantity}, Item(s) Price: $${item.quantity * item.price}</p>`;
     }
 
+    receiptStr += `<p>Payment Method: ${paymentVisible ? "Card" : "Cash"}</p>`;
     receiptStr += `<p>Subtotal: $${document.getElementById("checkout-subtotal").innerText}</p>`;
     receiptStr += `<p>Delivery: $${document.getElementById("checkout-delivery").innerText}</p>`;
     receiptStr += `<p>Taxes: $${document.getElementById("checkout-taxes").innerText}</p>`;
