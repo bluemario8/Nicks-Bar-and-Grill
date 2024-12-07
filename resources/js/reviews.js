@@ -230,11 +230,11 @@ function submitReview(data)
     if (!loggedIn)
         return;
 
-    const date = new Date;
+    const date = new Date();
     // review has name, date, rating, comment, and email
     const review = new ReviewItem(
         userData["firstName"] + ' ' +  userData["lastName"],
-        `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`,
+        `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
         createReviewRating,
         document.getElementById("comment").value,
         loggedInUser
