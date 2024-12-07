@@ -27,11 +27,11 @@ function displayCart() {
         <div id="rewards-cart" class="rewards-cart flex"></div>
         <div class="delivery-pickup-cart flex">
           <div class="flex column">
-            <h5>In Store Pickup</h5>
+            <h5>In Store Pickup Or Delivery</h5>
             <h7>2456 Nick's Boulevard, Lancaster, PA 17062</h7>
+            <h7>Choose At Checkout</h7>
           </div>
           <div class="center-item">
-            <a id="delivery-click" href="#">Delivery</a>
           </div>
         </div>
         <div class="my-order-cart flex">
