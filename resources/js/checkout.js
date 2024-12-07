@@ -7,6 +7,18 @@ if (!userEmail)
     window.location.href = "login.html";
 }
 
+// Remove items that have no quantity
+for (let i = 0; i < cart.length; i++)
+{
+    if (cart[i].quantity === 0)
+    {
+        cart.splice(i, 1);
+        i--;
+    }
+}
+// Update local storage after removing the items
+localStorage.setItem("inCart", JSON.stringify(cart));
+
 const checkoutInfoElem = document.getElementsByClassName("checkout-info")[0];
 const checkoutInfoInputs = checkoutInfoElem.getElementsByTagName("input");
 const checkoutError = document.getElementsByClassName("checkout-error")[0]
