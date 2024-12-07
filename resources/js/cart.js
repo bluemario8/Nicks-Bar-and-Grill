@@ -103,7 +103,6 @@ function displayCart() {
       `;
       break;
     case null:
-      console.log('not signed in');
       cartRewardsHtml = `
         <div class="rewards-cart-split column">
           <div class="rewards-cart-header">
@@ -130,7 +129,6 @@ function displayCart() {
       `;
       break;
     default:
-      console.log('signed in');
       cartRewardsHtml = `
         <div class="rewards-cart-split column">
           <div class="rewards-cart-header">
@@ -179,7 +177,6 @@ function displayCart() {
   for (let input of document.getElementById("cart-items").getElementsByTagName("input")) {
     if (input.type === "number") {
       input.addEventListener("keypress", (e) => {
-        console.log(input)
         if (isNaN(e.key)) 
           e.preventDefault();
       });
@@ -241,7 +238,7 @@ class ItemValues {
 function updateQuantity(data) {
   const li = data.parentElement.parentElement;
   const itemName = li.getElementsByTagName("h4")[0].innerText;
-  let index = 0;
+  let index = undefined;
 
 
   for (let i in cart) {
@@ -252,6 +249,12 @@ function updateQuantity(data) {
   }
 
   data.value = parseInt(data.value);
+
+  if (index === undefined) {
+    data.value = 0;
+    addCart(data);
+    return;
+  }
 
   if (data.valueAsNumber >= 100)
     data.value = 100;
@@ -269,7 +272,6 @@ function updateQuantity(data) {
 function addCart(data) {
   const item = data.parentNode.parentNode.id;
   const quantityElem = data.parentElement.getElementsByClassName("quantity")[0];
-  console.log(quantityElem);
 
   for (let i = 0; i < menuItems.length; i++) {
     if (menuItems[i]['name'] === item) {

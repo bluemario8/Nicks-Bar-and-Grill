@@ -100,7 +100,6 @@ if (localStorage.getItem("loggedIn") !== managerObj.email)
 for (let input of document.getElementsByClassName("menu-items")[0].getElementsByTagName("input")) { 
   if (input.type === "number") {
     input.addEventListener("keypress", (e) => {
-      console.log(input)
       if (isNaN(e.key)) 
         e.preventDefault();
     });
