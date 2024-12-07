@@ -12,6 +12,7 @@ function displayCart() {
     window.location.href = "menu.html";
 
   const checkLogged = localStorage.getItem('loggedIn');
+  let cartRewardsHtml = '';
 
   const cartHtml = `
     <div id="cart-page" onclick="closeCart(event, this)">  
@@ -45,7 +46,7 @@ function displayCart() {
             <img src="images/basic/food-plate.avif" alt="" id="food-plate-rendering">
             <p class="size-3 center-item">Still Hungry?</p>
             <p class="size-2 center-item">Let's find something you'll love!</p>
-            <button id="keep-ordering" class="center-item">Keep Ordering</button>
+            <button id="keep-ordering" class="center-item" onclick="window.location.href='menu.html';">Keep Ordering</button>
           </div>
           <div class="flex space-between wrapper-cart-body">
             <p><b>Summary</b></p>
@@ -66,7 +67,7 @@ function displayCart() {
           </div>
         </div>
         <div class="footer-cart flex">
-          <button onclick="window.location.href = 'checkout.html'" id="checkout-btn" class="btn" disabled>
+          <button onclick="window.location.href='checkout.html'" id="checkout-btn" class="btn" disabled>
             <b>Continue</b> $<a id="cart-to-checkout">0.00</a>
           </button>
         </div>
