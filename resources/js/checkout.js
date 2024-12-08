@@ -104,7 +104,6 @@ function placeOrder()
     let valid = true;
     let showError = (input) => { 
         let errorElem = input.parentNode.getElementsByClassName("error-message")[0];
-        console.log("this is the error", input);
         valid = false;
         if (errorElem)
             errorElem.style.display = "block";
@@ -223,12 +222,14 @@ function displayreceipt()
 
     for (let item of cart)
     {
-        receiptStr += `<p>Item: ${item.name}, Quantity: ${item.quantity}, Item(s) Price: $${item.quantity * item.price}</p>`;
+        receiptStr += `<p>Item: ${item.name}, Quantity: ${item.quantity}, Item(s) Price: $${(item.quantity * item.price).toFixed(2)}</p>`;
     }
 
     receiptStr += `<p>Payment Method: ${paymentVisible ? "Card" : "Cash"}</p>`;
     receiptStr += `<p>Subtotal: $${document.getElementById("checkout-subtotal").innerText}</p>`;
     receiptStr += `<p>Delivery: $${document.getElementById("checkout-delivery").innerText}</p>`;
+    if (document.getElementById("coupon-loc").style.display === "flex")
+        receiptStr += `<p>Discount: ${document.getElementById("checkout-coupon").innerText.replace(" ", "")}</p>`
     receiptStr += `<p>Taxes: $${document.getElementById("checkout-taxes").innerText}</p>`;
     receiptStr += `<p>Tip: ${document.getElementById("checkout-tip").value}%</p>`;
     receiptStr += `<p>Total: $${document.getElementById("checkout-total").innerText}</p>`;
@@ -281,6 +282,7 @@ couponCode.addEventListener('input', () => {
   clearTimeout(typingTimer); // Clear the timer if the user keeps typing
   typingTimer = setTimeout(() => {
     onTypingDone(couponCode.value); // Call the function when the user is done typing
+    updateCosts("checkout");
   }, 500);
 });
 
@@ -293,44 +295,46 @@ function onTypingDone(value) {
     }
 }
 
+function verifyCode(code) 
+{
+   switch(code) {
+            case 'moneyoff':
+                return 5.00;
+            case 'bigbucks':
+                return 10.00;
+            case '15bucks':
+                return 15.00;
+            case '25more':
+                return 25.00;
+            case 'bigsavings':
+                return 50.00;
+            default:
+                return 0;
+    } 
+}
+
 function checkActive(code) {
     let userData = JSON.parse(localStorage.getItem(userEmail)); // Gets the logged-in user's data in JSON
     const couponLoc = document.getElementById('coupon-loc')
     const couponValueLoc = document.getElementById('checkout-coupon');
 
     if (userData['coupons'][code] === 'active') {
-        let couponValue;
+        let couponValue = verifyCode(code);
         couponLoc.style.display = 'flex';
         
-        switch(code) {
-            case 'moneyoff':
-                couponValue = 5.00;
-                break;
-            case 'bigbucks':
-                couponValue = 10.00;
-                break;
-            case '15bucks':
-                couponValue = 15.00;
-                break;
-            case '25more':
-                couponValue = 25.00;
-                break;
-            case 'bigsavings':
-                couponValue = 50.00;
-                break;
-        }
-
-        couponValue = couponValue.toFixed(2);
+        // couponValue = couponValue.toFixed(2);
         couponValueLoc.style.color = 'var(--error-red)';
-        couponValueLoc.textContent = `- $${couponValue}`;
+        couponValueLoc.textContent = `- $${couponValue.toFixed(2)}`;
         
-        const total = document.getElementById('checkout-total');
-        let newTotal;
-        newTotal = total.innerHTML - couponValue;
-        total.textContent = `${newTotal}`;
+        // const total = document.getElementById('checkout-total');
+        // let newTotal;
+        // newTotal = total.innerHTML - couponValue;
+        // total.textContent = `${newTotal}`;
         validCode();
+        return couponValue;
     } else {
         invalidCode();
+        return 0;
     }
 }
 
