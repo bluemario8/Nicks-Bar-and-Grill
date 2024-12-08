@@ -1656,7 +1656,7 @@ footer {
 }
 
 #checkout-discount-valid {
-  color: var(--error-red);
+  font-weight: 700;
 }
 
 .checkout-costs {
@@ -1893,3 +1893,10 @@ footer {
   opacity: 1; /* Fully opaque */
 }
 /* Rewards End */
+
+/* Random */
+
+#coupon-loc {
+  display: none;
+}
+

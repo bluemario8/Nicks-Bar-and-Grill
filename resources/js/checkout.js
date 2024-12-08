@@ -295,9 +295,40 @@ function onTypingDone(value) {
 
 function checkActive(code) {
     let userData = JSON.parse(localStorage.getItem(userEmail)); // Gets the logged-in user's data in JSON
+    const couponLoc = document.getElementById('coupon-loc')
+    const couponValueLoc = document.getElementById('checkout-coupon');
 
     if (userData['coupons'][code] === 'active') {
+        let couponValue;
+        couponLoc.style.display = 'flex';
         
+        switch(code) {
+            case 'moneyoff':
+                couponValue = 5.00;
+                break;
+            case 'bigbucks':
+                couponValue = 10.00;
+                break;
+            case '15bucks':
+                couponValue = 15.00;
+                break;
+            case '25more':
+                couponValue = 25.00;
+                break;
+            case 'bigsavings':
+                couponValue = 50.00;
+                break;
+        }
+
+        couponValue = couponValue.toFixed(2);
+        couponValueLoc.style.color = 'var(--error-red)';
+        couponValueLoc.textContent = `- $${couponValue}`;
+        
+        const total = document.getElementById('checkout-total');
+        let newTotal;
+        newTotal = total.innerHTML - couponValue;
+        total.textContent = `${newTotal}`;
+        validCode();
     } else {
         invalidCode();
     }
@@ -307,13 +338,14 @@ function validCode() {
     const codeValidity = document.getElementById('checkout-discount-valid');
 
     codeValidity.style.color = 'var(--winner-green)'
-    codeValidity.style.fontWeight = '700';
     codeValidity.textContent = 'Valid Code';
 }
 
 function invalidCode() {
     const codeValidity = document.getElementById('checkout-discount-valid');
+    const couponLoc = document.getElementById('coupon-loc')
 
+    couponLoc.style.display = 'none';
     codeValidity.style.color = 'var(--error-red)'
     codeValidity.textContent = 'Invalid Code';
 }
