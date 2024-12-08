@@ -176,9 +176,17 @@ function placeOrder()
     {
         const totalLoc = document.getElementById('checkout-total');
         const total = totalLoc.innerText;
+        const coupon = document.getElementById("discount-code").value;
         calculatePoints(total);
         checkoutError.style.display = "";
         localStorage.removeItem("inCart");
+
+        if (userData.coupons[coupon] === "active")
+        {
+            userData.coupons[coupon] = "not active";
+            localStorage.setItem(userEmail, JSON.stringify(userData));
+        }
+
         displayreceipt();
     }
     else
