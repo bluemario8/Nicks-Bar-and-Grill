@@ -287,14 +287,20 @@ couponCode.addEventListener('input', () => {
 // Function to handle the "done typing" logic
 function onTypingDone(value) {
     if (value === 'moneyoff' || value === 'bigbucks' || value === '15bucks' || value === '25more' || value === 'bigsavings') {
-        checkActive();
+        checkActive(value);
     } else {
         invalidCode() 
     }
 }
 
-function checkActive() {
-    
+function checkActive(code) {
+    let userData = JSON.parse(localStorage.getItem(userEmail)); // Gets the logged-in user's data in JSON
+
+    if (userData['coupons'][code] === 'active') {
+        
+    } else {
+        invalidCode();
+    }
 }
 
 function validCode() {
