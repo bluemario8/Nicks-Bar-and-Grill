@@ -13,7 +13,7 @@ let footerHtml = `
         </ul>
         <ul class="footer-list flex flex-right">
             <li>
-                <a href="https://youtube.com">
+                <a href="https://youtu.be/uHgt8giw1LY">
                     <ion-icon name="logo-youtube"></ion-icon>
                 </a>
             </li>
