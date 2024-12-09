@@ -317,7 +317,7 @@ function removeCart(data) {
   document.getElementsByClassName("my-order")[0].innerText--;
 
   if (cart.length <= 0)
-    document.getElementById("cart-body-desc").style.display = "block";
+    document.getElementById("cart-body-desc").style.display = "flex";
 
 
   updateMenuQuantity();
