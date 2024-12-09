@@ -4,7 +4,8 @@ const percentTax = 0.06;
 
 function updateCartPoints() {
   const cartPoints = document.getElementById('rewards-points-cart');
-  cartPoints.textContent = userData.points;
+  if (userData)
+    cartPoints.textContent = userData.points;
 }
 
 function displayCart() {
