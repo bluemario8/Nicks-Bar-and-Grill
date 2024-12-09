@@ -20,7 +20,7 @@ const passChangeText4 = document.getElementById("pass-change-text-4");
 const passChangeImg4 = document.getElementById("pass-change-img-4");
 
 // If statements check to make sure that you are on the sign up page so this even listener does not create issues when on other pages
-if (window.location.pathname === "Nicks-Bar-and-Grill/signUp.html" || window.location.pathname === "Nicks-Bar-and-Grill/account.html") {
+if (window.location.pathname === "/Nicks-Bar-and-Grill/signUp.html" || window.location.pathname === "/Nicks-Bar-and-Grill/account.html") {
   // Adds an event listener to password this means that whenever something is typed into password this function will trigger
   passwordId.addEventListener("input", function () {
     // Gets the value of the password from the passwordId
