@@ -3,10 +3,16 @@ let userEmail = localStorage.getItem("loggedIn");
 let deliveryVisible = false;
 let paymentVisible = true;
 
+if (!userData)
+    userData = {};
+
 if (!userEmail)
 { 
     window.location.href = "login.html";
 }
+
+if (userEmail === "guest")
+    document.getElementsByClassName("checkout-points-display")[0].style.display = "none";
 
 // Remove items that have no quantity
 for (let i = 0; i < cart.length; i++)
@@ -181,10 +187,13 @@ function placeOrder()
         checkoutError.style.display = "";
         localStorage.removeItem("inCart");
 
-        if (userData.coupons[coupon] === "active")
+        if (userEmail !== "guest")
         {
-            userData.coupons[coupon] = "not active";
-            localStorage.setItem(userEmail, JSON.stringify(userData));
+            if (userData.coupons[coupon] === "active")
+            {
+                userData.coupons[coupon] = "not active";
+                localStorage.setItem(userEmail, JSON.stringify(userData));
+            }
         }
 
         displayreceipt();
@@ -241,7 +250,8 @@ function displayreceipt()
     receiptStr += `<p>Taxes: $${document.getElementById("checkout-taxes").innerText}</p>`;
     receiptStr += `<p>Tip: ${document.getElementById("checkout-tip").value}%</p>`;
     receiptStr += `<p>Total: $${document.getElementById("checkout-total").innerText}</p>`;
-    receiptStr += `<p>Points Earned: ${Math.round(document.getElementById("checkout-total").innerText * 100)}</p>`;
+    if (userEmail !== "guest")
+        receiptStr += `<p>Points Earned: ${Math.round(document.getElementById("checkout-total").innerText * 100)}</p>`;
 
 
     popupElem.innerHTML = receiptPopup();
@@ -250,10 +260,10 @@ function displayreceipt()
 }
 
 function calculatePoints(total) {
-    let userEmail = localStorage.getItem("loggedIn");
-    let userData = JSON.parse(localStorage.getItem(userEmail));
+    // let userEmail = localStorage.getItem("loggedIn");
+    // let userData = JSON.parse(localStorage.getItem(userEmail));
   
-    if (userData.points === undefined) {
+    if (userData.points === undefined && email !== "guest") {
       userData.points = 0;
     }
 
@@ -263,7 +273,8 @@ function calculatePoints(total) {
     points = Number(points.toFixed(0));
   
     // updateCartPoints(points);
-    updatePoints(points);
+    if (userEmail !== "guest")
+        updatePoints(points);
   }
 
 function verifyTip(data) 
@@ -322,22 +333,17 @@ function verifyCode(code)
 }
 
 function checkActive(code) {
-    let userData = JSON.parse(localStorage.getItem(userEmail)); // Gets the logged-in user's data in JSON
+    // let userData = JSON.parse(localStorage.getItem(userEmail)); // Gets the logged-in user's data in JSON
     const couponLoc = document.getElementById('coupon-loc')
     const couponValueLoc = document.getElementById('checkout-coupon');
 
-    if (userData['coupons'][code] === 'active') {
+    if (email !== "guest" && userData['coupons'][code] === 'active') {
         let couponValue = verifyCode(code);
         couponLoc.style.display = 'flex';
         
-        // couponValue = couponValue.toFixed(2);
         couponValueLoc.style.color = 'var(--error-red)';
         couponValueLoc.textContent = `- $${couponValue.toFixed(2)}`;
         
-        // const total = document.getElementById('checkout-total');
-        // let newTotal;
-        // newTotal = total.innerHTML - couponValue;
-        // total.textContent = `${newTotal}`;
         validCode();
         return couponValue;
     } else {
