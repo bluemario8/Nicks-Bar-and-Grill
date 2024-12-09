@@ -105,6 +105,7 @@ function updateAccountInfo(data)
     {
         localStorage.removeItem(email);
         email = emailBox;
+        localStorage.setItem("loggedIn", email);
     }
 
     localStorage.setItem(email, JSON.stringify(userData));
